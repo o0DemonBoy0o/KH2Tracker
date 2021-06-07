@@ -1,0 +1,1453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\ILMerge.3.0.41\build\ILMerge.props" Condition="Exists('..\packages\ILMerge.3.0.41\build\ILMerge.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{91260922-9FBA-4508-9593-430514E34A2B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>KhTracker</RootNamespace>
+    <AssemblyName>KhTracker</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>hnet.com-image.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AutoTracking\Ability.cs" />
+    <Compile Include="AutoTracking\AutoTracker.cs" />
+    <Compile Include="AutoTracking\Magic.cs" />
+    <Compile Include="AutoTracking\Proof.cs" />
+    <Compile Include="AutoTracking\Report.cs" />
+    <Compile Include="AutoTracking\Rewards.cs" />
+    <Compile Include="AutoTracking\Stats.cs" />
+    <Compile Include="AutoTracking\Summon.cs" />
+    <Compile Include="AutoTracking\TornPage.cs" />
+    <Compile Include="AutoTracking\World.cs" />
+    <Compile Include="BroadcastWindow.xaml.cs">
+      <DependentUpon>BroadcastWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AutoTracking\Convertor.cs" />
+    <Compile Include="AutoTracking\DriveForm.cs" />
+    <Compile Include="AutoTracking\ImportantCheck.cs" />
+    <Compile Include="AutoTracking\MemoryReader.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="Data.cs" />
+    <Compile Include="Item.xaml.cs">
+      <DependentUpon>Item.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Toggles.cs" />
+    <Compile Include="WorldGrid.xaml.cs">
+      <DependentUpon>WorldGrid.xaml</DependentUpon>
+    </Compile>
+    <Page Include="BroadcastWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dictionary1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Codes.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Item.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorldGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="Fonts\HVD_Comic_Serif_Pro.otf" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Resource Include="Images\FailBar.png" />
+    <Resource Include="Images\FailX.png" />
+    <Resource Include="Images\VerticalBar.png" />
+    <Resource Include="Images\VerticalBarWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="hnet.com-image.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\ILMerge.3.0.41\build\ILMerge.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ILMerge.3.0.41\build\ILMerge.props'))" />
+  </Target>
+  <ItemGroup>
+    <PackageReference Include="ILMerge" Version="3.0.41" />
+    <PackageReference Include="System.Memory">
+      <Version>4.5.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.Json">
+      <Version>5.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.5.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Checks\Orb\ansem_report1.png" />
+    <Resource Include="Images\Checks\Orb\ansem_report10.png" />
+    <Resource Include="Images\Checks\Orb\ansem_report11.png" />
+    <Resource Include="Images\Checks\Orb\ansem_report12.png" />
+    <Resource Include="Images\Checks\Orb\ansem_report13.png" />
+    <Resource Include="Images\Checks\Orb\ansem_report2.png" />
+    <Resource Include="Images\Checks\Orb\ansem_report3.png" />
+    <Resource Include="Images\Checks\Orb\ansem_report4.png" />
+    <Resource Include="Images\Checks\Orb\ansem_report5.png" />
+    <Resource Include="Images\Checks\Orb\ansem_report6.png" />
+    <Resource Include="Images\Checks\Orb\ansem_report7.png" />
+    <Resource Include="Images\Checks\Orb\ansem_report8.png" />
+    <Resource Include="Images\Checks\Orb\ansem_report9.png" />
+    <Resource Include="Images\Checks\Orb\blizzard.png" />
+    <Resource Include="Images\Checks\Orb\chicken_little.png" />
+    <Resource Include="Images\Checks\Orb\cure.png" />
+    <Resource Include="Images\Checks\Orb\final.png" />
+    <Resource Include="Images\Checks\Orb\fire.png" />
+    <Resource Include="Images\Checks\Orb\genie.png" />
+    <Resource Include="Images\Checks\Orb\limit.png" />
+    <Resource Include="Images\Checks\Orb\magnet.png" />
+    <Resource Include="Images\Checks\Orb\master.png" />
+    <Resource Include="Images\Checks\Orb\peter_pan.png" />
+    <Resource Include="Images\Checks\Orb\promise_charm.png" />
+    <Resource Include="Images\Checks\Orb\proof_of_connection.png" />
+    <Resource Include="Images\Checks\Orb\proof_of_nonexistence.png" />
+    <Resource Include="Images\Checks\Orb\proof_of_tranquility.png" />
+    <Resource Include="Images\Checks\Orb\reflect.png" />
+    <Resource Include="Images\Checks\Orb\stitch.png" />
+    <Resource Include="Images\Checks\Orb\thunder.png" />
+    <Resource Include="Images\Checks\Orb\torn_pages.png" />
+    <Resource Include="Images\Checks\Orb\valor.png" />
+    <Resource Include="Images\Checks\Orb\wisdom.png" />
+    <Resource Include="Images\Checks\Raisin\aerial.png" />
+    <Resource Include="Images\Checks\Raisin\ansem_report1.png" />
+    <Resource Include="Images\Checks\Raisin\ansem_report10.png" />
+    <Resource Include="Images\Checks\Raisin\ansem_report11.png" />
+    <Resource Include="Images\Checks\Raisin\ansem_report12.png" />
+    <Resource Include="Images\Checks\Raisin\ansem_report13.png" />
+    <Resource Include="Images\Checks\Raisin\ansem_report2.png" />
+    <Resource Include="Images\Checks\Raisin\ansem_report3.png" />
+    <Resource Include="Images\Checks\Raisin\ansem_report4.png" />
+    <Resource Include="Images\Checks\Raisin\ansem_report5.png" />
+    <Resource Include="Images\Checks\Raisin\ansem_report6.png" />
+    <Resource Include="Images\Checks\Raisin\ansem_report7.png" />
+    <Resource Include="Images\Checks\Raisin\ansem_report8.png" />
+    <Resource Include="Images\Checks\Raisin\ansem_report9.png" />
+    <Resource Include="Images\Checks\Raisin\blizzard.png" />
+    <Resource Include="Images\Checks\Raisin\chicken_little.png" />
+    <Resource Include="Images\Checks\Raisin\cure.png" />
+    <Resource Include="Images\Checks\Raisin\dodge.png" />
+    <Resource Include="Images\Checks\Raisin\final.png" />
+    <Resource Include="Images\Checks\Raisin\fire.png" />
+    <Resource Include="Images\Checks\Raisin\genie.png" />
+    <Resource Include="Images\Checks\Raisin\glide.png" />
+    <Resource Include="Images\Checks\Raisin\jump.png" />
+    <Resource Include="Images\Checks\Raisin\limit.png" />
+    <Resource Include="Images\Checks\Raisin\magnet.png" />
+    <Resource Include="Images\Checks\Raisin\master.png" />
+    <Resource Include="Images\Checks\Raisin\once_more.png" />
+    <Resource Include="Images\Checks\Raisin\peter_pan.png" />
+    <Resource Include="Images\Checks\Raisin\promise_charm.png" />
+    <Resource Include="Images\Checks\Raisin\proof_of_connection.png" />
+    <Resource Include="Images\Checks\Raisin\proof_of_nonexistence.png" />
+    <Resource Include="Images\Checks\Raisin\proof_of_tranquility.png" />
+    <Resource Include="Images\Checks\Raisin\quick.png" />
+    <Resource Include="Images\Checks\Raisin\reflect.png" />
+    <Resource Include="Images\Checks\Raisin\second_chance.png" />
+    <Resource Include="Images\Checks\Raisin\stitch.png" />
+    <Resource Include="Images\Checks\Raisin\thunder.png" />
+    <Resource Include="Images\Checks\Raisin\torn_pages.png" />
+    <Resource Include="Images\Checks\Raisin\valor.png" />
+    <Resource Include="Images\Checks\Raisin\wisdom.png" />
+    <Resource Include="Images\Checks\Simple\aerial.png" />
+    <Resource Include="Images\Checks\Simple\ansem_report1.png" />
+    <Resource Include="Images\Checks\Simple\ansem_report10.png" />
+    <Resource Include="Images\Checks\Simple\ansem_report11.png" />
+    <Resource Include="Images\Checks\Simple\ansem_report12.png" />
+    <Resource Include="Images\Checks\Simple\ansem_report13.png" />
+    <Resource Include="Images\Checks\Simple\ansem_report2.png" />
+    <Resource Include="Images\Checks\Simple\ansem_report3.png" />
+    <Resource Include="Images\Checks\Simple\ansem_report4.png" />
+    <Resource Include="Images\Checks\Simple\ansem_report5.png" />
+    <Resource Include="Images\Checks\Simple\ansem_report6.png" />
+    <Resource Include="Images\Checks\Simple\ansem_report7.png" />
+    <Resource Include="Images\Checks\Simple\ansem_report8.png" />
+    <Resource Include="Images\Checks\Simple\ansem_report9.png" />
+    <Resource Include="Images\Checks\Simple\blizzard.png" />
+    <Resource Include="Images\Checks\Simple\chicken_little.png" />
+    <Resource Include="Images\Checks\Simple\cure.png" />
+    <Resource Include="Images\Checks\Simple\dodge.png" />
+    <Resource Include="Images\Checks\Simple\final.png" />
+    <Resource Include="Images\Checks\Simple\fire.png" />
+    <Resource Include="Images\Checks\Simple\genie.png" />
+    <Resource Include="Images\Checks\Simple\glide.png" />
+    <Resource Include="Images\Checks\Simple\jump.png" />
+    <Resource Include="Images\Checks\Simple\limit.png" />
+    <Resource Include="Images\Checks\Simple\magnet.png" />
+    <Resource Include="Images\Checks\Simple\master.png" />
+    <Resource Include="Images\Checks\Simple\once_more.png" />
+    <Resource Include="Images\Checks\Simple\peter_pan.png" />
+    <Resource Include="Images\Checks\Simple\promise_charm.png" />
+    <Resource Include="Images\Checks\Simple\proof_of_connection.png" />
+    <Resource Include="Images\Checks\Simple\proof_of_nonexistence.png" />
+    <Resource Include="Images\Checks\Simple\proof_of_tranquility.png" />
+    <Resource Include="Images\Checks\Simple\quick.png" />
+    <Resource Include="Images\Checks\Simple\reflect.png" />
+    <Resource Include="Images\Checks\Simple\second_chance.png" />
+    <Resource Include="Images\Checks\Simple\stitch.png" />
+    <Resource Include="Images\Checks\Simple\thunder.png" />
+    <Resource Include="Images\Checks\Simple\torn_pages.png" />
+    <Resource Include="Images\Checks\Simple\valor.png" />
+    <Resource Include="Images\Checks\Simple\wisdom.png" />
+    <Resource Include="Images\hnet.com-image.ico" />
+    <Resource Include="Images\Numbers\Kh2\Bar.png" />
+    <Resource Include="Images\Numbers\Kh2\BarBlue.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\0.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\1.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\10.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\11.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\12.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\13.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\14.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\15.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\16.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\17.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\18.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\19.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\2.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\20.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\21.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\22.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\23.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\24.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\25.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\26.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\27.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\28.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\29.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\3.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\30.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\31.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\32.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\33.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\34.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\35.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\36.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\37.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\38.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\39.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\4.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\40.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\41.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\42.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\43.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\44.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\45.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\46.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\47.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\48.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\49.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\5.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\50.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\51.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\52.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\53.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\54.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\55.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\56.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\57.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\58.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\59.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\6.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\60.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\61.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\62.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\63.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\64.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\65.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\66.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\67.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\68.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\69.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\7.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\70.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\71.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\72.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\73.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\74.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\75.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\76.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\77.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\78.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\79.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\8.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\80.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\81.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\82.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\83.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\84.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\85.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\86.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\87.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\88.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\89.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\9.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\90.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\91.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\92.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\93.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\94.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\95.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\96.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\97.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\98.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\99.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\QuestionMark.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\_0.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\_1.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\_2.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\_3.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\_4.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\_5.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\_6.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\_7.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\_8.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\_9.png" />
+    <Resource Include="Images\Numbers\Kh2\numbersblue\_QuestionMark.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\0.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\1.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\10.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\11.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\12.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\13.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\14.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\15.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\16.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\17.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\18.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\19.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\2.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\20.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\21.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\22.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\23.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\24.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\25.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\26.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\27.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\28.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\29.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\3.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\30.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\31.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\32.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\33.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\34.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\35.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\36.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\37.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\38.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\39.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\4.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\40.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\41.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\42.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\43.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\44.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\45.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\46.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\47.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\48.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\49.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\5.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\50.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\51.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\52.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\53.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\54.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\55.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\56.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\57.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\58.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\59.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\6.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\60.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\61.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\62.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\63.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\64.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\65.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\66.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\67.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\68.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\69.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\7.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\70.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\71.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\72.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\73.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\74.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\75.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\76.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\77.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\78.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\79.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\8.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\80.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\81.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\82.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\83.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\84.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\85.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\86.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\87.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\88.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\89.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\9.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\90.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\91.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\92.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\93.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\94.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\95.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\96.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\97.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\98.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\99.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\QuestionMark.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\_0.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\_1.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\_2.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\_3.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\_4.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\_5.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\_6.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\_7.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\_8.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\_9.png" />
+    <Resource Include="Images\Numbers\Kh2\numbers\_QuestionMark.png" />
+    <Resource Include="Images\Numbers\Raisin\Bar.png" />
+    <Resource Include="Images\Numbers\Raisin\BarBlue.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\0.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\1.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\10.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\11.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\12.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\13.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\14.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\15.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\16.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\17.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\18.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\19.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\2.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\20.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\21.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\22.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\23.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\24.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\25.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\26.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\27.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\28.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\29.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\3.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\30.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\31.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\32.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\33.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\34.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\35.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\36.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\37.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\38.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\39.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\4.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\40.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\41.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\42.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\43.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\44.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\45.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\46.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\47.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\48.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\49.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\5.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\50.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\51.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\52.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\53.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\54.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\55.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\56.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\57.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\58.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\59.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\6.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\60.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\61.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\62.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\63.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\64.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\65.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\66.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\67.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\68.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\69.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\7.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\70.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\71.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\72.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\73.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\74.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\75.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\76.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\77.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\78.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\79.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\8.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\80.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\81.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\82.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\83.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\84.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\85.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\86.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\87.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\88.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\89.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\9.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\90.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\91.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\92.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\93.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\94.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\95.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\96.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\97.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\98.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\99.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\QuestionMark.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\_0.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\_1.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\_2.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\_3.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\_4.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\_5.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\_6.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\_7.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\_8.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\_9.png" />
+    <Resource Include="Images\Numbers\Raisin\numbersblue\_QuestionMark.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\0.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\1.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\10.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\11.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\12.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\13.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\14.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\15.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\16.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\17.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\18.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\19.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\2.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\20.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\21.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\22.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\23.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\24.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\25.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\26.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\27.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\28.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\29.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\3.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\30.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\31.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\32.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\33.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\34.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\35.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\36.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\37.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\38.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\39.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\4.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\40.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\41.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\42.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\43.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\44.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\45.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\46.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\47.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\48.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\49.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\5.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\50.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\51.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\52.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\53.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\54.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\55.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\56.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\57.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\58.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\59.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\6.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\60.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\61.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\62.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\63.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\64.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\65.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\66.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\67.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\68.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\69.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\7.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\70.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\71.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\72.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\73.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\74.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\75.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\76.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\77.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\78.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\79.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\8.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\80.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\81.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\82.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\83.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\84.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\85.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\86.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\87.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\88.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\89.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\9.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\90.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\91.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\92.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\93.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\94.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\95.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\96.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\97.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\98.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\99.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\QuestionMark.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\_0.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\_1.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\_2.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\_3.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\_4.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\_5.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\_6.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\_7.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\_8.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\_9.png" />
+    <Resource Include="Images\Numbers\Raisin\numbers\_QuestionMark.png" />
+    <Resource Include="Images\Other\Game\ansem_report.png" />
+    <Resource Include="Images\Other\Game\torn_pages.png" />
+    <Resource Include="Images\Other\Raisin\ansem_report.png" />
+    <Resource Include="Images\Other\Raisin\chest.png" />
+    <Resource Include="Images\Other\Raisin\defence.png" />
+    <Resource Include="Images\Other\Raisin\level.png" />
+    <Resource Include="Images\Other\Raisin\magic.png" />
+    <Resource Include="Images\Other\Raisin\shield.png" />
+    <Resource Include="Images\Other\Raisin\staff.png" />
+    <Resource Include="Images\Other\Raisin\strength.png" />
+    <Resource Include="Images\Other\Raisin\sword.png" />
+    <Resource Include="Images\Other\Raisin\torn_pages.png" />
+    <Resource Include="Images\Other\Simple\ansem_report.png" />
+    <Resource Include="Images\Other\Simple\chest.png" />
+    <Resource Include="Images\Other\Simple\defence.png" />
+    <Resource Include="Images\Other\Simple\level.png" />
+    <Resource Include="Images\Other\Simple\magic.png" />
+    <Resource Include="Images\Other\Simple\shield.png" />
+    <Resource Include="Images\Other\Simple\staff.png" />
+    <Resource Include="Images\Other\Simple\strength.png" />
+    <Resource Include="Images\Other\Simple\sword.png" />
+    <Resource Include="Images\Other\Simple\torn_pages.png" />
+    <Resource Include="Images\Progression\Game\1k.png" />
+    <Resource Include="Images\Progression\Game\abu.png" />
+    <Resource Include="Images\Progression\Game\ansem_the_wise.png" />
+    <Resource Include="Images\Progression\Game\assault_rider.png" />
+    <Resource Include="Images\Progression\Game\axel.png" />
+    <Resource Include="Images\Progression\Game\barbossa.png" />
+    <Resource Include="Images\Progression\Game\beast.png" />
+    <Resource Include="Images\Progression\Game\bees.png" />
+    <Resource Include="Images\Progression\Game\berserker.png" />
+    <Resource Include="Images\Progression\Game\blizzard_lord.png" />
+    <Resource Include="Images\Progression\Game\boat_pete.png" />
+    <Resource Include="Images\Progression\Game\cannon_gun.png" />
+    <Resource Include="Images\Progression\Game\carpet.png" />
+    <Resource Include="Images\Progression\Game\cerberus.png" />
+    <Resource Include="Images\Progression\Game\chasm_of_challenges.png" />
+    <Resource Include="Images\Progression\Game\chest.png" />
+    <Resource Include="Images\Progression\Game\cloud.png" />
+    <Resource Include="Images\Progression\Game\computer_room.png" />
+    <Resource Include="Images\Progression\Game\crimson_jazz.png" />
+    <Resource Include="Images\Progression\Game\dancer.png" />
+    <Resource Include="Images\Progression\Game\dark_thorn.png" />
+    <Resource Include="Images\Progression\Game\demyx.png" />
+    <Resource Include="Images\Progression\Game\devastator.png" />
+    <Resource Include="Images\Progression\Game\dragoon.png" />
+    <Resource Include="Images\Progression\Game\dusk.png" />
+    <Resource Include="Images\Progression\Game\emperor.png" />
+    <Resource Include="Images\Progression\Game\experiment.png" />
+    <Resource Include="Images\Progression\Game\gambler.png" />
+    <Resource Include="Images\Progression\Game\genie_jafar.png" />
+    <Resource Include="Images\Progression\Game\grim_reaper.png" />
+    <Resource Include="Images\Progression\Game\groundshaker.png" />
+    <Resource Include="Images\Progression\Game\hades.png" />
+    <Resource Include="Images\Progression\Game\hostile_program.png" />
+    <Resource Include="Images\Progression\Game\hot_rod.png" />
+    <Resource Include="Images\Progression\Game\hydra.png" />
+    <Resource Include="Images\Progression\Game\hyenas.png" />
+    <Resource Include="Images\Progression\Game\kanga.png" />
+    <Resource Include="Images\Progression\Game\luxord.png" />
+    <Resource Include="Images\Progression\Game\marluxia.png" />
+    <Resource Include="Images\Progression\Game\master_control_program.png" />
+    <Resource Include="Images\Progression\Game\merlin.png" />
+    <Resource Include="Images\Progression\Game\mickey.png" />
+    <Resource Include="Images\Progression\Game\mickey_head.png" />
+    <Resource Include="Images\Progression\Game\minnie.png" />
+    <Resource Include="Images\Progression\Game\old_pete.png" />
+    <Resource Include="Images\Progression\Game\oogie_boogie.png" />
+    <Resource Include="Images\Progression\Game\pete.png" />
+    <Resource Include="Images\Progression\Game\pete_pete.png" />
+    <Resource Include="Images\Progression\Game\piglet.png" />
+    <Resource Include="Images\Progression\Game\pooh.png" />
+    <Resource Include="Images\Progression\Game\presents.png" />
+    <Resource Include="Images\Progression\Game\prison_keeper.png" />
+    <Resource Include="Images\Progression\Game\rabbit.png" />
+    <Resource Include="Images\Progression\Game\rapid_thruster.png" />
+    <Resource Include="Images\Progression\Game\roxas.png" />
+    <Resource Include="Images\Progression\Game\saix.png" />
+    <Resource Include="Images\Progression\Game\scar.png" />
+    <Resource Include="Images\Progression\Game\screens.png" />
+    <Resource Include="Images\Progression\Game\sephiroth.png" />
+    <Resource Include="Images\Progression\Game\shan_yu.png" />
+    <Resource Include="Images\Progression\Game\simba.png" />
+    <Resource Include="Images\Progression\Game\storm_rider.png" />
+    <Resource Include="Images\Progression\Game\thresholder.png" />
+    <Resource Include="Images\Progression\Game\toy_soldier.png" />
+    <Resource Include="Images\Progression\Game\treasure_room.png" />
+    <Resource Include="Images\Progression\Game\wardrobe.png" />
+    <Resource Include="Images\Progression\Game\xaldin.png" />
+    <Resource Include="Images\Progression\Game\xemnas.png" />
+    <Resource Include="Images\Progression\Game\xigbar.png" />
+    <Resource Include="Images\Progression\Game\yen_sid.png" />
+    <Resource Include="Images\Progression\Simple\1k.png" />
+    <Resource Include="Images\Progression\Simple\abu.png" />
+    <Resource Include="Images\Progression\Simple\ansem%27s_study.png" />
+    <Resource Include="Images\Progression\Simple\ansem_the_wise.png" />
+    <Resource Include="Images\Progression\Simple\assault_rider.png" />
+    <Resource Include="Images\Progression\Simple\axel.png" />
+    <Resource Include="Images\Progression\Simple\axel2.png" />
+    <Resource Include="Images\Progression\Simple\barbossa.png" />
+    <Resource Include="Images\Progression\Simple\beast.png" />
+    <Resource Include="Images\Progression\Simple\bees.png" />
+    <Resource Include="Images\Progression\Simple\berserker.png" />
+    <Resource Include="Images\Progression\Simple\blizzard_lord.png" />
+    <Resource Include="Images\Progression\Simple\boat_pete.png" />
+    <Resource Include="Images\Progression\Simple\cannon_gun.png" />
+    <Resource Include="Images\Progression\Simple\carpet.png" />
+    <Resource Include="Images\Progression\Simple\cerberus.png" />
+    <Resource Include="Images\Progression\Simple\chasm_of_challenges.png" />
+    <Resource Include="Images\Progression\Simple\chest.png" />
+    <Resource Include="Images\Progression\Simple\cloud.png" />
+    <Resource Include="Images\Progression\Simple\computer_room.png" />
+    <Resource Include="Images\Progression\Simple\crimson_jazz.png" />
+    <Resource Include="Images\Progression\Simple\dancer.png" />
+    <Resource Include="Images\Progression\Simple\dark_thorn.png" />
+    <Resource Include="Images\Progression\Simple\data_axel.png" />
+    <Resource Include="Images\Progression\Simple\data_demyx.png" />
+    <Resource Include="Images\Progression\Simple\data_luxord.png" />
+    <Resource Include="Images\Progression\Simple\data_roxas.png" />
+    <Resource Include="Images\Progression\Simple\data_saix.png" />
+    <Resource Include="Images\Progression\Simple\data_xaldin.png" />
+    <Resource Include="Images\Progression\Simple\data_xemnas.png" />
+    <Resource Include="Images\Progression\Simple\data_xigbar.png" />
+    <Resource Include="Images\Progression\Simple\demyx.png" />
+    <Resource Include="Images\Progression\Simple\devastator.png" />
+    <Resource Include="Images\Progression\Simple\dragoon.png" />
+    <Resource Include="Images\Progression\Simple\dusk.png" />
+    <Resource Include="Images\Progression\Simple\emperor.png" />
+    <Resource Include="Images\Progression\Simple\experiment.png" />
+    <Resource Include="Images\Progression\Simple\gambler.png" />
+    <Resource Include="Images\Progression\Simple\genie_jafar.png" />
+    <Resource Include="Images\Progression\Simple\grim_reaper.png" />
+    <Resource Include="Images\Progression\Simple\groundshaker.png" />
+    <Resource Include="Images\Progression\Simple\hades.png" />
+    <Resource Include="Images\Progression\Simple\hostile_program.png" />
+    <Resource Include="Images\Progression\Simple\hot_rod.png" />
+    <Resource Include="Images\Progression\Simple\hunny_pot.png" />
+    <Resource Include="Images\Progression\Simple\hydra.png" />
+    <Resource Include="Images\Progression\Simple\hyenas.png" />
+    <Resource Include="Images\Progression\Simple\kanga.png" />
+    <Resource Include="Images\Progression\Simple\larxene.png" />
+    <Resource Include="Images\Progression\Simple\lexaeus.png" />
+    <Resource Include="Images\Progression\Simple\lingering_will.png" />
+    <Resource Include="Images\Progression\Simple\luxord.png" />
+    <Resource Include="Images\Progression\Simple\marluxia.png" />
+    <Resource Include="Images\Progression\Simple\master_control_program.png" />
+    <Resource Include="Images\Progression\Simple\merlin.png" />
+    <Resource Include="Images\Progression\Simple\mickey.png" />
+    <Resource Include="Images\Progression\Simple\mickey_head.png" />
+    <Resource Include="Images\Progression\Simple\minnie.png" />
+    <Resource Include="Images\Progression\Simple\old_pete.png" />
+    <Resource Include="Images\Progression\Simple\oogie_boogie.png" />
+    <Resource Include="Images\Progression\Simple\pete.png" />
+    <Resource Include="Images\Progression\Simple\pete_pete.png" />
+    <Resource Include="Images\Progression\Simple\piglet.png" />
+    <Resource Include="Images\Progression\Simple\pooh.png" />
+    <Resource Include="Images\Progression\Simple\presents.png" />
+    <Resource Include="Images\Progression\Simple\prison_keeper.png" />
+    <Resource Include="Images\Progression\Simple\rabbit.png" />
+    <Resource Include="Images\Progression\Simple\rapid_thruster.png" />
+    <Resource Include="Images\Progression\Simple\roxas.png" />
+    <Resource Include="Images\Progression\Simple\saix.png" />
+    <Resource Include="Images\Progression\Simple\scar.png" />
+    <Resource Include="Images\Progression\Simple\screens.png" />
+    <Resource Include="Images\Progression\Simple\sephiroth.png" />
+    <Resource Include="Images\Progression\Simple\shan_yu.png" />
+    <Resource Include="Images\Progression\Simple\simba.png" />
+    <Resource Include="Images\Progression\Simple\storm_rider.png" />
+    <Resource Include="Images\Progression\Simple\thresholder.png" />
+    <Resource Include="Images\Progression\Simple\toy_soldier.png" />
+    <Resource Include="Images\Progression\Simple\treasure_room.png" />
+    <Resource Include="Images\Progression\Simple\vexen.png" />
+    <Resource Include="Images\Progression\Simple\wardrobe.png" />
+    <Resource Include="Images\Progression\Simple\xaldin.png" />
+    <Resource Include="Images\Progression\Simple\xemnas.png" />
+    <Resource Include="Images\Progression\Simple\xigbar.png" />
+    <Resource Include="Images\Progression\Simple\yen_sid.png" />
+    <Resource Include="Images\Progression\Simple\zexion.png" />
+    <Resource Include="Images\VerticalBarBlack.png" />
+    <Resource Include="Images\World\Game\100_acre_wood.png" />
+    <Resource Include="Images\World\Game\agrabah.png" />
+    <Resource Include="Images\World\Game\atlantica.png" />
+    <Resource Include="Images\World\Game\beast%27s_castle.png" />
+    <Resource Include="Images\World\Game\cavern_of_remembrance.png" />
+    <Resource Include="Images\World\Game\disney_castle.png" />
+    <Resource Include="Images\World\Game\drive_form.png" />
+    <Resource Include="Images\World\Game\halloween_town.png" />
+    <Resource Include="Images\World\Game\hollow_bastion.png" />
+    <Resource Include="Images\World\Game\land_of_dragons.png" />
+    <Resource Include="Images\World\Game\olympus_coliseum.png" />
+    <Resource Include="Images\World\Game\port_royal.png" />
+    <Resource Include="Images\World\Game\pride_land.png" />
+    <Resource Include="Images\World\Game\replica_data.png" />
+    <Resource Include="Images\World\Game\simulated_twilight_town.png" />
+    <Resource Include="Images\World\Game\sora_heart.png" />
+    <Resource Include="Images\World\Game\space_paranoids.png" />
+    <Resource Include="Images\World\Game\the_world_that_never_was.png" />
+    <Resource Include="Images\World\Game\timeless_river.png" />
+    <Resource Include="Images\World\Game\twilight_town.png" />
+    <Resource Include="Images\World\Outline\100_acre_wood.png" />
+    <Resource Include="Images\World\Outline\agrabah.png" />
+    <Resource Include="Images\World\Outline\atlantica.png" />
+    <Resource Include="Images\World\Outline\beast%27s_castle.png" />
+    <Resource Include="Images\World\Outline\disney_castle.png" />
+    <Resource Include="Images\World\Outline\drive_form.png" />
+    <Resource Include="Images\World\Outline\halloween_town.png" />
+    <Resource Include="Images\World\Outline\hollow_bastion.png" />
+    <Resource Include="Images\World\Outline\land_of_dragons.png" />
+    <Resource Include="Images\World\Outline\olympus_coliseum.png" />
+    <Resource Include="Images\World\Outline\port_royal.png" />
+    <Resource Include="Images\World\Outline\pride_land.png" />
+    <Resource Include="Images\World\Outline\replica_data.png" />
+    <Resource Include="Images\World\Outline\simulated_twilight_town.png" />
+    <Resource Include="Images\World\Outline\sora_heart.png" />
+    <Resource Include="Images\World\Outline\space_paranoids.png" />
+    <Resource Include="Images\World\Outline\the_world_that_never_was.png" />
+    <Resource Include="Images\World\Outline\twilight_town.png" />
+    <Resource Include="Images\World\Raisin\100_acre_wood.png" />
+    <Resource Include="Images\World\Raisin\agrabah.png" />
+    <Resource Include="Images\World\Raisin\atlantica.png" />
+    <Resource Include="Images\World\Raisin\beast%27s_castle.png" />
+    <Resource Include="Images\World\Raisin\disney_castle.png" />
+    <Resource Include="Images\World\Raisin\drive_form.png" />
+    <Resource Include="Images\World\Raisin\halloween_town.png" />
+    <Resource Include="Images\World\Raisin\hollow_bastion.png" />
+    <Resource Include="Images\World\Raisin\land_of_dragons.png" />
+    <Resource Include="Images\World\Raisin\olympus_coliseum.png" />
+    <Resource Include="Images\World\Raisin\port_royal.png" />
+    <Resource Include="Images\World\Raisin\pride_land.png" />
+    <Resource Include="Images\World\Raisin\replica_data.png" />
+    <Resource Include="Images\World\Raisin\simulated_twilight_town.png" />
+    <Resource Include="Images\World\Raisin\sora_heart.png" />
+    <Resource Include="Images\World\Raisin\space_paranoids.png" />
+    <Resource Include="Images\World\Raisin\the_world_that_never_was.png" />
+    <Resource Include="Images\World\Raisin\twilight_town.png" />
+    <Resource Include="Images\World\Simple\100_acre_wood.png" />
+    <Resource Include="Images\World\Simple\agrabah.png" />
+    <Resource Include="Images\World\Simple\atlantica.png" />
+    <Resource Include="Images\World\Simple\beast%27s_castle.png" />
+    <Resource Include="Images\World\Simple\disney_castle.png" />
+    <Resource Include="Images\World\Simple\drive_form.png" />
+    <Resource Include="Images\World\Simple\halloween_town.png" />
+    <Resource Include="Images\World\Simple\hollow_bastion.png" />
+    <Resource Include="Images\World\Simple\land_of_dragons.png" />
+    <Resource Include="Images\World\Simple\olympus_coliseum.png" />
+    <Resource Include="Images\World\Simple\port_royal.png" />
+    <Resource Include="Images\World\Simple\pride_land.png" />
+    <Resource Include="Images\World\Simple\replica_data.png" />
+    <Resource Include="Images\World\Simple\simulated_twilight_town.png" />
+    <Resource Include="Images\World\Simple\sora_heart.png" />
+    <Resource Include="Images\World\Simple\space_paranoids.png" />
+    <Resource Include="Images\World\Simple\the_world_that_never_was.png" />
+    <Resource Include="Images\World\Simple\twilight_town.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Checks\Simple\nofinal.png" />
+    <Resource Include="Images\Checks\Simple\nolimit.png" />
+    <Resource Include="Images\Checks\Simple\nomaster.png" />
+    <Resource Include="Images\Checks\Simple\novalor.png" />
+    <Resource Include="Images\Checks\Simple\nowisdom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Checks\Raisin\nofinal.png" />
+    <Resource Include="Images\Checks\Raisin\nolimit.png" />
+    <Resource Include="Images\Checks\Raisin\nomaster.png" />
+    <Resource Include="Images\Checks\Raisin\novalor.png" />
+    <Resource Include="Images\Checks\Raisin\nowisdom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Checks\Orb\nofinal.png" />
+    <Resource Include="Images\Checks\Orb\nolimit.png" />
+    <Resource Include="Images\Checks\Orb\nomaster.png" />
+    <Resource Include="Images\Checks\Orb\novalor.png" />
+    <Resource Include="Images\Checks\Orb\nowisdom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Progression\Raisin\1k.png" />
+    <Resource Include="Images\Progression\Raisin\abu.png" />
+    <Resource Include="Images\Progression\Raisin\ansem%27s_study.png" />
+    <Resource Include="Images\Progression\Raisin\ansem_the_wise.png" />
+    <Resource Include="Images\Progression\Raisin\assault_rider.png" />
+    <Resource Include="Images\Progression\Raisin\axel.png" />
+    <Resource Include="Images\Progression\Raisin\axel2.png" />
+    <Resource Include="Images\Progression\Raisin\barbossa.png" />
+    <Resource Include="Images\Progression\Raisin\beast.png" />
+    <Resource Include="Images\Progression\Raisin\bees.png" />
+    <Resource Include="Images\Progression\Raisin\berserker.png" />
+    <Resource Include="Images\Progression\Raisin\blizzard_lord.png" />
+    <Resource Include="Images\Progression\Raisin\boat_pete.png" />
+    <Resource Include="Images\Progression\Raisin\cannon_gun.png" />
+    <Resource Include="Images\Progression\Raisin\carpet.png" />
+    <Resource Include="Images\Progression\Raisin\cerberus.png" />
+    <Resource Include="Images\Progression\Raisin\chasm_of_challenges.png" />
+    <Resource Include="Images\Progression\Raisin\chest.png" />
+    <Resource Include="Images\Progression\Raisin\cloud.png" />
+    <Resource Include="Images\Progression\Raisin\computer_room.png" />
+    <Resource Include="Images\Progression\Raisin\crimson_jazz.png" />
+    <Resource Include="Images\Progression\Raisin\dancer.png" />
+    <Resource Include="Images\Progression\Raisin\dark_thorn.png" />
+    <Resource Include="Images\Progression\Raisin\data_axel.png" />
+    <Resource Include="Images\Progression\Raisin\data_demyx.png" />
+    <Resource Include="Images\Progression\Raisin\data_luxord.png" />
+    <Resource Include="Images\Progression\Raisin\data_roxas.png" />
+    <Resource Include="Images\Progression\Raisin\data_saix.png" />
+    <Resource Include="Images\Progression\Raisin\data_xaldin.png" />
+    <Resource Include="Images\Progression\Raisin\data_xemnas.png" />
+    <Resource Include="Images\Progression\Raisin\data_xigbar.png" />
+    <Resource Include="Images\Progression\Raisin\demyx.png" />
+    <Resource Include="Images\Progression\Raisin\devastator.png" />
+    <Resource Include="Images\Progression\Raisin\dragoon.png" />
+    <Resource Include="Images\Progression\Raisin\dusk.png" />
+    <Resource Include="Images\Progression\Raisin\emperor.png" />
+    <Resource Include="Images\Progression\Raisin\experiment.png" />
+    <Resource Include="Images\Progression\Raisin\gambler.png" />
+    <Resource Include="Images\Progression\Raisin\genie_jafar.png" />
+    <Resource Include="Images\Progression\Raisin\grim_reaper.png" />
+    <Resource Include="Images\Progression\Raisin\groundshaker.png" />
+    <Resource Include="Images\Progression\Raisin\hades.png" />
+    <Resource Include="Images\Progression\Raisin\hostile_program.png" />
+    <Resource Include="Images\Progression\Raisin\hot_rod.png" />
+    <Resource Include="Images\Progression\Raisin\hunny_pot.png" />
+    <Resource Include="Images\Progression\Raisin\hydra.png" />
+    <Resource Include="Images\Progression\Raisin\hyenas.png" />
+    <Resource Include="Images\Progression\Raisin\kanga.png" />
+    <Resource Include="Images\Progression\Raisin\larxene.png" />
+    <Resource Include="Images\Progression\Raisin\lexaeus.png" />
+    <Resource Include="Images\Progression\Raisin\lingering_will.png" />
+    <Resource Include="Images\Progression\Raisin\luxord.png" />
+    <Resource Include="Images\Progression\Raisin\marluxia.png" />
+    <Resource Include="Images\Progression\Raisin\master_control_program.png" />
+    <Resource Include="Images\Progression\Raisin\merlin.png" />
+    <Resource Include="Images\Progression\Raisin\mickey.png" />
+    <Resource Include="Images\Progression\Raisin\mickey_head.png" />
+    <Resource Include="Images\Progression\Raisin\minnie.png" />
+    <Resource Include="Images\Progression\Raisin\old_pete.png" />
+    <Resource Include="Images\Progression\Raisin\oogie_boogie.png" />
+    <Resource Include="Images\Progression\Raisin\pete.png" />
+    <Resource Include="Images\Progression\Raisin\pete_pete.png" />
+    <Resource Include="Images\Progression\Raisin\piglet.png" />
+    <Resource Include="Images\Progression\Raisin\pooh.png" />
+    <Resource Include="Images\Progression\Raisin\presents.png" />
+    <Resource Include="Images\Progression\Raisin\prison_keeper.png" />
+    <Resource Include="Images\Progression\Raisin\rabbit.png" />
+    <Resource Include="Images\Progression\Raisin\rapid_thruster.png" />
+    <Resource Include="Images\Progression\Raisin\roxas.png" />
+    <Resource Include="Images\Progression\Raisin\saix.png" />
+    <Resource Include="Images\Progression\Raisin\scar.png" />
+    <Resource Include="Images\Progression\Raisin\screens.png" />
+    <Resource Include="Images\Progression\Raisin\sephiroth.png" />
+    <Resource Include="Images\Progression\Raisin\shan_yu.png" />
+    <Resource Include="Images\Progression\Raisin\simba.png" />
+    <Resource Include="Images\Progression\Raisin\storm_rider.png" />
+    <Resource Include="Images\Progression\Raisin\thresholder.png" />
+    <Resource Include="Images\Progression\Raisin\toy_soldier.png" />
+    <Resource Include="Images\Progression\Raisin\treasure_room.png" />
+    <Resource Include="Images\Progression\Raisin\vexen.png" />
+    <Resource Include="Images\Progression\Raisin\wardrobe.png" />
+    <Resource Include="Images\Progression\Raisin\xaldin.png" />
+    <Resource Include="Images\Progression\Raisin\xemnas.png" />
+    <Resource Include="Images\Progression\Raisin\xigbar.png" />
+    <Resource Include="Images\Progression\Raisin\yen_sid.png" />
+    <Resource Include="Images\Progression\Raisin\zexion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CustomImages\Bar.png" />
+    <Content Include="CustomImages\BarBlue.png" />
+    <Content Include="CustomImages\numbersblue\0.png" />
+    <Content Include="CustomImages\numbersblue\1.png" />
+    <Content Include="CustomImages\numbersblue\10.png" />
+    <Content Include="CustomImages\numbersblue\11.png" />
+    <Content Include="CustomImages\numbersblue\12.png" />
+    <Content Include="CustomImages\numbersblue\13.png" />
+    <Content Include="CustomImages\numbersblue\14.png" />
+    <Content Include="CustomImages\numbersblue\15.png" />
+    <Content Include="CustomImages\numbersblue\16.png" />
+    <Content Include="CustomImages\numbersblue\17.png" />
+    <Content Include="CustomImages\numbersblue\18.png" />
+    <Content Include="CustomImages\numbersblue\19.png" />
+    <Content Include="CustomImages\numbersblue\2.png" />
+    <Content Include="CustomImages\numbersblue\20.png" />
+    <Content Include="CustomImages\numbersblue\21.png" />
+    <Content Include="CustomImages\numbersblue\22.png" />
+    <Content Include="CustomImages\numbersblue\23.png" />
+    <Content Include="CustomImages\numbersblue\24.png" />
+    <Content Include="CustomImages\numbersblue\25.png" />
+    <Content Include="CustomImages\numbersblue\26.png" />
+    <Content Include="CustomImages\numbersblue\27.png" />
+    <Content Include="CustomImages\numbersblue\28.png" />
+    <Content Include="CustomImages\numbersblue\29.png" />
+    <Content Include="CustomImages\numbersblue\3.png" />
+    <Content Include="CustomImages\numbersblue\30.png" />
+    <Content Include="CustomImages\numbersblue\31.png" />
+    <Content Include="CustomImages\numbersblue\32.png" />
+    <Content Include="CustomImages\numbersblue\33.png" />
+    <Content Include="CustomImages\numbersblue\34.png" />
+    <Content Include="CustomImages\numbersblue\35.png" />
+    <Content Include="CustomImages\numbersblue\36.png" />
+    <Content Include="CustomImages\numbersblue\37.png" />
+    <Content Include="CustomImages\numbersblue\38.png" />
+    <Content Include="CustomImages\numbersblue\39.png" />
+    <Content Include="CustomImages\numbersblue\4.png" />
+    <Content Include="CustomImages\numbersblue\40.png" />
+    <Content Include="CustomImages\numbersblue\41.png" />
+    <Content Include="CustomImages\numbersblue\42.png" />
+    <Content Include="CustomImages\numbersblue\43.png" />
+    <Content Include="CustomImages\numbersblue\44.png" />
+    <Content Include="CustomImages\numbersblue\45.png" />
+    <Content Include="CustomImages\numbersblue\46.png" />
+    <Content Include="CustomImages\numbersblue\47.png" />
+    <Content Include="CustomImages\numbersblue\48.png" />
+    <Content Include="CustomImages\numbersblue\49.png" />
+    <Content Include="CustomImages\numbersblue\5.png" />
+    <Content Include="CustomImages\numbersblue\50.png" />
+    <Content Include="CustomImages\numbersblue\51.png" />
+    <Content Include="CustomImages\numbersblue\52.png" />
+    <Content Include="CustomImages\numbersblue\53.png" />
+    <Content Include="CustomImages\numbersblue\54.png" />
+    <Content Include="CustomImages\numbersblue\55.png" />
+    <Content Include="CustomImages\numbersblue\56.png" />
+    <Content Include="CustomImages\numbersblue\57.png" />
+    <Content Include="CustomImages\numbersblue\58.png" />
+    <Content Include="CustomImages\numbersblue\59.png" />
+    <Content Include="CustomImages\numbersblue\6.png" />
+    <Content Include="CustomImages\numbersblue\60.png" />
+    <Content Include="CustomImages\numbersblue\61.png" />
+    <Content Include="CustomImages\numbersblue\62.png" />
+    <Content Include="CustomImages\numbersblue\63.png" />
+    <Content Include="CustomImages\numbersblue\64.png" />
+    <Content Include="CustomImages\numbersblue\65.png" />
+    <Content Include="CustomImages\numbersblue\66.png" />
+    <Content Include="CustomImages\numbersblue\67.png" />
+    <Content Include="CustomImages\numbersblue\68.png" />
+    <Content Include="CustomImages\numbersblue\69.png" />
+    <Content Include="CustomImages\numbersblue\7.png" />
+    <Content Include="CustomImages\numbersblue\70.png" />
+    <Content Include="CustomImages\numbersblue\71.png" />
+    <Content Include="CustomImages\numbersblue\72.png" />
+    <Content Include="CustomImages\numbersblue\73.png" />
+    <Content Include="CustomImages\numbersblue\74.png" />
+    <Content Include="CustomImages\numbersblue\75.png" />
+    <Content Include="CustomImages\numbersblue\76.png" />
+    <Content Include="CustomImages\numbersblue\77.png" />
+    <Content Include="CustomImages\numbersblue\78.png" />
+    <Content Include="CustomImages\numbersblue\79.png" />
+    <Content Include="CustomImages\numbersblue\8.png" />
+    <Content Include="CustomImages\numbersblue\80.png" />
+    <Content Include="CustomImages\numbersblue\81.png" />
+    <Content Include="CustomImages\numbersblue\82.png" />
+    <Content Include="CustomImages\numbersblue\83.png" />
+    <Content Include="CustomImages\numbersblue\84.png" />
+    <Content Include="CustomImages\numbersblue\85.png" />
+    <Content Include="CustomImages\numbersblue\86.png" />
+    <Content Include="CustomImages\numbersblue\87.png" />
+    <Content Include="CustomImages\numbersblue\88.png" />
+    <Content Include="CustomImages\numbersblue\89.png" />
+    <Content Include="CustomImages\numbersblue\9.png" />
+    <Content Include="CustomImages\numbersblue\90.png" />
+    <Content Include="CustomImages\numbersblue\91.png" />
+    <Content Include="CustomImages\numbersblue\92.png" />
+    <Content Include="CustomImages\numbersblue\93.png" />
+    <Content Include="CustomImages\numbersblue\94.png" />
+    <Content Include="CustomImages\numbersblue\95.png" />
+    <Content Include="CustomImages\numbersblue\96.png" />
+    <Content Include="CustomImages\numbersblue\97.png" />
+    <Content Include="CustomImages\numbersblue\98.png" />
+    <Content Include="CustomImages\numbersblue\99.png" />
+    <Content Include="CustomImages\numbersblue\QuestionMark.png" />
+    <Content Include="CustomImages\numbersblue\_0.png" />
+    <Content Include="CustomImages\numbersblue\_1.png" />
+    <Content Include="CustomImages\numbersblue\_2.png" />
+    <Content Include="CustomImages\numbersblue\_3.png" />
+    <Content Include="CustomImages\numbersblue\_4.png" />
+    <Content Include="CustomImages\numbersblue\_5.png" />
+    <Content Include="CustomImages\numbersblue\_6.png" />
+    <Content Include="CustomImages\numbersblue\_7.png" />
+    <Content Include="CustomImages\numbersblue\_8.png" />
+    <Content Include="CustomImages\numbersblue\_9.png" />
+    <Content Include="CustomImages\numbersblue\_QuestionMark.png" />
+    <Content Include="CustomImages\numbers\0.png" />
+    <Content Include="CustomImages\numbers\1.png" />
+    <Content Include="CustomImages\numbers\10.png" />
+    <Content Include="CustomImages\numbers\11.png" />
+    <Content Include="CustomImages\numbers\12.png" />
+    <Content Include="CustomImages\numbers\13.png" />
+    <Content Include="CustomImages\numbers\14.png" />
+    <Content Include="CustomImages\numbers\15.png" />
+    <Content Include="CustomImages\numbers\16.png" />
+    <Content Include="CustomImages\numbers\17.png" />
+    <Content Include="CustomImages\numbers\18.png" />
+    <Content Include="CustomImages\numbers\19.png" />
+    <Content Include="CustomImages\numbers\2.png" />
+    <Content Include="CustomImages\numbers\20.png" />
+    <Content Include="CustomImages\numbers\21.png" />
+    <Content Include="CustomImages\numbers\22.png" />
+    <Content Include="CustomImages\numbers\23.png" />
+    <Content Include="CustomImages\numbers\24.png" />
+    <Content Include="CustomImages\numbers\25.png" />
+    <Content Include="CustomImages\numbers\26.png" />
+    <Content Include="CustomImages\numbers\27.png" />
+    <Content Include="CustomImages\numbers\28.png" />
+    <Content Include="CustomImages\numbers\29.png" />
+    <Content Include="CustomImages\numbers\3.png" />
+    <Content Include="CustomImages\numbers\30.png" />
+    <Content Include="CustomImages\numbers\31.png" />
+    <Content Include="CustomImages\numbers\32.png" />
+    <Content Include="CustomImages\numbers\33.png" />
+    <Content Include="CustomImages\numbers\34.png" />
+    <Content Include="CustomImages\numbers\35.png" />
+    <Content Include="CustomImages\numbers\36.png" />
+    <Content Include="CustomImages\numbers\37.png" />
+    <Content Include="CustomImages\numbers\38.png" />
+    <Content Include="CustomImages\numbers\39.png" />
+    <Content Include="CustomImages\numbers\4.png" />
+    <Content Include="CustomImages\numbers\40.png" />
+    <Content Include="CustomImages\numbers\41.png" />
+    <Content Include="CustomImages\numbers\42.png" />
+    <Content Include="CustomImages\numbers\43.png" />
+    <Content Include="CustomImages\numbers\44.png" />
+    <Content Include="CustomImages\numbers\45.png" />
+    <Content Include="CustomImages\numbers\46.png" />
+    <Content Include="CustomImages\numbers\47.png" />
+    <Content Include="CustomImages\numbers\48.png" />
+    <Content Include="CustomImages\numbers\49.png" />
+    <Content Include="CustomImages\numbers\5.png" />
+    <Content Include="CustomImages\numbers\50.png" />
+    <Content Include="CustomImages\numbers\51.png" />
+    <Content Include="CustomImages\numbers\52.png" />
+    <Content Include="CustomImages\numbers\53.png" />
+    <Content Include="CustomImages\numbers\54.png" />
+    <Content Include="CustomImages\numbers\55.png" />
+    <Content Include="CustomImages\numbers\56.png" />
+    <Content Include="CustomImages\numbers\57.png" />
+    <Content Include="CustomImages\numbers\58.png" />
+    <Content Include="CustomImages\numbers\59.png" />
+    <Content Include="CustomImages\numbers\6.png" />
+    <Content Include="CustomImages\numbers\60.png" />
+    <Content Include="CustomImages\numbers\61.png" />
+    <Content Include="CustomImages\numbers\62.png" />
+    <Content Include="CustomImages\numbers\63.png" />
+    <Content Include="CustomImages\numbers\64.png" />
+    <Content Include="CustomImages\numbers\65.png" />
+    <Content Include="CustomImages\numbers\66.png" />
+    <Content Include="CustomImages\numbers\67.png" />
+    <Content Include="CustomImages\numbers\68.png" />
+    <Content Include="CustomImages\numbers\69.png" />
+    <Content Include="CustomImages\numbers\7.png" />
+    <Content Include="CustomImages\numbers\70.png" />
+    <Content Include="CustomImages\numbers\71.png" />
+    <Content Include="CustomImages\numbers\72.png" />
+    <Content Include="CustomImages\numbers\73.png" />
+    <Content Include="CustomImages\numbers\74.png" />
+    <Content Include="CustomImages\numbers\75.png" />
+    <Content Include="CustomImages\numbers\76.png" />
+    <Content Include="CustomImages\numbers\77.png" />
+    <Content Include="CustomImages\numbers\78.png" />
+    <Content Include="CustomImages\numbers\79.png" />
+    <Content Include="CustomImages\numbers\8.png" />
+    <Content Include="CustomImages\numbers\80.png" />
+    <Content Include="CustomImages\numbers\81.png" />
+    <Content Include="CustomImages\numbers\82.png" />
+    <Content Include="CustomImages\numbers\83.png" />
+    <Content Include="CustomImages\numbers\84.png" />
+    <Content Include="CustomImages\numbers\85.png" />
+    <Content Include="CustomImages\numbers\86.png" />
+    <Content Include="CustomImages\numbers\87.png" />
+    <Content Include="CustomImages\numbers\88.png" />
+    <Content Include="CustomImages\numbers\89.png" />
+    <Content Include="CustomImages\numbers\9.png" />
+    <Content Include="CustomImages\numbers\90.png" />
+    <Content Include="CustomImages\numbers\91.png" />
+    <Content Include="CustomImages\numbers\92.png" />
+    <Content Include="CustomImages\numbers\93.png" />
+    <Content Include="CustomImages\numbers\94.png" />
+    <Content Include="CustomImages\numbers\95.png" />
+    <Content Include="CustomImages\numbers\96.png" />
+    <Content Include="CustomImages\numbers\97.png" />
+    <Content Include="CustomImages\numbers\98.png" />
+    <Content Include="CustomImages\numbers\99.png" />
+    <Content Include="CustomImages\numbers\QuestionMark.png" />
+    <Content Include="CustomImages\numbers\_0.png" />
+    <Content Include="CustomImages\numbers\_1.png" />
+    <Content Include="CustomImages\numbers\_2.png" />
+    <Content Include="CustomImages\numbers\_3.png" />
+    <Content Include="CustomImages\numbers\_4.png" />
+    <Content Include="CustomImages\numbers\_5.png" />
+    <Content Include="CustomImages\numbers\_6.png" />
+    <Content Include="CustomImages\numbers\_7.png" />
+    <Content Include="CustomImages\numbers\_8.png" />
+    <Content Include="CustomImages\numbers\_9.png" />
+    <Content Include="CustomImages\numbers\_QuestionMark.png" />
+    <Content Include="CustomImages\Other\ansem_report.png" />
+    <Content Include="CustomImages\Other\chest.png" />
+    <Content Include="CustomImages\Other\defence.png" />
+    <Content Include="CustomImages\Other\level.png" />
+    <Content Include="CustomImages\Other\magic.png" />
+    <Content Include="CustomImages\Other\shield.png" />
+    <Content Include="CustomImages\Other\staff.png" />
+    <Content Include="CustomImages\Other\strength.png" />
+    <Content Include="CustomImages\Other\sword.png" />
+    <Content Include="CustomImages\Other\torn_pages.png" />
+    <Content Include="CustomImages\question.png" />
+    <Content Include="CustomImages\Checks\aerial.png" />
+    <Content Include="CustomImages\Checks\ansem_report1.png" />
+    <Content Include="CustomImages\Checks\ansem_report10.png" />
+    <Content Include="CustomImages\Checks\ansem_report11.png" />
+    <Content Include="CustomImages\Checks\ansem_report12.png" />
+    <Content Include="CustomImages\Checks\ansem_report13.png" />
+    <Content Include="CustomImages\Checks\ansem_report2.png" />
+    <Content Include="CustomImages\Checks\ansem_report3.png" />
+    <Content Include="CustomImages\Checks\ansem_report4.png" />
+    <Content Include="CustomImages\Checks\ansem_report5.png" />
+    <Content Include="CustomImages\Checks\ansem_report6.png" />
+    <Content Include="CustomImages\Checks\ansem_report7.png" />
+    <Content Include="CustomImages\Checks\ansem_report8.png" />
+    <Content Include="CustomImages\Checks\ansem_report9.png" />
+    <Content Include="CustomImages\Checks\blizzard.png" />
+    <Content Include="CustomImages\Checks\chicken_little.png" />
+    <Content Include="CustomImages\Checks\cure.png" />
+    <Content Include="CustomImages\Checks\dodge.png" />
+    <Content Include="CustomImages\Checks\final.png" />
+    <Content Include="CustomImages\Checks\fire.png" />
+    <Content Include="CustomImages\Checks\genie.png" />
+    <Content Include="CustomImages\Checks\glide.png" />
+    <Content Include="CustomImages\Checks\jump.png" />
+    <Content Include="CustomImages\Checks\limit.png" />
+    <Content Include="CustomImages\Checks\magnet.png" />
+    <Content Include="CustomImages\Checks\master.png" />
+    <Content Include="CustomImages\Checks\once_more.png" />
+    <Content Include="CustomImages\Checks\peter_pan.png" />
+    <Content Include="CustomImages\Checks\promise_charm.png" />
+    <Content Include="CustomImages\Checks\proof_of_connection.png" />
+    <Content Include="CustomImages\Checks\proof_of_nonexistence.png" />
+    <Content Include="CustomImages\Checks\proof_of_tranquility.png" />
+    <Content Include="CustomImages\Checks\quick.png" />
+    <Content Include="CustomImages\Checks\reflect.png" />
+    <Content Include="CustomImages\Checks\second_chance.png" />
+    <Content Include="CustomImages\Checks\stitch.png" />
+    <Content Include="CustomImages\Checks\thunder.png" />
+    <Content Include="CustomImages\Checks\torn_pages.png" />
+    <Content Include="CustomImages\Checks\valor.png" />
+    <Content Include="CustomImages\Checks\wisdom.png" />
+    <Content Include="CustomImages\VerticalBar.png" />
+    <Content Include="CustomImages\VerticalBarWhite.png" />
+    <Content Include="CustomImages\World\100_acre_wood.png" />
+    <Content Include="CustomImages\World\agrabah.png" />
+    <Content Include="CustomImages\World\atlantica.png" />
+    <Content Include="CustomImages\World\beast%27s_castle.png" />
+    <Content Include="CustomImages\World\disney_castle.png" />
+    <Content Include="CustomImages\World\drive_form.png" />
+    <Content Include="CustomImages\World\halloween_town.png" />
+    <Content Include="CustomImages\World\hollow_bastion.png" />
+    <Content Include="CustomImages\World\land_of_dragons.png" />
+    <Content Include="CustomImages\World\olympus_coliseum.png" />
+    <Content Include="CustomImages\World\port_royal.png" />
+    <Content Include="CustomImages\World\pride_land.png" />
+    <Content Include="CustomImages\World\replica_data.png" />
+    <Content Include="CustomImages\World\simulated_twilight_town.png" />
+    <Content Include="CustomImages\World\sora_heart.png" />
+    <Content Include="CustomImages\World\space_paranoids.png" />
+    <Content Include="CustomImages\World\the_world_that_never_was.png" />
+    <Content Include="CustomImages\World\twilight_town.png" />
+  </ItemGroup>
+  <Target Name="ILMerge">
+    <!-- the ILMergePath property points to the location of ILMerge.exe console application -->
+    <Exec Command="$(ILMergeConsolePath) bin\Release\KhTracker.exe ^&#xD;&#xA;    /out:bin\KhTracker.exe ^&#xD;&#xA;    bin\Release\System.Text.Json.dll ^&#xD;&#xA;    bin\Release\System.Buffers.dll ^&#xD;&#xA;    bin\Release\System.Memory.dll ^&#xD;&#xA;    bin\Release\System.Numerics.Vectors.dll ^&#xD;&#xA;    bin\Release\System.Runtime.CompilerServices.Unsafe.dll ^&#xD;&#xA;    bin\Release\System.Text.Encodings.Web.dll ^&#xD;&#xA;    bin\Release\System.Threading.Tasks.Extensions.dll ^&#xD;&#xA;    bin\Release\System.ValueTuple.dll" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>cd $(SolutionDir)
+msbuild /t:ilmerge /property:Configuration=Release</PostBuildEvent>
+  </PropertyGroup>
+</Project>
