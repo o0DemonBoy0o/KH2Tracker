@@ -98,6 +98,81 @@ namespace KhTracker
             HandleItemToggle(toggle, PromiseCharm, false);
         }
 
+        //TEST
+        private void HadesTrophyToggle(object sender, RoutedEventArgs e)
+        {
+            HadesTrophyToggle(HadesTrophyOption.IsChecked);
+        }
+
+        private void HadesTrophyToggle(bool toggle)
+        {
+            Properties.Settings.Default.CupTrophy = toggle;
+            HadesTrophyOption.IsChecked = toggle;
+            if (toggle)
+            {
+                broadcast.HadesCup.Visibility = Visibility.Visible;
+            }
+
+            else
+            {
+                broadcast.HadesCup.Visibility = Visibility.Hidden;
+            }
+
+            HandleItemToggle(toggle, HadesCup, false);
+
+            ExtraItemToggleCheck();
+
+        }
+
+        private void HBCardToggle(object sender, RoutedEventArgs e)
+        {
+            HBCardToggle(HBCardOption.IsChecked);
+        }
+
+        private void HBCardToggle(bool toggle)
+        {
+            Properties.Settings.Default.MemberCard = toggle;
+            HBCardOption.IsChecked = toggle;
+            if (toggle)
+            {
+                broadcast.MembershipCard.Visibility = Visibility.Visible;
+            }
+
+            else
+            {
+                broadcast.MembershipCard.Visibility = Visibility.Hidden;
+            }
+
+            HandleItemToggle(toggle, MembershipCard, false);
+
+            ExtraItemToggleCheck();
+        }
+
+        private void OStoneToggle(object sender, RoutedEventArgs e)
+        {
+            OStoneToggle(OStoneOption.IsChecked);
+        }
+
+        private void OStoneToggle(bool toggle)
+        {
+            Properties.Settings.Default.Stone = toggle;
+            OStoneOption.IsChecked = toggle;
+            if (toggle)
+            {
+                broadcast.OlympusStone.Visibility = Visibility.Visible;
+            }
+
+            else
+            {
+                broadcast.OlympusStone.Visibility = Visibility.Hidden;
+            }
+
+            HandleItemToggle(toggle, OlympusStone, false);
+
+            ExtraItemToggleCheck();
+        }
+
+
         private void ReportsToggle(object sender, RoutedEventArgs e)
         {
             ReportsToggle(ReportsOption.IsChecked);
@@ -124,6 +199,18 @@ namespace KhTracker
             AbilitiesOption.IsChecked = toggle;
             HandleItemToggle(toggle, OnceMore, false);
             HandleItemToggle(toggle, SecondChance, false);
+        }
+
+        private void ComboMasterToggle(object sender, RoutedEventArgs e)
+        {
+            ComboMasterToggle(ComboMasterOption.IsChecked);
+        }
+
+        private void ComboMasterToggle(bool toggle)
+        {
+            Properties.Settings.Default.ComboMaster = toggle;
+            ComboMasterOption.IsChecked = toggle;
+            HandleItemToggle(toggle, ComboMaster, false);
         }
 
         private void TornPagesToggle(object sender, RoutedEventArgs e)
@@ -290,11 +377,17 @@ namespace KhTracker
 
                 OnceMore.SetResourceReference(ContentProperty, "OnceMore");
                 SecondChance.SetResourceReference(ContentProperty, "SecondChance");
+                ComboMaster.SetResourceReference(ContentProperty, "ComboMaster");
+
                 HighJump.SetResourceReference(ContentProperty, "HighJump");
                 QuickRun.SetResourceReference(ContentProperty, "QuickRun");
                 DodgeRoll.SetResourceReference(ContentProperty, "DodgeRoll");
                 AerialDodge.SetResourceReference(ContentProperty, "AerialDodge");
                 Glide.SetResourceReference(ContentProperty, "Glide");
+
+                HadesCup.SetResourceReference(ContentProperty, "HadesCup");
+                OlympusStone.SetResourceReference(ContentProperty, "OlympusStone");
+                MembershipCard.SetResourceReference(ContentProperty, "MembershipCard");
 
                 //NoValorM.SetResourceReference(ContentProperty, "NoValor");
                 //NoWisdomM.SetResourceReference(ContentProperty, "NoWisdom");
@@ -331,12 +424,17 @@ namespace KhTracker
                 broadcast.Feather.SetResourceReference(ContentProperty, "PeterPan");
                 broadcast.OnceMore.SetResourceReference(ContentProperty, "OnceMore");
                 broadcast.SecondChance.SetResourceReference(ContentProperty, "SecondChance");
+                broadcast.ComboMaster.SetResourceReference(ContentProperty, "ComboMaster");
 
                 broadcast.HighJump.SetResourceReference(ContentProperty, "HighJump");
                 broadcast.QuickRun.SetResourceReference(ContentProperty, "QuickRun");
                 broadcast.DodgeRoll.SetResourceReference(ContentProperty, "DodgeRoll");
                 broadcast.AerialDodge.SetResourceReference(ContentProperty, "AerialDodge");
                 broadcast.Glide.SetResourceReference(ContentProperty, "Glide");
+
+                broadcast.HadesCup.SetResourceReference(ContentProperty, "HadesCup");
+                broadcast.OlympusStone.SetResourceReference(ContentProperty, "OlympusStone");
+                broadcast.MembershipCard.SetResourceReference(ContentProperty, "MembershipCard");
 
                 broadcast.ReportFoundBar.Source = data.SlashBarY;
                 broadcast.TornPageBar.Source = data.SlashBarY;
@@ -431,11 +529,16 @@ namespace KhTracker
 
                 OnceMore.SetResourceReference(ContentProperty, "OnceMore");
                 SecondChance.SetResourceReference(ContentProperty, "SecondChance");
+                ComboMaster.SetResourceReference(ContentProperty, "ComboMaster");
                 HighJump.SetResourceReference(ContentProperty, "HighJump");
                 QuickRun.SetResourceReference(ContentProperty, "QuickRun");
                 DodgeRoll.SetResourceReference(ContentProperty, "DodgeRoll");
                 AerialDodge.SetResourceReference(ContentProperty, "AerialDodge");
                 Glide.SetResourceReference(ContentProperty, "Glide");
+
+                HadesCup.SetResourceReference(ContentProperty, "Orb-HadesCup");
+                OlympusStone.SetResourceReference(ContentProperty, "Orb-OlympusStone");
+                MembershipCard.SetResourceReference(ContentProperty, "Orb-MembershipCard");
 
                 //NoValorM.SetResourceReference(ContentProperty, "Orb-NoValor");
                 //NoWisdomM.SetResourceReference(ContentProperty, "Orb-NoWisdom");
@@ -472,12 +575,17 @@ namespace KhTracker
                 broadcast.Feather.SetResourceReference(ContentProperty, "Orb-PeterPan");
                 broadcast.OnceMore.SetResourceReference(ContentProperty, "OnceMore");
                 broadcast.SecondChance.SetResourceReference(ContentProperty, "SecondChance");
+                broadcast.ComboMaster.SetResourceReference(ContentProperty, "ComboMaster");
 
                 broadcast.HighJump.SetResourceReference(ContentProperty, "HighJump");
                 broadcast.QuickRun.SetResourceReference(ContentProperty, "QuickRun");
                 broadcast.DodgeRoll.SetResourceReference(ContentProperty, "DodgeRoll");
                 broadcast.AerialDodge.SetResourceReference(ContentProperty, "AerialDodge");
                 broadcast.Glide.SetResourceReference(ContentProperty, "Glide");
+
+                broadcast.HadesCup.SetResourceReference(ContentProperty, "Orb-HadesCup");
+                broadcast.OlympusStone.SetResourceReference(ContentProperty, "Orb-OlympusStone");
+                broadcast.MembershipCard.SetResourceReference(ContentProperty, "Orb-MembershipCard");
 
                 broadcast.ReportFoundBar.Source = data.SlashBarY;
                 broadcast.TornPageBar.Source = data.SlashBarY;
@@ -571,11 +679,16 @@ namespace KhTracker
 
                 OnceMore.SetResourceReference(ContentProperty, "BW-OnceMore");
                 SecondChance.SetResourceReference(ContentProperty, "BW-SecondChance");
+                ComboMaster.SetResourceReference(ContentProperty, "BW-ComboMaster");
                 HighJump.SetResourceReference(ContentProperty, "BW-HighJump");
                 QuickRun.SetResourceReference(ContentProperty, "BW-QuickRun");
                 DodgeRoll.SetResourceReference(ContentProperty, "BW-DodgeRoll");
                 AerialDodge.SetResourceReference(ContentProperty, "BW-AerialDodge");
                 Glide.SetResourceReference(ContentProperty, "BW-Glide");
+
+                HadesCup.SetResourceReference(ContentProperty, "BW-HadesCup");
+                OlympusStone.SetResourceReference(ContentProperty, "BW-OlympusStone");
+                MembershipCard.SetResourceReference(ContentProperty, "BW-MembershipCard");
 
                 //NoValorM.SetResourceReference(ContentProperty, "BW-NoValor");
                 //NoWisdomM.SetResourceReference(ContentProperty, "BW-NoWisdom");
@@ -612,12 +725,17 @@ namespace KhTracker
                 broadcast.Feather.SetResourceReference(ContentProperty, "BW-PeterPan");
                 broadcast.OnceMore.SetResourceReference(ContentProperty, "BW-OnceMore");
                 broadcast.SecondChance.SetResourceReference(ContentProperty, "BW-SecondChance");
+                broadcast.ComboMaster.SetResourceReference(ContentProperty, "BW-ComboMaster");
 
                 broadcast.HighJump.SetResourceReference(ContentProperty, "BW-HighJump");
                 broadcast.QuickRun.SetResourceReference(ContentProperty, "BW-QuickRun");
                 broadcast.DodgeRoll.SetResourceReference(ContentProperty, "BW-DodgeRoll");
                 broadcast.AerialDodge.SetResourceReference(ContentProperty, "BW-AerialDodge");
                 broadcast.Glide.SetResourceReference(ContentProperty, "BW-Glide");
+
+                broadcast.HadesCup.SetResourceReference(ContentProperty, "BW-HadesCup");
+                broadcast.OlympusStone.SetResourceReference(ContentProperty, "BW-OlympusStone");
+                broadcast.MembershipCard.SetResourceReference(ContentProperty, "BW-MembershipCard");
 
                 broadcast.ReportFoundBar.Source = data.RaisinSlashBarY;
                 broadcast.TornPageBar.Source = data.RaisinSlashBarY;
@@ -1455,6 +1573,23 @@ namespace KhTracker
                     }
                 }
             }
+        }
+
+        //i use this to check if any one of the Hades cup, olympus stone, or membership card toggles are enabled.
+        //if any of them are it shows the grid for for them on the broadcast window, else is hides it.
+        //i just didn't want a big empty space in it if all of them were disabled
+        private void ExtraItemToggleCheck()
+        {
+            bool HadesCupOn = HadesTrophyOption.IsChecked;
+            bool MemberCardOn = HBCardOption.IsChecked;
+            bool StoneOn = OStoneOption.IsChecked;
+
+            if (HadesCupOn || MemberCardOn || StoneOn)
+                broadcast.ExtraCheckRow.Height = new GridLength(1.0, GridUnitType.Star);
+            else
+                broadcast.ExtraCheckRow.Height = new GridLength(0, GridUnitType.Star);
+
+
         }
     }
 }

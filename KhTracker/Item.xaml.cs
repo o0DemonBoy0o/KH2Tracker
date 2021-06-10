@@ -166,6 +166,7 @@ namespace KhTracker
 
                 UpdateFound(this.Name, parent.Name.Remove(parent.Name.Length - 4, 4), false);
             }
+
         }
 
         private void Item_PreviewGiveFeedback(object sender, GiveFeedbackEventArgs e)

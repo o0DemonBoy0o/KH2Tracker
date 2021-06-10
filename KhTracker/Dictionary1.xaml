@@ -131,8 +131,13 @@
 	<Image x:Key="ProofOfConnection" 	Source="Images\Checks\Simple\proof_of_connection.png"/>
 	<Image x:Key="ProofOfPeace"  		Source="Images\Checks\Simple\proof_of_tranquility.png"/>
 	<Image x:Key="PromiseCharm"  		Source="Images\Checks\Simple\promise_charm.png"/>
+    
+    <Image x:Key="HadesCup"  			Source="Images\Checks\Simple\hades_cup.png"/>
+    <Image x:Key="OlympusStone"  		Source="Images\Checks\Simple\Stone2.png"/>
+    <Image x:Key="MembershipCard"  		Source="Images\Checks\Simple\MemberCard.png"/>
+    <Image x:Key="ComboMaster"  		Source="Images\Checks\Simple\combo_master.png"/>
 
-	<Image x:Key="LevelIcon"  			Source="Images\Other\Simple\level.png"/>
+    <Image x:Key="LevelIcon"  			Source="Images\Other\Simple\level.png"/>
 	<Image x:Key="StrengthIcon"  		Source="Images\Other\Simple\strength.png"/>
 	<Image x:Key="MagicIcon"  			Source="Images\Other\Simple\magic.png"/>
 	<Image x:Key="DefenseIcon"  		Source="Images\Other\Simple\defence.png"/>
@@ -179,7 +184,12 @@
 	<Image x:Key="Orb-ProofOfPeace"  		Source="Images\Checks\Orb\proof_of_tranquility.png"/>
 	<Image x:Key="Orb-PromiseCharm"  		Source="Images\Checks\Orb\promise_charm.png"/>
 
-	<Image x:Key="Orb-LevelIcon"  			Source="Images\Other\Simple\level.png"/>
+    <Image x:Key="Orb-HadesCup"  			Source="Images\Checks\Orb\hades_cup.png"/>
+    <Image x:Key="Orb-OlympusStone"  		Source="Images\Checks\Orb\Stone.png"/>
+    <Image x:Key="Orb-MembershipCard"  		Source="Images\Checks\Orb\MemberCard.png"/>
+
+
+    <Image x:Key="Orb-LevelIcon"  			Source="Images\Other\Simple\level.png"/>
 	<Image x:Key="Orb-StrengthIcon"  		Source="Images\Other\Simple\strength.png"/>
 	<Image x:Key="Orb-MagicIcon"  			Source="Images\Other\Simple\magic.png"/>
 	<Image x:Key="Orb-DefenseIcon"  		Source="Images\Other\Simple\defence.png"/>
@@ -226,7 +236,12 @@
 	<Image x:Key="BW-ProofOfPeace"  		Source="Images\Checks\Raisin\proof_of_tranquility.png"/>
 	<Image x:Key="BW-PromiseCharm"  		Source="Images\Checks\Raisin\promise_charm.png"/>
 
-	<Image x:Key="BW-LevelIcon"  			Source="Images\Other\Raisin\level.png"/>
+    <Image x:Key="BW-HadesCup"  			Source="Images\Checks\Raisin\hades_cup.png"/>
+    <Image x:Key="BW-OlympusStone"  		Source="Images\Checks\Raisin\stone.png"/>
+    <Image x:Key="BW-MembershipCard"  		Source="Images\Checks\Raisin\MemberCard.png"/>
+    <Image x:Key="BW-ComboMaster"  			Source="Images\Checks\Raisin\combo_master.png"/>
+
+    <Image x:Key="BW-LevelIcon"  			Source="Images\Other\Raisin\level.png"/>
 	<Image x:Key="BW-StrengthIcon"  		Source="Images\Other\Raisin\strength.png"/>
 	<Image x:Key="BW-MagicIcon"  			Source="Images\Other\Raisin\magic.png"/>
 	<Image x:Key="BW-DefenseIcon"  			Source="Images\Other\Raisin\defence.png"/>

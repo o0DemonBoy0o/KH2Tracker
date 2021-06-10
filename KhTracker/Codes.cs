@@ -186,6 +186,7 @@ namespace KhTracker
             {415, "SecondChance"},
             {416, "OnceMore"},
             {524, "PromiseCharm"},
+            //{537, "HadesCup"},
             {563, "Limit"},
             {593, "Connection"},
             {594, "Nonexistence"},

@@ -108,6 +108,10 @@ namespace KhTracker
             important.Add("TornPage", 0);
             important.Add("SecondChance", 0);
             important.Add("OnceMore", 0);
+            important.Add("HadesCup", 0);
+            important.Add("MembershipCard", 0);
+            important.Add("OlympusStone", 0);
+            important.Add("ComboMaster", 0);
 
             Progression.Add("SimulatedTwilightTown", SimulatedTwilightTownProgression);
             Progression.Add("TwilightTown", TwilightTownProgression);
@@ -171,6 +175,7 @@ namespace KhTracker
             worlds["Cure"] = important["Cure"];
             worlds["Reflect"] = important["Reflect"];
             worlds["Magnet"] = important["Magnet"];
+
             //Console.WriteLine(item);
 
             UpdateNumbers();
@@ -482,7 +487,10 @@ namespace KhTracker
             important.Add("TornPage", 0);
             important.Add("SecondChance", 0);
             important.Add("OnceMore", 0);
-
+            important.Add("HadesCup", 0);
+            important.Add("MembershipCard", 0);
+            important.Add("OlympusStone", 0);
+            important.Add("ComboMaster", 0);
 
             //lazy way of doing things. not fully dynamic and such, but i ain't adding any new style options anymore anyway
             bool RaisinMode = Properties.Settings.Default.Alt;

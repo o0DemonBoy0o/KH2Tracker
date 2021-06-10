@@ -430,5 +430,53 @@ namespace KhTracker.Properties {
                 this["CustomFolder"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool CupTrophy {
+            get {
+                return ((bool)(this["CupTrophy"]));
+            }
+            set {
+                this["CupTrophy"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool MemberCard {
+            get {
+                return ((bool)(this["MemberCard"]));
+            }
+            set {
+                this["MemberCard"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Stone {
+            get {
+                return ((bool)(this["Stone"]));
+            }
+            set {
+                this["Stone"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ComboMaster {
+            get {
+                return ((bool)(this["ComboMaster"]));
+            }
+            set {
+                this["ComboMaster"] = value;
+            }
+        }
     }
 }
