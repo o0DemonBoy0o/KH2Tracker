@@ -99,7 +99,7 @@ namespace KhTracker
 
             // update collection count
             window.IncrementCollected();
-            
+
             // update mouse actions
             if (MainWindow.data.dragDrop)
             {

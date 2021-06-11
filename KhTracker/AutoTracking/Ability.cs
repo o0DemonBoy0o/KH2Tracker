@@ -44,11 +44,15 @@ namespace KhTracker
                 byte[] abilityData = base.UpdateMemory();
                 for (int i = 0; i < abilityData.Length; i += 2)
                 {
-                    if (abilityData[i+1] == 1 && abilityData[i] == 159 && this.Name == "SecondChance")
+                    if (abilityData[i + 1] == 1 && abilityData[i] == 159 && this.Name == "SecondChance")
                     {
                         if (!this.Obtained) { this.Obtained = true; }
                     }
                     if (abilityData[i + 1] == 1 && abilityData[i] == 160 && this.Name == "OnceMore")
+                    {
+                        if (!this.Obtained) { this.Obtained = true; }
+                    }
+                    if (abilityData[i + 1] == 2 && abilityData[i] == 27 && this.Name == "ComboMaster")
                     {
                         if (!this.Obtained) { this.Obtained = true; }
                     }

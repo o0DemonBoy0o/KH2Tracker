@@ -91,6 +91,7 @@
     <Compile Include="AutoTracking\Report.cs" />
     <Compile Include="AutoTracking\Rewards.cs" />
     <Compile Include="AutoTracking\Stats.cs" />
+    <Compile Include="AutoTracking\KeyItem.cs" />
     <Compile Include="AutoTracking\Summon.cs" />
     <Compile Include="AutoTracking\TornPage.cs" />
     <Compile Include="AutoTracking\World.cs" />
@@ -1441,6 +1442,18 @@
     <Content Include="CustomImages\World\space_paranoids.png" />
     <Content Include="CustomImages\World\the_world_that_never_was.png" />
     <Content Include="CustomImages\World\twilight_town.png" />
+    <Resource Include="Images\Checks\Raisin\stone.png" />
+    <Resource Include="Images\Checks\Simple\Stone2.png" />
+    <Resource Include="Images\Checks\Orb\MemberCard.png" />
+    <Resource Include="Images\Checks\Orb\stone.png" />
+    <Resource Include="Images\Checks\Orb\hades_cup.png" />
+    <Resource Include="Images\Checks\Raisin\hades_cup.png" />
+    <Resource Include="Images\Checks\Raisin\MemberCard.png" />
+    <Resource Include="Images\Checks\Simple\combo_master.png" />
+    <Resource Include="Images\Checks\Raisin\combo_master.png" />
+    <Resource Include="Images\dumb.png" />
+    <Resource Include="Images\Checks\Simple\MemberCard.png" />
+    <Resource Include="Images\Checks\Simple\hades_cup.png" />
   </ItemGroup>
   <Target Name="ILMerge">
     <!-- the ILMergePath property points to the location of ILMerge.exe console application -->

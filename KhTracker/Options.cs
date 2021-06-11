@@ -18,7 +18,6 @@ namespace KhTracker
         /// 
         /// Options
         ///
-
         private void SaveProgress(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -76,6 +75,14 @@ namespace KhTracker
                 settings += "100 Acre Wood - ";
             if (AtlanticaOption.IsChecked)
                 settings += "Atlantica - ";
+            if (HadesTrophyOption.IsChecked)
+                settings += "Hades Cup - ";
+            if (HBCardOption.IsChecked)
+                settings += "Membership Card - ";
+            if (OStoneOption.IsChecked)
+                settings += "Olympus Stone - ";
+            if (ComboMasterOption.IsChecked)
+                settings += "Combo Master - ";
 
             // save hint state (hint info, hints, track attempts)
             string attempts = "";
@@ -318,7 +325,7 @@ namespace KhTracker
                 {
                     data.reportAttempts[i] = int.Parse(attemptsArray[i]);
                 }
-                
+
                 string line1 = reader.ReadLine();
                 data.hintFileText[0] = line1;
                 string[] reportvalues = line1.Split('.');
@@ -661,7 +668,7 @@ namespace KhTracker
             {
                 report.SetResourceReference(ContentProperty, "Fail0");
             }
-            
+
             foreach (WorldData worldData in data.WorldsData.Values.ToList())
             {
                 if (worldData.hint != null)
@@ -676,6 +683,7 @@ namespace KhTracker
             broadcast.OnResetHints();
         }
 
+        //fixthis 
         private void LoadSettings(string settings)
         {
             bool[] newsettings = new bool[10];
@@ -989,9 +997,10 @@ namespace KhTracker
             broadcast.OnReset();
             broadcast.UpdateNumbers();
         }
-        
+
         private void BroadcastWindow_Open(object sender, RoutedEventArgs e)
         {
+            ExtraItemToggleCheck();
             broadcast.Show();
         }
 
@@ -1009,6 +1018,8 @@ namespace KhTracker
 
         public void ParseSeed(string filename)
         {
+            FixDictionary();
+
             SetMode(Mode.AltHints);
 
             foreach (string world in data.WorldsData.Keys.ToList())
@@ -1154,7 +1165,7 @@ namespace KhTracker
             }
             using (ZipArchive archive = ZipFile.OpenRead(filename))
             {
-                
+
                 foreach (var entry in archive.Entries)
                 {
                     if (entry.FullName.EndsWith(".Hints"))
@@ -1163,12 +1174,12 @@ namespace KhTracker
                         {
                             data.openKHHintText = reader.ReadToEnd();
                             var hintText = Encoding.UTF8.GetString(Convert.FromBase64String(data.openKHHintText));
-                            var hintObject = JsonSerializer.Deserialize<Dictionary<string,object>>(hintText);
+                            var hintObject = JsonSerializer.Deserialize<Dictionary<string, object>>(hintText);
                             switch (hintObject["hintsType"].ToString())
                             {
                                 case "Shananas":
                                     SetMode(Mode.OpenKHAltHints);
-                                    var worlds = JsonSerializer.Deserialize<Dictionary<string,List<string>>>(hintObject["world"].ToString());
+                                    var worlds = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(hintObject["world"].ToString());
 
                                     foreach (var world in worlds)
                                     {
@@ -1195,7 +1206,7 @@ namespace KhTracker
 
                                 case "JSmartee":
                                     SetMode(Mode.OpenKHHints);
-                                    var reports = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string,object>>>(hintObject["Reports"].ToString());
+                                    var reports = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, object>>>(hintObject["Reports"].ToString());
 
                                     List<int> reportKeys = reports.Keys.Select(int.Parse).ToList();
                                     reportKeys.Sort();
@@ -1220,6 +1231,104 @@ namespace KhTracker
                             Console.WriteLine();
                         }
                     }
+                }
+            }
+        }
+
+        //buncha garbage to add hades Cup as an imortant cheack in Shan's hints based on toggle state
+        //toggle needs to be set before loading the seed into the tracker
+        private void FixDictionary()
+        {
+            bool HadesCupOn = HadesTrophyOption.IsChecked;
+            bool MemberCardOn = HBCardOption.IsChecked;
+            bool StoneOn = OStoneOption.IsChecked;
+            bool ComboMasterOn = ComboMasterOption.IsChecked;
+
+            //rethinking if i actually want these to disable
+            //bool AbilitiesOn = AbilitiesOption.IsChecked;
+            //bool PromiseCharmOn = PromiseCharmOption.IsChecked;
+            //bool TornPagesOn = TornPagesOption.IsChecked;
+            //bool CuresOn = CureOption.IsChecked;
+            //bool FinalOn = FinalFormOption.IsChecked;
+
+            bool FoundCup;
+            bool FoundCard;
+            bool FoundStone;
+            bool FoundCM;
+
+            //hades cup check
+            {
+                if (data.codes.itemCodes.ContainsKey(537))
+                {
+                    FoundCup = true;
+                }
+                else FoundCup = false;
+            }
+            {
+                if (HadesCupOn && FoundCup == false)
+                {
+                    data.codes.itemCodes.Add(537, "HadesCup");
+                }
+                else if (HadesCupOn == false && FoundCup)
+                {
+                    data.codes.itemCodes.Remove(537);
+                }
+            }
+
+            //membership card check
+            {
+                if (data.codes.itemCodes.ContainsKey(369))
+                {
+                    FoundCard = true;
+                }
+                else FoundCard = false;
+            }
+            {
+                if (MemberCardOn && FoundCard == false)
+                {
+                    data.codes.itemCodes.Add(369, "MembershipCard");
+                }
+                else if (MemberCardOn == false && FoundCard)
+                {
+                    data.codes.itemCodes.Remove(369);
+                }
+            }
+
+            //olympus stone check
+            {
+                if (data.codes.itemCodes.ContainsKey(370))
+                {
+                    FoundStone = true;
+                }
+                else FoundStone = false;
+            }
+            {
+                if (StoneOn && FoundStone == false)
+                {
+                    data.codes.itemCodes.Add(370, "OlympusStone");
+                }
+                else if (StoneOn == false && FoundStone)
+                {
+                    data.codes.itemCodes.Remove(370);
+                }
+            }
+
+            //combo master check
+            {
+                if (data.codes.itemCodes.ContainsKey(539))
+                {
+                    FoundCM = true;
+                }
+                else FoundCM = false;
+            }
+            {
+                if (ComboMasterOn && FoundCM == false)
+                {
+                    data.codes.itemCodes.Add(539, "ComboMaster");
+                }
+                else if (ComboMasterOn == false && FoundCM)
+                {
+                    data.codes.itemCodes.Remove(539);
                 }
             }
         }

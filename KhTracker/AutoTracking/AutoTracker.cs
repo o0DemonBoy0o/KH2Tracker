@@ -38,6 +38,7 @@ namespace KhTracker
 
         private Ability secondChance;
         private Ability onceMore;
+        private Ability combomaster;
 
         private DriveForm valor;
         private DriveForm wisdom;
@@ -75,6 +76,10 @@ namespace KhTracker
         private ImportantCheck peace;
         private ImportantCheck nonexist;
         private ImportantCheck connection;
+
+        private ImportantCheck hadescup;
+        private ImportantCheck membershipcard;
+        private ImportantCheck olypusstone;
 
         private TornPage pages;
 
@@ -183,7 +188,8 @@ namespace KhTracker
 
             importantChecks.Add(secondChance = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "SecondChance", Save));
             importantChecks.Add(onceMore = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "OnceMore", Save));
-            
+            importantChecks.Add(combomaster = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "ComboMaster", Save));
+
             importantChecks.Add(valor = new DriveForm(memory, Save + 0x36C0, ADDRESS_OFFSET, 1, Save + 0x32F6, Save + 0x06B2, "Valor"));
             importantChecks.Add(wisdom = new DriveForm(memory, Save + 0x36C0, ADDRESS_OFFSET, 2, Save + 0x332E, "Wisdom"));
             importantChecks.Add(limit = new DriveForm(memory, Save + 0x36CA, ADDRESS_OFFSET, 3, Save + 0x3366, "Limit"));
@@ -234,6 +240,11 @@ namespace KhTracker
             importantChecks.Add(peace = new Proof(memory, Save + 0x36B4, ADDRESS_OFFSET, "Peace"));
             importantChecks.Add(nonexist = new Proof(memory, Save + 0x36B3, ADDRESS_OFFSET, "Nonexistence"));
             importantChecks.Add(connection = new Proof(memory, Save + 0x36B2, ADDRESS_OFFSET, "Connection"));
+
+            //test
+            importantChecks.Add(hadescup = new KeyItem(memory, Save + 0x3696, ADDRESS_OFFSET, "HadesCup"));
+            importantChecks.Add(membershipcard = new KeyItem(memory, Save + 0x3643, ADDRESS_OFFSET, "MembershipCard"));
+            importantChecks.Add(olypusstone = new KeyItem(memory, Save + 0x3644, ADDRESS_OFFSET, "OlympusStone"));
 
             int count = pages != null ? pages.Quantity : 0;
             importantChecks.Add(pages = new TornPage(memory, Save + 0x3598, ADDRESS_OFFSET, "TornPage"));

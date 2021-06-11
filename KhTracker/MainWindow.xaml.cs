@@ -23,7 +23,7 @@ namespace KhTracker
         public static Data data;
         private BroadcastWindow broadcast;
         public int collected;
-        private int total = 51;
+        private int total = 55;
 
         //dumb stuff to help figure out what to do about custom images
         public static bool CustomNumbersFound = false;
@@ -914,6 +914,20 @@ namespace KhTracker
             if (CustomFolderOption.IsChecked)
                 CustomImageToggle(null, null);
 
+
+            //new ICs
+            HadesTrophyOption.IsChecked = Properties.Settings.Default.CupTrophy;
+            HandleItemToggle(HadesTrophyOption.IsChecked, HadesCup, true);
+
+            HBCardOption.IsChecked = Properties.Settings.Default.MemberCard;
+            HandleItemToggle(HBCardOption.IsChecked, MembershipCard, true);
+
+            OStoneOption.IsChecked = Properties.Settings.Default.Stone;
+            HandleItemToggle(OStoneOption.IsChecked, OlympusStone, true);
+
+            ComboMasterOption.IsChecked = Properties.Settings.Default.ComboMaster;
+            HandleItemToggle(ComboMasterOption.IsChecked, ComboMaster, true);
+
             WorldProgressOption.IsChecked = Properties.Settings.Default.WorldProgress;
             WorldProgressToggle(null, null);
 
@@ -1081,8 +1095,8 @@ namespace KhTracker
                 --num;
 
             // cap hint value to 51
-            if (num > 52)
-                num = 52;
+            if (num > 56)
+                num = 56;
 
             if (num < 0)
                 Hint.Source = NormalNum[0];
@@ -1117,8 +1131,8 @@ namespace KhTracker
             if (data.WorldsData[location].hintedHint || data.WorldsData[location].complete)
                 numList = numListB;
 
-            if (value > 52)
-                value = 52;
+            if (value > 56)
+                value = 56;
 
             if (value < 1 && (data.mode == Mode.AltHints || data.mode == Mode.OpenKHAltHints))
                 Hint.Source = numList[1];
@@ -1148,8 +1162,8 @@ namespace KhTracker
             }
 
             ++collected;
-            if (collected > 51)
-                collected = 51;
+            if (collected > 55)
+                collected = 55;
 
             Collected.Source = NormalNum[collected + 1];
             broadcast.Collected.Source = NormalNum[collected + 1];
@@ -1198,8 +1212,8 @@ namespace KhTracker
             }
 
             ++total;
-            if (total > 51)
-                total = 51;
+            if (total > 55)
+                total = 55;
 
             CheckTotal.Source = NormalNum[total + 1];
             broadcast.CheckTotal.Source = NormalNum[total + 1];
