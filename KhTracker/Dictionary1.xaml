@@ -271,7 +271,7 @@
 	<Image x:Key="Orb-DodgeRoll" 	Source="Images\Checks\Simple\dodge.png" x:Shared="false"/>
 	<Image x:Key="Orb-AerialDodge" 	Source="Images\Checks\Simple\aerial.png" x:Shared="false"/>
 	<Image x:Key="Orb-Glide" 		Source="Images\Checks\Simple\glide.png" x:Shared="false"/>
-	<Image x:Key="Orb-Chest" 	 	Source="Images\Other\Simple\chest.png" x:Shared="false"/>
+	<Image x:Key="Orb-Chest" 	 	Source="Images\Other\Game\chest.png" x:Shared="false"/>
 	<Image x:Key="Orb-Level" 	 	Source="Images\Other\Simple\level.png" x:Shared="false"/>
 	<Image x:Key="Orb-Strength" 	Source="Images\Other\Simple\strength.png" x:Shared="false"/>
 	<Image x:Key="Orb-Magic" 	 	Source="Images\Other\Simple\magic.png" x:Shared="false"/>

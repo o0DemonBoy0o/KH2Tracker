@@ -573,16 +573,16 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width=".8*"/>
+                        <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width=".3*"/>
-                        <ColumnDefinition Width=".8*"/>
+                        <ColumnDefinition Width="1*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
                     <ContentControl Content="{DynamicResource AnsemReport}" Name="Report" Grid.Column="1"/>
-                    <Image Source="Images/Numbers/_0.png" Name="ReportFound" Grid.Column="2"/>
-                    <Image Source="Images/bar.png" Name="ReportFoundBar" Grid.Column="3"/>
-                    <Image Source="Images/Numbers/13.png" Name="ReportFoundTotal" Grid.Column="4"/>
+                    <Image Source="Images/Numbers/Kh2/numbers/_0.png" Name="ReportFound" Grid.Column="2"/>
+                    <Image Source="Images/Numbers/Kh2/bar.png" Name="ReportFoundBar" Grid.Column="3"/>
+                    <Image Source="Images/Numbers/Kh2/numbers/13.png" Name="ReportFoundTotal" Grid.Column="4"/>
                 </Grid>
 
                 <!-- Torn Pages -->
@@ -599,10 +599,10 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <ContentControl Content="{DynamicResource TornPage}" Name="TornPage" Grid.Column="1"/>
-                    <Image Source="Images/Numbers/0.png" Name="TornPageFound" Grid.Column="2"/>
-                    <Image Source="Images/bar.png" Name="TornPageBar" Grid.Column="3"/>
-                    <Image Source="Images/Numbers/5.png" Name="TornPageTotal" Grid.Column="4"/>
+                    <ContentControl Content="{DynamicResource TornPage}" Name="TornPage" Grid.ColumnSpan="2" Margin="37,0,5,0"/>
+                    <Image Source="Images/Numbers/Kh2/numbers/0.png" Name="TornPageFound" Grid.Column="2"/>
+                    <Image Source="Images/Numbers/Kh2/bar.png" Name="TornPageBar" Grid.Column="3"/>
+                    <Image Source="Images/Numbers/Kh2/numbers/5.png" Name="TornPageTotal" Grid.Column="4"/>
                 </Grid>
 
                 <!-- Collected Count -->
@@ -612,15 +612,18 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width=".8*"/>
-                        <ColumnDefinition Width=".25*"/>
-                        <ColumnDefinition Width=".8*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width=".3*"/>
+                        <ColumnDefinition Width="1*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Name="Collected" Source="Images/Numbers/_0.png" Grid.Column="1"/>
-                    <Image Name="CollectedBar" Source="Images/bar.png" Grid.Column="2"/>
-                    <Image Name="CheckTotal" Source="Images/Numbers/50.png" Grid.Column="3"/>
+
+                    <ContentControl Content="{DynamicResource Chest}" Name="Chest" Grid.Column="1"/>
+                    <Image Name="Collected" Source="Images/Numbers/Kh2/numbers/_0.png" Grid.Column="2"/>
+                    <Image Name="CollectedBar" Source="Images/Numbers/Kh2/bar.png" Grid.Column="3"/>
+                    <Image Name="CheckTotal" Source="Images/Numbers/Kh2/numbers/55.png" Grid.Column="4"/>
                 </Grid>
             </Grid>
 
