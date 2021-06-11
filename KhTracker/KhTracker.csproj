@@ -211,7 +211,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="ILMerge" Version="2.14.1208" />
     <PackageReference Include="System.Memory">
       <Version>4.5.4</Version>
     </PackageReference>
@@ -1472,7 +1471,7 @@
     <Exec Command="$(ILMergeConsolePath) bin\Release\KhTracker.exe ^&#xD;&#xA;	/out:bin\KhTracker.exe ^&#xD;&#xA;	bin\Release\System.Text.Json.dll ^&#xD;&#xA;	bin\Release\System.Buffers.dll ^&#xD;&#xA;	bin\Release\System.Memory.dll ^&#xD;&#xA;	bin\Release\System.Numerics.Vectors.dll ^&#xD;&#xA;	bin\Release\System.Runtime.CompilerServices.Unsafe.dll ^&#xD;&#xA;	bin\Release\System.Text.Encodings.Web.dll ^&#xD;&#xA;	bin\Release\System.Threading.Tasks.Extensions.dll ^&#xD;&#xA;	bin\Release\System.ValueTuple.dll" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>cd $(SolutionDir)
-msbuild /t:ilmerge /property:Configuration=Release</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
