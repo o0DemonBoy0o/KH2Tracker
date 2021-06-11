@@ -403,6 +403,8 @@ namespace KhTracker
 
                 broadcast.Report.SetResourceReference(ContentProperty, "AnsemReport");
                 broadcast.TornPage.SetResourceReference(ContentProperty, "TornPageB");
+                broadcast.Chest.SetResourceReference(ContentProperty, "Chest");
+
                 broadcast.Peace.SetResourceReference(ContentProperty, "ProofOfPeace");
                 broadcast.Nonexistence.SetResourceReference(ContentProperty, "ProofOfNonexistence");
                 broadcast.Connection.SetResourceReference(ContentProperty, "ProofOfConnection");
@@ -554,6 +556,8 @@ namespace KhTracker
 
                 broadcast.Report.SetResourceReference(ContentProperty, "Orb-AnsemReport");
                 broadcast.TornPage.SetResourceReference(ContentProperty, "Orb-TornPageB");
+                broadcast.Chest.SetResourceReference(ContentProperty, "Orb-Chest");
+
                 broadcast.Peace.SetResourceReference(ContentProperty, "Orb-ProofOfPeace");
                 broadcast.Nonexistence.SetResourceReference(ContentProperty, "Orb-ProofOfNonexistence");
                 broadcast.Connection.SetResourceReference(ContentProperty, "Orb-ProofOfConnection");
@@ -704,6 +708,8 @@ namespace KhTracker
 
                 broadcast.Report.SetResourceReference(ContentProperty, "BW-AnsemReport");
                 broadcast.TornPage.SetResourceReference(ContentProperty, "BW-TornPageB");
+                broadcast.Chest.SetResourceReference(ContentProperty, "BW-Chest");
+
                 broadcast.Peace.SetResourceReference(ContentProperty, "BW-ProofOfPeace");
                 broadcast.Nonexistence.SetResourceReference(ContentProperty, "BW-ProofOfNonexistence");
                 broadcast.Connection.SetResourceReference(ContentProperty, "BW-ProofOfConnection");

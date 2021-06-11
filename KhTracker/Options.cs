@@ -686,7 +686,7 @@ namespace KhTracker
         //fixthis 
         private void LoadSettings(string settings)
         {
-            bool[] newsettings = new bool[10];
+            bool[] newsettings = new bool[14];
 
             string[] settinglist = settings.Split('-');
             foreach (string setting in settinglist)
@@ -724,6 +724,18 @@ namespace KhTracker
                     case "Atlantica":
                         newsettings[9] = true;
                         break;
+                    case "Hades Cup":
+                        newsettings[10] = true;
+                        break;
+                    case "Membership Card":
+                        newsettings[11] = true;
+                        break;
+                    case "Olympus Stone":
+                        newsettings[12] = true;
+                        break;
+                    case "Combo Master":
+                        newsettings[13] = true;
+                        break;
                 }
             }
 
@@ -737,6 +749,11 @@ namespace KhTracker
             SimulatedToggle(newsettings[7]);
             HundredAcreWoodToggle(newsettings[8]);
             AtlanticaToggle(newsettings[9]);
+
+            HadesTrophyToggle(newsettings[10]);
+            HBCardToggle(newsettings[11]);
+            OStoneToggle(newsettings[12]);
+            ComboMasterToggle(newsettings[13]);
 
         }
 

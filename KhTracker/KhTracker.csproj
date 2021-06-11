@@ -1442,6 +1442,7 @@
     <Content Include="CustomImages\World\space_paranoids.png" />
     <Content Include="CustomImages\World\the_world_that_never_was.png" />
     <Content Include="CustomImages\World\twilight_town.png" />
+    <Resource Include="Images\Other\Game\chest.png" />
     <Resource Include="Images\Checks\Raisin\stone.png" />
     <Resource Include="Images\Checks\Simple\Stone2.png" />
     <Resource Include="Images\Checks\Orb\MemberCard.png" />
