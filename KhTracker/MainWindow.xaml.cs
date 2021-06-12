@@ -957,6 +957,196 @@ namespace KhTracker
 
             Width = Properties.Settings.Default.Width;
             Height = Properties.Settings.Default.Height;
+
+            //testing background settings stuff ( thought this would be simplier than the above methods)
+            //maybe i was wrong.
+            {
+                int MainBG = Properties.Settings.Default.MainbBgColor;
+                if (MainBG == 0)
+                {
+                    ColorDefOption.IsChecked = true;
+                    ColorRedOption.IsChecked = false;
+                    ColorGrnOption.IsChecked = false;
+                    ColorBluOption.IsChecked = false;
+                    ColorImg1Option.IsChecked = false;
+                    ColorImg2Option.IsChecked = false;
+                    ColorImg3Option.IsChecked = false;
+                    ColorChangeTestDef(null, null);
+                }
+                else if (MainBG == 1)
+                {
+                    ColorDefOption.IsChecked = false;
+                    ColorRedOption.IsChecked = true;
+                    ColorGrnOption.IsChecked = false;
+                    ColorBluOption.IsChecked = false;
+                    ColorImg1Option.IsChecked = false;
+                    ColorImg2Option.IsChecked = false;
+                    ColorImg3Option.IsChecked = false;
+                    ColorChangeTestRed(null, null);
+                }
+                else if (MainBG == 2)
+                {
+                    ColorDefOption.IsChecked = false;
+                    ColorRedOption.IsChecked = false;
+                    ColorGrnOption.IsChecked = true;
+                    ColorBluOption.IsChecked = false;
+                    ColorImg1Option.IsChecked = false;
+                    ColorImg2Option.IsChecked = false;
+                    ColorImg3Option.IsChecked = false;
+                    ColorChangeTestGrn(null, null);
+
+                }
+                else if (MainBG == 3)
+                {
+
+                    ColorDefOption.IsChecked = false;
+                    ColorRedOption.IsChecked = false;
+                    ColorGrnOption.IsChecked = false;
+                    ColorBluOption.IsChecked = true;
+                    ColorImg1Option.IsChecked = false;
+                    ColorImg2Option.IsChecked = false;
+                    ColorImg3Option.IsChecked = false;
+                    ColorChangeTestBlu(null, null);
+                }
+                else if (MainBG == 4)
+                {
+                    ColorDefOption.IsChecked = false;
+                    ColorRedOption.IsChecked = false;
+                    ColorGrnOption.IsChecked = false;
+                    ColorBluOption.IsChecked = false;
+                    ColorImg1Option.IsChecked = true;
+                    ColorImg2Option.IsChecked = false;
+                    ColorImg3Option.IsChecked = false;
+                    ColorChangeTestImg1(null, null);
+                }
+                else if (MainBG == 5)
+                {
+                    ColorDefOption.IsChecked = false;
+                    ColorRedOption.IsChecked = false;
+                    ColorGrnOption.IsChecked = false;
+                    ColorBluOption.IsChecked = false;
+                    ColorImg1Option.IsChecked = false;
+                    ColorImg2Option.IsChecked = true;
+                    ColorImg3Option.IsChecked = false;
+                    ColorChangeTestImg2(null, null);
+                }
+                else if (MainBG == 6)
+                {
+                    ColorDefOption.IsChecked = false;
+                    ColorRedOption.IsChecked = false;
+                    ColorGrnOption.IsChecked = false;
+                    ColorBluOption.IsChecked = false;
+                    ColorImg1Option.IsChecked = false;
+                    ColorImg2Option.IsChecked = false;
+                    ColorImg3Option.IsChecked = true;
+                    ColorChangeTestImg3(null, null);
+                }                 
+                else
+                {
+                    ColorDefOption.IsChecked = true;
+                    ColorRedOption.IsChecked = false;
+                    ColorGrnOption.IsChecked = false;
+                    ColorBluOption.IsChecked = false;
+                    ColorImg1Option.IsChecked = false;
+                    ColorImg2Option.IsChecked = false;
+                    ColorImg3Option.IsChecked = false;
+                    ColorChangeTestDef(null, null);
+                }
+            }
+            {
+                int BroadcastBG = Properties.Settings.Default.BroadcastBgColor;
+                if (BroadcastBG == 0)
+                {
+                    BroadcastColorDefOption.IsChecked = true;
+                    BroadcastColorRedOption.IsChecked = false;
+                    BroadcastColorGrnOption.IsChecked = false;
+                    BroadcastColorBluOption.IsChecked = false;
+                    BroadcastColorImg1Option.IsChecked = false;
+                    BroadcastColorImg2Option.IsChecked = false;
+                    BroadcastColorImg3Option.IsChecked = false;
+                    ColorChangeBroadcastDef(null, null);
+                }
+                else if (BroadcastBG == 1)
+                {
+                    BroadcastColorDefOption.IsChecked = false;
+                    BroadcastColorRedOption.IsChecked = true;
+                    BroadcastColorGrnOption.IsChecked = false;
+                    BroadcastColorBluOption.IsChecked = false;
+                    BroadcastColorImg1Option.IsChecked = false;
+                    BroadcastColorImg2Option.IsChecked = false;
+                    BroadcastColorImg3Option.IsChecked = false;
+                    ColorChangeBroadcastRed(null, null);
+                }
+                else if (BroadcastBG == 2)
+                {
+                    BroadcastColorDefOption.IsChecked = false;
+                    BroadcastColorRedOption.IsChecked = false;
+                    BroadcastColorGrnOption.IsChecked = true;
+                    BroadcastColorBluOption.IsChecked = false;
+                    BroadcastColorImg1Option.IsChecked = false;
+                    BroadcastColorImg2Option.IsChecked = false;
+                    BroadcastColorImg3Option.IsChecked = false;
+                    ColorChangeBroadcastGrn(null, null);
+
+                }
+                else if (BroadcastBG == 3)
+                {
+
+                    BroadcastColorDefOption.IsChecked = false;
+                    BroadcastColorRedOption.IsChecked = false;
+                    BroadcastColorGrnOption.IsChecked = false;
+                    BroadcastColorBluOption.IsChecked = true;
+                    BroadcastColorImg1Option.IsChecked = false;
+                    BroadcastColorImg2Option.IsChecked = false;
+                    BroadcastColorImg3Option.IsChecked = false;
+                    ColorChangeBroadcastBlu(null, null);
+                }
+                else if (BroadcastBG == 4)
+                {
+                    BroadcastColorDefOption.IsChecked = false;
+                    BroadcastColorRedOption.IsChecked = false;
+                    BroadcastColorGrnOption.IsChecked = false;
+                    BroadcastColorBluOption.IsChecked = false;
+                    BroadcastColorImg1Option.IsChecked = true;
+                    BroadcastColorImg2Option.IsChecked = false;
+                    BroadcastColorImg3Option.IsChecked = false;
+                    ColorChangeBroadcastImg1(null, null);
+                }
+                else if (BroadcastBG == 5)
+                {
+                    BroadcastColorDefOption.IsChecked = false;
+                    BroadcastColorRedOption.IsChecked = false;
+                    BroadcastColorGrnOption.IsChecked = false;
+                    BroadcastColorBluOption.IsChecked = false;
+                    BroadcastColorImg1Option.IsChecked = false;
+                    BroadcastColorImg2Option.IsChecked = true;
+                    BroadcastColorImg3Option.IsChecked = false;
+                    ColorChangeBroadcastImg2(null, null);
+                }
+                else if (BroadcastBG == 6)
+                {
+                    BroadcastColorDefOption.IsChecked = false;
+                    BroadcastColorRedOption.IsChecked = false;
+                    BroadcastColorGrnOption.IsChecked = false;
+                    BroadcastColorBluOption.IsChecked = false;
+                    BroadcastColorImg1Option.IsChecked = false;
+                    BroadcastColorImg2Option.IsChecked = false;
+                    BroadcastColorImg3Option.IsChecked = true;
+                    ColorChangeBroadcastImg3(null, null);
+                }
+                else
+                {
+                    BroadcastColorDefOption.IsChecked = true;
+                    BroadcastColorRedOption.IsChecked = false;
+                    BroadcastColorGrnOption.IsChecked = false;
+                    BroadcastColorBluOption.IsChecked = false;
+                    BroadcastColorImg1Option.IsChecked = false;
+                    BroadcastColorImg2Option.IsChecked = false;
+                    BroadcastColorImg3Option.IsChecked = false;
+                    ColorChangeBroadcastDef(null, null);
+                }
+
+            }
         }
 
         /// 
@@ -1257,6 +1447,361 @@ namespace KhTracker
 
             broadcast.Width = 500;
             broadcast.Height = 680;
+        }
+
+        //dumb window backgound stuff
+        private void ColorChangeTestDef(object sender, RoutedEventArgs e)
+        {
+            // Mimicing radio buttons so you cant toggle a button off
+            if (ColorDefOption.IsChecked == false)
+            {
+                ColorDefOption.IsChecked = true;
+                return;
+            }
+
+            ColorRedOption.IsChecked = false;
+            ColorGrnOption.IsChecked = false;
+            ColorBluOption.IsChecked = false;
+            ColorImg1Option.IsChecked = false;
+            ColorImg2Option.IsChecked = false;
+            ColorImg3Option.IsChecked = false;
+
+            Properties.Settings.Default.MainbBgColor = 0;
+
+            if (ColorDefOption.IsChecked)
+            {
+                Background = Application.Current.Resources["BG-Default"] as SolidColorBrush;
+            }
+        }
+
+        private void ColorChangeTestRed(object sender, RoutedEventArgs e)
+        {
+            // Mimicing radio buttons so you cant toggle a button off
+            if (ColorRedOption.IsChecked == false)
+            {
+                ColorRedOption.IsChecked = true;
+                return;
+            }
+
+            ColorDefOption.IsChecked = false;
+            ColorGrnOption.IsChecked = false;
+            ColorBluOption.IsChecked = false;
+            ColorImg1Option.IsChecked = false;
+            ColorImg2Option.IsChecked = false;
+            ColorImg3Option.IsChecked = false;
+
+            Properties.Settings.Default.MainbBgColor = 1;
+
+            if (ColorRedOption.IsChecked)
+            {
+                Background = Application.Current.Resources["BG-Red"] as SolidColorBrush;
+            }
+        }
+
+        private void ColorChangeTestGrn(object sender, RoutedEventArgs e)
+        {
+            // Mimicing radio buttons so you cant toggle a button off
+            if (ColorGrnOption.IsChecked == false)
+            {
+                ColorGrnOption.IsChecked = true;
+                return;
+            }
+
+            ColorRedOption.IsChecked = false;
+            ColorDefOption.IsChecked = false;
+            ColorBluOption.IsChecked = false;
+            ColorImg1Option.IsChecked = false;
+            ColorImg2Option.IsChecked = false;
+            ColorImg3Option.IsChecked = false;
+
+            Properties.Settings.Default.MainbBgColor = 2;
+
+            if (ColorGrnOption.IsChecked)
+            {
+                Background = Application.Current.Resources["BG-Green"] as SolidColorBrush;
+            }
+        }
+
+        private void ColorChangeTestBlu(object sender, RoutedEventArgs e)
+        {
+            // Mimicing radio buttons so you cant toggle a button off
+            if (ColorBluOption.IsChecked == false)
+            {
+                ColorBluOption.IsChecked = true;
+                return;
+            }
+
+            ColorRedOption.IsChecked = false;
+            ColorGrnOption.IsChecked = false;
+            ColorDefOption.IsChecked = false;
+            ColorImg1Option.IsChecked = false;
+            ColorImg2Option.IsChecked = false;
+            ColorImg3Option.IsChecked = false;
+
+            Properties.Settings.Default.MainbBgColor = 3;
+
+            if (ColorBluOption.IsChecked)
+            {
+                Background = Application.Current.Resources["BG-Blue"] as SolidColorBrush;
+            }
+        }
+
+        private void ColorChangeTestImg1(object sender, RoutedEventArgs e)
+        {
+            // Mimicing radio buttons so you cant toggle a button off
+            if (ColorImg1Option.IsChecked == false)
+            {
+                ColorImg1Option.IsChecked = true;
+                return;
+            }
+
+            ColorRedOption.IsChecked = false;
+            ColorGrnOption.IsChecked = false;
+            ColorDefOption.IsChecked = false;
+            ColorBluOption.IsChecked = false;
+            ColorImg2Option.IsChecked = false;
+            ColorImg3Option.IsChecked = false;
+
+            Properties.Settings.Default.MainbBgColor = 4;
+
+            if (ColorImg1Option.IsChecked)
+            {
+                if (File.Exists("CustomImages/BG.png"))
+                    Background = Application.Current.Resources["BG-ImageTest"] as ImageBrush;
+                else
+                    Background = Application.Current.Resources["BG-ImageDef"] as ImageBrush;
+            }
+        }
+
+        private void ColorChangeTestImg2(object sender, RoutedEventArgs e)
+        {
+            // Mimicing radio buttons so you cant toggle a button off
+            if (ColorImg2Option.IsChecked == false)
+            {
+                ColorImg2Option.IsChecked = true;
+                return;
+            }
+
+            ColorRedOption.IsChecked = false;
+            ColorGrnOption.IsChecked = false;
+            ColorDefOption.IsChecked = false;
+            ColorBluOption.IsChecked = false;
+            ColorImg1Option.IsChecked = false;
+            ColorImg3Option.IsChecked = false;
+
+            Properties.Settings.Default.MainbBgColor = 5;
+
+            if (ColorImg2Option.IsChecked)
+            {
+                if (File.Exists("CustomImages/BG.png"))
+                    Background = Application.Current.Resources["BG-ImageTestUni"] as ImageBrush;
+                else
+                    Background = Application.Current.Resources["BG-ImageDefUni"] as ImageBrush;
+            }
+        }
+
+        private void ColorChangeTestImg3(object sender, RoutedEventArgs e)
+        {
+            // Mimicing radio buttons so you cant toggle a button off
+            if (ColorImg3Option.IsChecked == false)
+            {
+                ColorImg3Option.IsChecked = true;
+                return;
+            }
+
+            ColorRedOption.IsChecked = false;
+            ColorGrnOption.IsChecked = false;
+            ColorDefOption.IsChecked = false;
+            ColorBluOption.IsChecked = false;
+            ColorImg1Option.IsChecked = false;
+            ColorImg2Option.IsChecked = false;
+
+            Properties.Settings.Default.MainbBgColor = 6;
+
+            if (ColorImg3Option.IsChecked)
+            {
+                if (File.Exists("CustomImages/BG.png"))
+                    Background = Application.Current.Resources["BG-ImageTestNon"] as ImageBrush;
+                else
+                    Background = Application.Current.Resources["BG-ImageDefNon"] as ImageBrush;
+            }
+        }
+
+        private void ColorChangeBroadcastDef(object sender, RoutedEventArgs e)
+        {
+            // Mimicing radio buttons so you cant toggle a button off
+            if (BroadcastColorDefOption.IsChecked == false)
+            {
+                BroadcastColorDefOption.IsChecked = true;
+                return;
+            }
+
+            BroadcastColorRedOption.IsChecked = false;
+            BroadcastColorGrnOption.IsChecked = false;
+            BroadcastColorBluOption.IsChecked = false;
+            BroadcastColorImg1Option.IsChecked = false;
+            BroadcastColorImg2Option.IsChecked = false;
+            BroadcastColorImg3Option.IsChecked = false;
+
+            Properties.Settings.Default.BroadcastBgColor = 0;
+
+            if (BroadcastColorDefOption.IsChecked)
+            {
+                broadcast.Background = Application.Current.Resources["BG-Default"] as SolidColorBrush;
+            }
+        }
+
+        private void ColorChangeBroadcastRed(object sender, RoutedEventArgs e)
+        {
+            // Mimicing radio buttons so you cant toggle a button off
+            if (BroadcastColorRedOption.IsChecked == false)
+            {
+                BroadcastColorRedOption.IsChecked = true;
+                return;
+            }
+
+            BroadcastColorDefOption.IsChecked = false;
+            BroadcastColorGrnOption.IsChecked = false;
+            BroadcastColorBluOption.IsChecked = false;
+            BroadcastColorImg1Option.IsChecked = false;
+            BroadcastColorImg2Option.IsChecked = false;
+            BroadcastColorImg3Option.IsChecked = false;
+
+            Properties.Settings.Default.BroadcastBgColor = 1;
+
+            if (BroadcastColorRedOption.IsChecked)
+            {
+                broadcast.Background = Application.Current.Resources["BG-Red"] as SolidColorBrush;
+            }
+        }
+
+        private void ColorChangeBroadcastGrn(object sender, RoutedEventArgs e)
+        {
+            // Mimicing radio buttons so you cant toggle a button off
+            if (BroadcastColorGrnOption.IsChecked == false)
+            {
+                BroadcastColorGrnOption.IsChecked = true;
+                return;
+            }
+
+            BroadcastColorRedOption.IsChecked = false;
+            BroadcastColorDefOption.IsChecked = false;
+            BroadcastColorBluOption.IsChecked = false;
+            BroadcastColorImg1Option.IsChecked = false;
+            BroadcastColorImg2Option.IsChecked = false;
+            BroadcastColorImg3Option.IsChecked = false;
+
+            Properties.Settings.Default.BroadcastBgColor = 2;
+
+            if (BroadcastColorGrnOption.IsChecked)
+            {
+                broadcast.Background = Application.Current.Resources["BG-Green"] as SolidColorBrush;
+            }
+        }
+
+        private void ColorChangeBroadcastBlu(object sender, RoutedEventArgs e)
+        {
+            // Mimicing radio buttons so you cant toggle a button off
+            if (BroadcastColorBluOption.IsChecked == false)
+            {
+                BroadcastColorBluOption.IsChecked = true;
+                return;
+            }
+
+            BroadcastColorRedOption.IsChecked = false;
+            BroadcastColorGrnOption.IsChecked = false;
+            BroadcastColorDefOption.IsChecked = false;
+            BroadcastColorImg1Option.IsChecked = false;
+            BroadcastColorImg2Option.IsChecked = false;
+            BroadcastColorImg3Option.IsChecked = false;
+
+            Properties.Settings.Default.BroadcastBgColor = 3;
+
+            if (BroadcastColorBluOption.IsChecked)
+            {
+                broadcast.Background = Application.Current.Resources["BG-Blue"] as SolidColorBrush;
+            }
+        }
+
+        private void ColorChangeBroadcastImg1(object sender, RoutedEventArgs e)
+        {
+            // Mimicing radio buttons so you cant toggle a button off
+            if (BroadcastColorImg1Option.IsChecked == false)
+            {
+                BroadcastColorImg1Option.IsChecked = true;
+                return;
+            }
+
+            BroadcastColorRedOption.IsChecked = false;
+            BroadcastColorGrnOption.IsChecked = false;
+            BroadcastColorDefOption.IsChecked = false;
+            BroadcastColorBluOption.IsChecked = false;
+            BroadcastColorImg2Option.IsChecked = false;
+            BroadcastColorImg3Option.IsChecked = false;
+
+            Properties.Settings.Default.BroadcastBgColor = 4;
+
+            if (BroadcastColorImg1Option.IsChecked)
+            {
+                if (File.Exists("CustomImages/BG.png"))
+                    broadcast.Background = Application.Current.Resources["BG-BImageTest"] as ImageBrush;
+                else
+                    broadcast.Background = Application.Current.Resources["BG-BImageDef"] as ImageBrush;
+            }
+        }
+
+        private void ColorChangeBroadcastImg2(object sender, RoutedEventArgs e)
+        {
+            // Mimicing radio buttons so you cant toggle a button off
+            if (BroadcastColorImg2Option.IsChecked == false)
+            {
+                BroadcastColorImg2Option.IsChecked = true;
+                return;
+            }
+
+            BroadcastColorRedOption.IsChecked = false;
+            BroadcastColorGrnOption.IsChecked = false;
+            BroadcastColorDefOption.IsChecked = false;
+            BroadcastColorBluOption.IsChecked = false;
+            BroadcastColorImg1Option.IsChecked = false;
+            BroadcastColorImg3Option.IsChecked = false;
+
+            Properties.Settings.Default.BroadcastBgColor = 5;
+
+            if (BroadcastColorImg2Option.IsChecked)
+            {
+                if (File.Exists("CustomImages/BG.png"))
+                    broadcast.Background = Application.Current.Resources["BG-BImageTestUni"] as ImageBrush;
+                else
+                    broadcast.Background = Application.Current.Resources["BG-BImageDefUni"] as ImageBrush;
+            }
+        }
+
+        private void ColorChangeBroadcastImg3(object sender, RoutedEventArgs e)
+        {
+            // Mimicing radio buttons so you cant toggle a button off
+            if (BroadcastColorImg3Option.IsChecked == false)
+            {
+                BroadcastColorImg3Option.IsChecked = true;
+                return;
+            }
+
+            BroadcastColorRedOption.IsChecked = false;
+            BroadcastColorGrnOption.IsChecked = false;
+            BroadcastColorDefOption.IsChecked = false;
+            BroadcastColorBluOption.IsChecked = false;
+            BroadcastColorImg1Option.IsChecked = false;
+            BroadcastColorImg2Option.IsChecked = false;
+
+            Properties.Settings.Default.BroadcastBgColor = 6;
+
+            if (BroadcastColorImg3Option.IsChecked)
+            {
+                if (File.Exists("CustomImages/BG.png"))
+                    broadcast.Background = Application.Current.Resources["BG-BImageTestNon"] as ImageBrush;
+                else
+                    broadcast.Background = Application.Current.Resources["BG-BImageDefNon"] as ImageBrush;
+            }
         }
 
     }

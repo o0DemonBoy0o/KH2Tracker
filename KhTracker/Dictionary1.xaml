@@ -732,7 +732,26 @@
 
 	<Image x:Key="Custom-VerticalBar" 			Source="pack://application:,,,/CustomImages/VerticalBar.png"/>
 	<Image x:Key="Custom-VerticalBarWhite" 		Source="pack://application:,,,/CustomImages/VerticalBarWhite.png"/>
-	
-	
-	
+
+    
+    <!--lazy window background stuff-->
+    <SolidColorBrush x:Key="BG-Default" Color="#303030"/>
+    <SolidColorBrush x:Key="BG-Red" Color="red"/>
+	<SolidColorBrush x:Key="BG-Green" Color="Lime"/>
+    <SolidColorBrush x:Key="BG-Blue" Color="Blue"/>
+    <!-- main window custom image-->
+    <ImageBrush x:Key="BG-ImageTest" ImageSource="pack://application:,,,/CustomImages/BG.png" TileMode="Tile" />
+    <ImageBrush x:Key="BG-ImageDef" ImageSource="Images/dumb.png" TileMode="Tile"/>
+    <ImageBrush x:Key="BG-ImageTestUni" ImageSource="pack://application:,,,/CustomImages/BG.png" TileMode="Tile" Stretch="UniformToFill"/>
+    <ImageBrush x:Key="BG-ImageDefUni" ImageSource="Images/dumb.png" TileMode="Tile" Stretch="UniformToFill"/>
+    <ImageBrush x:Key="BG-ImageTestNon" ImageSource="pack://application:,,,/CustomImages/BG.png" TileMode="Tile" Stretch="None"/>
+    <ImageBrush x:Key="BG-ImageDefNon" ImageSource="Images/dumb.png" TileMode="Tile" Stretch="None"/>
+    <!-- broadcast window custom image-->
+    <ImageBrush x:Key="BG-BImageTest" ImageSource="pack://application:,,,/CustomImages/BG_broadcast.png" TileMode="Tile" />
+    <ImageBrush x:Key="BG-BImageDef" ImageSource="Images/BG_broadcast.png" TileMode="Tile"/>
+    <ImageBrush x:Key="BG-BImageTestUni" ImageSource="pack://application:,,,/CustomImages/BG_broadcast.png" TileMode="Tile" Stretch="UniformToFill"/>
+    <ImageBrush x:Key="BG-BImageDefUni" ImageSource="Images/BG_broadcast.png" TileMode="Tile" Stretch="UniformToFill"/>
+    <ImageBrush x:Key="BG-BImageTestNon" ImageSource="pack://application:,,,/CustomImages/BG_broadcast.png" TileMode="Tile" Stretch="None"/>
+    <ImageBrush x:Key="BG-BImageDefNon" ImageSource="Images/BG_broadcast.png" TileMode="Tile" Stretch="None"/>
+
 </ResourceDictionary>

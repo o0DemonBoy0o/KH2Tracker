@@ -478,5 +478,29 @@ namespace KhTracker.Properties {
                 this["ComboMaster"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int MainbBgColor {
+            get {
+                return ((int)(this["MainbBgColor"]));
+            }
+            set {
+                this["MainbBgColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int BroadcastBgColor {
+            get {
+                return ((int)(this["BroadcastBgColor"]));
+            }
+            set {
+                this["BroadcastBgColor"] = value;
+            }
+        }
     }
 }
