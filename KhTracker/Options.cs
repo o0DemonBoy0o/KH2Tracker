@@ -76,7 +76,7 @@ namespace KhTracker
             if (AtlanticaOption.IsChecked)
                 settings += "Atlantica - ";
             if (HadesTrophyOption.IsChecked)
-                settings += "Hades Cup - ";
+                settings += "Hades Cup Trophy - ";
             if (HBCardOption.IsChecked)
                 settings += "Membership Card - ";
             if (OStoneOption.IsChecked)
@@ -584,6 +584,8 @@ namespace KhTracker
             SetMode(Mode.Hints);
             ResetHints();
 
+            bool devhintscheck = false;
+
             StreamReader streamReader = new StreamReader(filename);
 
             if (streamReader.EndOfStream)
@@ -609,12 +611,23 @@ namespace KhTracker
             line2 = line2.TrimEnd('.');
             string[] reportorder = line2.Split('.');
 
-            LoadSettings(streamReader.ReadLine().Substring(24));
+            //change how settings are loaded for dev hints
+            if (streamReader.EndOfStream)
+            {
+                data.hintFileText[1] = line2.Substring(0, 116);
+                LoadSettings(line2.Substring(117));
+                devhintscheck = true;
+            }
+            else
+                LoadSettings(streamReader.ReadLine().Substring(24));
 
             streamReader.Close();
 
             for (int i = 0; i < reportorder.Length; ++i)
             {
+                if (i <= 13 && devhintscheck)
+                    continue;
+
                 string location = data.codes.FindCode(reportorder[i]);
                 if (location == "")
                     location = data.codes.GetDefault(i);
@@ -625,7 +638,7 @@ namespace KhTracker
             }
 
             data.hintsLoaded = true;
-            HintText.Content = "Hints Loaded";
+            HintText.Content = "Jmartee Hints Loaded";
         }
 
         private void ResetHints()
@@ -683,7 +696,6 @@ namespace KhTracker
             broadcast.OnResetHints();
         }
 
-        //fixthis 
         private void LoadSettings(string settings)
         {
             bool[] newsettings = new bool[14];
@@ -724,7 +736,7 @@ namespace KhTracker
                     case "Atlantica":
                         newsettings[9] = true;
                         break;
-                    case "Hades Cup":
+                    case "Hades Cup Trophy":
                         newsettings[10] = true;
                         break;
                     case "Membership Card":
@@ -735,6 +747,16 @@ namespace KhTracker
                         break;
                     case "Combo Master":
                         newsettings[13] = true;
+                        break;
+                    //dev hints use slightly differing text, so we check for those too
+                    case "Second Chance":
+                        newsettings[2] = true;
+                        break;
+                    case "Once More":
+                        newsettings[2] = true;
+                        break;
+                    case "Ansem Reports":
+                        newsettings[1] = true;
                         break;
                 }
             }
@@ -1097,6 +1119,8 @@ namespace KhTracker
                 data.WorldsData[key].worldGrid.WorldComplete();
                 SetReportValue(data.WorldsData[key].hint, 1);
             }
+
+            HintText.Content = "Shananas Hints Loaded";
         }
 
         private void SetMode(Mode mode)
@@ -1116,6 +1140,13 @@ namespace KhTracker
                 ModeDisplay.Header = "Hints Mode";
                 data.mode = mode;
                 ReportRow.Height = new GridLength(1, GridUnitType.Star);
+            }
+            else if (mode == Mode.DAHints)
+            {
+                ModeDisplay.Header = "Points Mode";
+                data.mode = mode;
+                ReportsToggle(false);
+                ReportRow.Height = new GridLength(0, GridUnitType.Star);
             }
         }
 
@@ -1252,7 +1283,7 @@ namespace KhTracker
             }
         }
 
-        //buncha garbage to add hades Cup as an imortant cheack in Shan's hints based on toggle state
+        //buncha garbage to adds hades Cup (and others) as imortant checks in Shan's hints based on toggle state
         //toggle needs to be set before loading the seed into the tracker
         private void FixDictionary()
         {
@@ -1285,10 +1316,12 @@ namespace KhTracker
                 if (HadesCupOn && FoundCup == false)
                 {
                     data.codes.itemCodes.Add(537, "HadesCup");
+                    data.codes.itemPoints.Add("HadesCup", 3);
                 }
                 else if (HadesCupOn == false && FoundCup)
                 {
                     data.codes.itemCodes.Remove(537);
+                    data.codes.itemPoints.Remove("HadesCup");
                 }
             }
 
@@ -1304,10 +1337,12 @@ namespace KhTracker
                 if (MemberCardOn && FoundCard == false)
                 {
                     data.codes.itemCodes.Add(369, "MembershipCard");
+                    data.codes.itemPoints.Add("MembershipCard", 3);
                 }
                 else if (MemberCardOn == false && FoundCard)
                 {
                     data.codes.itemCodes.Remove(369);
+                    data.codes.itemPoints.Remove("MembershipCard");
                 }
             }
 
@@ -1323,10 +1358,12 @@ namespace KhTracker
                 if (StoneOn && FoundStone == false)
                 {
                     data.codes.itemCodes.Add(370, "OlympusStone");
+                    data.codes.itemPoints.Add("OlympusStone", 3);
                 }
                 else if (StoneOn == false && FoundStone)
                 {
                     data.codes.itemCodes.Remove(370);
+                    data.codes.itemPoints.Remove("OlympusStone");
                 }
             }
 
@@ -1342,12 +1379,609 @@ namespace KhTracker
                 if (ComboMasterOn && FoundCM == false)
                 {
                     data.codes.itemCodes.Add(539, "ComboMaster");
+                    data.codes.itemPoints.Add("ComboMaster", 6);
                 }
                 else if (ComboMasterOn == false && FoundCM)
                 {
                     data.codes.itemCodes.Remove(539);
+                    data.codes.itemPoints.Remove("ComboMaster");
                 }
             }
         }
+
+        //TEST
+        public void ParseSeedPoints(string filename)
+        {
+            FixDictionary();
+
+            SetMode(Mode.DAHints);
+
+            //create lists
+            List<string> MagicItems = new List<string>();
+            List<string> SummonItems = new List<string>();
+            List<string> FormItems = new List<string>();
+            List<string> AbilityItems = new List<string>();
+            List<string> ProofItems = new List<string>();
+            List<string> OtherItems = new List<string>();
+
+            MagicItems.Clear();
+            SummonItems.Clear();
+            FormItems.Clear();
+            AbilityItems.Clear();
+            ProofItems.Clear();
+            OtherItems.Clear();
+
+            MagicItems.Add("Fire");
+            MagicItems.Add("Blizzard");
+            MagicItems.Add("Thunder");
+            MagicItems.Add("Cure");
+            MagicItems.Add("Magnet");
+            MagicItems.Add("Reflect");
+            SummonItems.Add("Ukulele");
+            SummonItems.Add("Lamp");
+            SummonItems.Add("Feather");
+            SummonItems.Add("Baseball");
+            FormItems.Add("Valor");
+            FormItems.Add("Wisdom");
+            FormItems.Add("Final");
+            FormItems.Add("Master");
+            FormItems.Add("Limit");
+            AbilityItems.Add("SecondChance");
+            AbilityItems.Add("OnceMore");
+            AbilityItems.Add("ComboMaster");
+            ProofItems.Add("PromiseCharm");
+            ProofItems.Add("Connection");
+            ProofItems.Add("Nonexistence");
+            ProofItems.Add("Peace");
+            OtherItems.Add("HadesCup");
+            OtherItems.Add("OlympusStone");
+            OtherItems.Add("Membership");
+
+            //set points to 0
+            int LevelPoints = 0;
+            int DrivePoints = 0;
+            int STTPoints = 0;
+            int HBPoints = 0;
+            int OCPoints = 0;
+            int LoDPoints = 0;
+            int PLPoints = 0;
+            int HTPoints = 0;
+            int SPPoints = 0;
+            int TTPoints = 0;
+            int BCPoints = 0;
+            int AGPoints = 0;
+            int HAWPoints = 0;
+            int DCPoints = 0;
+            int PRPoints = 0;
+            int TWTNWPoints = 0;
+            int ATPoints = 0;
+
+
+            foreach (string world in data.WorldsData.Keys.ToList())
+            {
+                data.WorldsData[world].checkCount.Clear();
+            }
+
+            StreamReader streamReader = new StreamReader(filename);
+            bool check1 = false;
+            bool check2 = false;
+
+            while (streamReader.EndOfStream == false)
+            {
+                string line = streamReader.ReadLine();
+
+                string[] codes = line.Split(',');
+                if (codes.Length == 5)
+                {
+                    string world = data.codes.FindCode(codes[2]);
+
+                    //stupid fix
+                    string[] idCode = codes[4].Split('/', ' ');
+
+                    int id = Convert.ToInt32(idCode[0], 16);
+                    if (world == "" || world == "GoA" || data.codes.itemCodes.ContainsKey(id) == false || (id >= 226 && id <= 238))
+                        continue;
+
+                    string item = data.codes.itemCodes[Convert.ToInt32(codes[4], 16)];
+                    data.WorldsData[world].checkCount.Add(item);
+
+                    //check worlds and add points
+                    {
+                        if (world == "SimulatedTwilightTown")
+                        {
+                            if (MagicItems.Contains(item))
+                                STTPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                STTPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                STTPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                STTPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                STTPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                STTPoints += 3;
+
+                            if (item == "TornPage")
+                                STTPoints += 4;
+                        }
+
+                        if (world == "TwilightTown")
+                        {
+                            if (MagicItems.Contains(item))
+                                TTPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                TTPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                TTPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                TTPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                TTPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                TTPoints += 3;
+
+                            if (item == "TornPage")
+                                TTPoints += 4;
+                        }
+
+                        if (world == "HollowBastion")
+                        {
+                            if (MagicItems.Contains(item))
+                                HBPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                HBPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                HBPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                HBPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                HBPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                HBPoints += 3;
+
+                            if (item == "TornPage")
+                                HBPoints += 4;
+                        }
+
+                        if (world == "LandofDragons")
+                        {
+                            if (MagicItems.Contains(item))
+                                LoDPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                LoDPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                LoDPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                LoDPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                LoDPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                LoDPoints += 3;
+
+                            if (item == "TornPage")
+                                LoDPoints += 4;
+                        }
+
+                        if (world == "BeastsCastle")
+                        {
+                            if (MagicItems.Contains(item))
+                                BCPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                BCPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                BCPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                BCPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                BCPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                BCPoints += 3;
+
+                            if (item == "TornPage")
+                                BCPoints += 4;
+                        }
+
+                        if (world == "OlympusColiseum")
+                        {
+                            if (MagicItems.Contains(item))
+                                OCPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                OCPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                OCPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                OCPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                OCPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                OCPoints += 3;
+
+                            if (item == "TornPage")
+                                OCPoints += 4;
+                        }
+
+                        if (world == "DisneyCastle")
+                        {
+                            if (MagicItems.Contains(item))
+                                DCPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                DCPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                DCPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                DCPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                DCPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                DCPoints += 3;
+
+                            if (item == "TornPage")
+                                DCPoints += 4;
+                        }
+
+                        if (world == "PortRoyal")
+                        {
+                            if (MagicItems.Contains(item))
+                                PRPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                PRPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                PRPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                PRPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                PRPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                PRPoints += 3;
+
+                            if (item == "TornPage")
+                                PRPoints += 4;
+                        }
+
+                        if (world == "Agrabah")
+                        {
+                            if (MagicItems.Contains(item))
+                                AGPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                AGPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                AGPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                AGPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                AGPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                AGPoints += 3;
+
+                            if (item == "TornPage")
+                                AGPoints += 4;
+                        }
+
+                        if (world == "HalloweenTown")
+                        {
+                            if (MagicItems.Contains(item))
+                                HTPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                HTPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                HTPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                HTPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                HTPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                HTPoints += 3;
+
+                            if (item == "TornPage")
+                                HTPoints += 4;
+                        }
+
+                        if (world == "PrideLands")
+                        {
+                            if (MagicItems.Contains(item))
+                                PLPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                PLPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                PLPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                PLPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                PLPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                PLPoints += 3;
+
+                            if (item == "TornPage")
+                                PLPoints += 4;
+                        }
+
+                        if (world == "Atlantica")
+                        {
+                            if (MagicItems.Contains(item))
+                                ATPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                ATPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                ATPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                ATPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                ATPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                ATPoints += 3;
+
+                            if (item == "TornPage")
+                                ATPoints += 4;
+                        }
+
+                        if (world == "HundredAcreWood")
+                        {
+                            if (MagicItems.Contains(item))
+                                HAWPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                HAWPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                HAWPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                HAWPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                HAWPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                HAWPoints += 3;
+
+                            if (item == "TornPage")
+                                HAWPoints += 4;
+                        }
+
+                        if (world == "SpaceParanoids")
+                        {
+                            if (MagicItems.Contains(item))
+                                SPPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                SPPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                SPPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                SPPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                SPPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                SPPoints += 3;
+
+                            if (item == "TornPage")
+                                SPPoints += 4;
+                        }
+
+                        if (world == "TWTNW")
+                        {
+                            if (MagicItems.Contains(item))
+                                TWTNWPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                TWTNWPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                TWTNWPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                TWTNWPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                TWTNWPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                TWTNWPoints += 3;
+
+                            if (item == "TornPage")
+                                TWTNWPoints += 4;
+                        }
+
+                        if (world == "DriveForms")
+                        {
+                            if (MagicItems.Contains(item))
+                                DrivePoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                DrivePoints += 5;
+
+                            if (FormItems.Contains(item))
+                                DrivePoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                DrivePoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                DrivePoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                DrivePoints += 3;
+
+                            if (item == "TornPage")
+                                DrivePoints += 4;
+                        }
+
+                        if (world == "SorasHeart")
+                        {
+                            if (MagicItems.Contains(item))
+                                LevelPoints += 8;
+
+                            if (SummonItems.Contains(item))
+                                LevelPoints += 5;
+
+                            if (FormItems.Contains(item))
+                                LevelPoints += 10;
+
+                            if (AbilityItems.Contains(item))
+                                LevelPoints += 6;
+
+                            if (ProofItems.Contains(item))
+                                LevelPoints += 12;
+
+                            if (OtherItems.Contains(item))
+                                LevelPoints += 3;
+
+                            if (item == "TornPage")
+                                LevelPoints += 4;
+                        }
+                    }
+
+
+                }
+                else if (codes.Length == 1)
+                {
+                    if (codes[0] == "//Remove High Jump LVl" || codes[0] == "//Remove Quick Run LVl")
+                    {
+                        check1 = true;
+                    }
+                    else if (codes[0] == "//Remove Dodge Roll LVl")
+                    {
+                        check2 = true;
+                    }
+                }
+            }
+            streamReader.Close();
+
+            if (check1 == true && check2 == false)
+            {
+                foreach (string world in data.WorldsData.Keys.ToList())
+                {
+                    data.WorldsData[world].checkCount.Clear();
+                }
+            }
+
+            foreach (var key in data.WorldsData.Keys.ToList())
+            {
+                if (key == "GoA")
+                    continue;
+
+                //data.WorldsData[key].worldGrid.WorldComplete();
+                //SetReportValue(data.WorldsData[key].hint, 1);
+
+                if (key == "SimulatedTwilightTown")
+                    SetReportValue(data.WorldsData[key].hint, STTPoints + 1);
+
+                if (key == "TwilightTown")
+                    SetReportValue(data.WorldsData[key].hint, TTPoints + 1);
+
+                if (key == "HollowBastion")
+                    SetReportValue(data.WorldsData[key].hint, HBPoints + 1);
+
+                if (key == "LandofDragons")
+                    SetReportValue(data.WorldsData[key].hint, LoDPoints + 1);
+
+                if (key == "BeastsCastle")
+                    SetReportValue(data.WorldsData[key].hint, BCPoints + 1);
+
+                if (key == "OlympusColiseum")
+                    SetReportValue(data.WorldsData[key].hint, OCPoints + 1);
+
+                if (key == "DisneyCastle")
+                    SetReportValue(data.WorldsData[key].hint, DCPoints + 1);
+
+                if (key == "PortRoyal")
+                    SetReportValue(data.WorldsData[key].hint, PRPoints + 1);
+
+                if (key == "Agrabah")
+                    SetReportValue(data.WorldsData[key].hint, AGPoints + 1);
+
+                if (key == "HalloweenTown")
+                    SetReportValue(data.WorldsData[key].hint, HTPoints + 1);
+
+                if (key == "PrideLands")
+                    SetReportValue(data.WorldsData[key].hint, PLPoints + 1);
+
+                if (key == "Atlantica")
+                    SetReportValue(data.WorldsData[key].hint, ATPoints + 1);
+
+                if (key == "HundredAcreWood")
+                    SetReportValue(data.WorldsData[key].hint, HAWPoints + 1);
+
+                if (key == "SpaceParanoids")
+                    SetReportValue(data.WorldsData[key].hint, SPPoints + 1);
+
+                if (key == "TWTNW")
+                    SetReportValue(data.WorldsData[key].hint, TWTNWPoints + 1);
+
+                if (key == "DriveForms")
+                    SetReportValue(data.WorldsData[key].hint, DrivePoints + 1);
+
+                if (key == "SorasHeart")
+                    SetReportValue(data.WorldsData[key].hint, LevelPoints + 1);
+            }
+
+            HintText.Content = "Points Mode";
+        }
+
     }
 }

@@ -7,6 +7,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <FontFamily x:Key="HVD_Comic_Serif_Pro">pack://application:,,,/Fonts/#HVD Comic Serif Pro</FontFamily>
+            <FontFamily x:Key="KH2_ALL_MENU_I">pack://application:,,,/Fonts/#KH2 ALL MENU</FontFamily>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Dictionary1.xaml" />
             </ResourceDictionary.MergedDictionaries>

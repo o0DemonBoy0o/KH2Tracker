@@ -137,6 +137,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ProgressiveIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WorldGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -161,6 +165,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Fonts\HVD_Comic_Serif_Pro.otf" />
+    <Resource Include="Fonts\KH2_ALL_MENU_I.TTF" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1447,6 +1452,10 @@
     <Content Include="CustomImages\World\space_paranoids.png" />
     <Content Include="CustomImages\World\the_world_that_never_was.png" />
     <Content Include="CustomImages\World\twilight_town.png" />
+    <Resource Include="Images\Other\Simple\bronze.png" />
+    <Resource Include="Images\Other\Simple\silver.png" />
+    <Resource Include="Images\Other\Simple\gold.png" />
+    <Resource Include="Images\Other\Simple\death.png" />
     <Resource Include="Images\BG_broadcast.png" />
     <Resource Include="Images\Other\Game\chest.png" />
     <Resource Include="Images\Checks\Raisin\stone.png" />

@@ -115,6 +115,7 @@ namespace KhTracker
         AltHints,
         OpenKHHints,
         OpenKHAltHints,
+        DAHints,
         None
     }
 }
