@@ -245,7 +245,10 @@ namespace KhTracker
             "TwilightTown",
             "TWTNW",
             "TWTNW",
-            "TWTNW"
+            "TWTNW",
+            "DisneyCastle",
+            "GoA",
+            "HollowBastion"
         };
 
         string[] Free = new string[] {

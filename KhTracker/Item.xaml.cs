@@ -112,7 +112,23 @@ namespace KhTracker
         {
             Data data = MainWindow.data;
             MainWindow window = ((MainWindow)Application.Current.MainWindow);
-            int index = (int)GetValue(Grid.ColumnProperty);
+
+            bool ProofHints = false;
+            if (data.reportLocations.Count == 16)
+                ProofHints = true;
+
+            int index = 0;
+            if (ProofHints)
+            {
+                if (Name == "Nonexistence")
+                    index = 13;
+                else if (Name == "Connection")
+                    index = 14;
+                else if (Name == "Peace")
+                    index = 15;
+            }
+            else
+                index = (int)GetValue(Grid.ColumnProperty);
 
             window.SetHintText(Codes.GetHintTextName(data.reportInformation[index].Item1) + " has " + data.reportInformation[index].Item2 + " important checks");
         }

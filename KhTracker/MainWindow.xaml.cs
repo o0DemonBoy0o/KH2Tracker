@@ -67,6 +67,9 @@ namespace KhTracker
             data.Reports.Add(Report11);
             data.Reports.Add(Report12);
             data.Reports.Add(Report13);
+            data.Reports.Add(Nonexistence);
+            data.Reports.Add(Connection);
+            data.Reports.Add(Peace);
 
             data.ReportAttemptVisual.Add(Attempts1);
             data.ReportAttemptVisual.Add(Attempts2);
@@ -81,6 +84,9 @@ namespace KhTracker
             data.ReportAttemptVisual.Add(Attempts11);
             data.ReportAttemptVisual.Add(Attempts12);
             data.ReportAttemptVisual.Add(Attempts13);
+            data.ReportAttemptVisual.Add(Attempts14);
+            data.ReportAttemptVisual.Add(Attempts15);
+            data.ReportAttemptVisual.Add(Attempts16);
 
             data.TornPages.Add(TornPage1);
             data.TornPages.Add(TornPage2);

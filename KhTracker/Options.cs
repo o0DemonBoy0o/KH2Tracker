@@ -625,7 +625,7 @@ namespace KhTracker
 
             for (int i = 0; i < reportorder.Length; ++i)
             {
-                if (i <= 13 && devhintscheck)
+                if (i >= 13 && devhintscheck)
                     continue;
 
                 string location = data.codes.FindCode(reportorder[i]);
@@ -638,7 +638,11 @@ namespace KhTracker
             }
 
             data.hintsLoaded = true;
-            HintText.Content = "Jmartee Hints Loaded";
+            HintText.Content = "Jsmartee Hints Loaded";
+
+            //data.reportInformation.ForEach(Console.WriteLine);
+            //Console.WriteLine(data.reportLocations.Count);
+            //data.reportLocations.ForEach(Console.WriteLine);
         }
 
         private void ResetHints()
@@ -651,7 +655,7 @@ namespace KhTracker
             data.hintsLoaded = false;
             data.reportLocations.Clear();
             data.reportInformation.Clear();
-            data.reportAttempts = new List<int>() { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 };
+            data.reportAttempts = new List<int>() { 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3 };
 
             //figure out what numbers to use when resetting
             {
