@@ -67,8 +67,8 @@ namespace KhTracker
             data.Reports.Add(Report11);
             data.Reports.Add(Report12);
             data.Reports.Add(Report13);
-            data.Reports.Add(Nonexistence);
             data.Reports.Add(Connection);
+            data.Reports.Add(Nonexistence);
             data.Reports.Add(Peace);
 
             data.ReportAttemptVisual.Add(Attempts1);
@@ -845,12 +845,13 @@ namespace KhTracker
 
         private void InitOptions()
         {
-            PromiseCharmOption.IsChecked = Properties.Settings.Default.PromiseCharm;
-            HandleItemToggle(PromiseCharmOption.IsChecked, PromiseCharm, true);
+
 
             ReportsOption.IsChecked = Properties.Settings.Default.AnsemReports;
             for (int i = 0; i < data.Reports.Count; ++i)
             {
+                if (i >= 13)
+                    break;
                 HandleItemToggle(ReportsOption.IsChecked, data.Reports[i], true);
             }
 
@@ -934,6 +935,9 @@ namespace KhTracker
             ComboMasterOption.IsChecked = Properties.Settings.Default.ComboMaster;
             HandleItemToggle(ComboMasterOption.IsChecked, ComboMaster, true);
 
+            PromiseCharmOption.IsChecked = Properties.Settings.Default.PromiseCharm;
+            HandleItemToggle(PromiseCharmOption.IsChecked, PromiseCharm, true);
+
             WorldProgressOption.IsChecked = Properties.Settings.Default.WorldProgress;
             WorldProgressToggle(null, null);
 
@@ -957,6 +961,12 @@ namespace KhTracker
 
             FormsGrowthOption.IsChecked = Properties.Settings.Default.FormsGrowth;
             FormsGrowthToggle(null, null);
+
+            BroadcastGrowthOption.IsChecked = Properties.Settings.Default.BroadcastGrowth;
+            BroadcastGrowthToggle(null, null);
+
+            BroadcastStatsOption.IsChecked = Properties.Settings.Default.BroadcastStats;
+            BroadcastStatsToggle(null, null);
 
             Top = Properties.Settings.Default.WindowY;
             Left = Properties.Settings.Default.WindowX;

@@ -502,5 +502,29 @@ namespace KhTracker.Properties {
                 this["BroadcastBgColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BroadcastGrowth {
+            get {
+                return ((bool)(this["BroadcastGrowth"]));
+            }
+            set {
+                this["BroadcastGrowth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BroadcastStats {
+            get {
+                return ((bool)(this["BroadcastStats"]));
+            }
+            set {
+                this["BroadcastStats"] = value;
+            }
+        }
     }
 }

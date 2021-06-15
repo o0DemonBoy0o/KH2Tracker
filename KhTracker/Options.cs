@@ -975,7 +975,10 @@ namespace KhTracker
             broadcast.MasterLevel.Visibility = Visibility.Hidden;
             broadcast.FinalLevel.Visibility = Visibility.Hidden;
 
-            broadcast.WorldRow.Height = new GridLength(7, GridUnitType.Star);
+           //broadcast.WorldRowT.Height = new GridLength(2, GridUnitType.Star);
+           //broadcast.WorldRowM.Height = new GridLength(4, GridUnitType.Star);
+           //broadcast.WorldRowB.Height = new GridLength(2, GridUnitType.Star);
+
             broadcast.GrowthAbilityRow.Height = new GridLength(0, GridUnitType.Star);
             //FormRow.Height = new GridLength(0, GridUnitType.Star);
 
@@ -991,11 +994,17 @@ namespace KhTracker
             NoMasterM.Opacity = 1;
             NoFinalM.Opacity = 1;
 
-            //HighJump.Opacity = .25;
-            //QuickRun.Opacity = .25;
-            //DodgeRoll.Opacity = .25;
-            //AerialDodge.Opacity = .25;
-            //Glide.Opacity = .25;
+            broadcast.HighJump.Opacity = .25;
+            broadcast.QuickRun.Opacity = .25;
+            broadcast.DodgeRoll.Opacity = .25;
+            broadcast.AerialDodge.Opacity = .25;
+            broadcast.Glide.Opacity = .25;
+
+            HighJump.Opacity = .25;
+            QuickRun.Opacity = .25;
+            DodgeRoll.Opacity = .25;
+            AerialDodge.Opacity = .25;
+            Glide.Opacity = .25;
 
             // Reset / Turn off auto tracking
             collectedChecks.Clear();
@@ -1320,12 +1329,12 @@ namespace KhTracker
                 if (HadesCupOn && FoundCup == false)
                 {
                     data.codes.itemCodes.Add(537, "HadesCup");
-                    data.codes.itemPoints.Add("HadesCup", 3);
+                    //data.codes.itemPoints.Add("HadesCup", 3);
                 }
                 else if (HadesCupOn == false && FoundCup)
                 {
                     data.codes.itemCodes.Remove(537);
-                    data.codes.itemPoints.Remove("HadesCup");
+                    //data.codes.itemPoints.Remove("HadesCup");
                 }
             }
 
@@ -1341,12 +1350,12 @@ namespace KhTracker
                 if (MemberCardOn && FoundCard == false)
                 {
                     data.codes.itemCodes.Add(369, "MembershipCard");
-                    data.codes.itemPoints.Add("MembershipCard", 3);
+                    //data.codes.itemPoints.Add("MembershipCard", 3);
                 }
                 else if (MemberCardOn == false && FoundCard)
                 {
                     data.codes.itemCodes.Remove(369);
-                    data.codes.itemPoints.Remove("MembershipCard");
+                   //data.codes.itemPoints.Remove("MembershipCard");
                 }
             }
 
@@ -1362,12 +1371,12 @@ namespace KhTracker
                 if (StoneOn && FoundStone == false)
                 {
                     data.codes.itemCodes.Add(370, "OlympusStone");
-                    data.codes.itemPoints.Add("OlympusStone", 3);
+                    //data.codes.itemPoints.Add("OlympusStone", 3);
                 }
                 else if (StoneOn == false && FoundStone)
                 {
                     data.codes.itemCodes.Remove(370);
-                    data.codes.itemPoints.Remove("OlympusStone");
+                    //data.codes.itemPoints.Remove("OlympusStone");
                 }
             }
 
@@ -1383,12 +1392,12 @@ namespace KhTracker
                 if (ComboMasterOn && FoundCM == false)
                 {
                     data.codes.itemCodes.Add(539, "ComboMaster");
-                    data.codes.itemPoints.Add("ComboMaster", 6);
+                    //data.codes.itemPoints.Add("ComboMaster", 6);
                 }
                 else if (ComboMasterOn == false && FoundCM)
                 {
                     data.codes.itemCodes.Remove(539);
-                    data.codes.itemPoints.Remove("ComboMaster");
+                    //data.codes.itemPoints.Remove("ComboMaster");
                 }
             }
         }

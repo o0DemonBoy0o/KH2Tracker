@@ -121,11 +121,13 @@ namespace KhTracker
             if (ProofHints)
             {
                 if (Name == "Nonexistence")
-                    index = 13;
-                else if (Name == "Connection")
                     index = 14;
+                else if (Name == "Connection")
+                    index = 13;
                 else if (Name == "Peace")
                     index = 15;
+                else if (Name.Contains("Report"))
+                    index = (int)GetValue(Grid.ColumnProperty);
             }
             else
                 index = (int)GetValue(Grid.ColumnProperty);

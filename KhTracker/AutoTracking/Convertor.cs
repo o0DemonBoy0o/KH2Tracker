@@ -184,7 +184,7 @@ namespace KhTracker
             }
             else if ((int)value == 7)
             {
-                return (BluePath + "/numbersblue/7.png");
+                return (BluePath + "/numbers/7.png");
             }
             else
             {
@@ -214,7 +214,7 @@ namespace KhTracker
             {
                 return 6;
             }
-            else if ((string)value == (BluePath + "/numbersblue/7.png"))
+            else if ((string)value == (BluePath + "/numbers/7.png"))
             {
                 return 7;
             }
@@ -355,11 +355,11 @@ namespace KhTracker
                 }
             }
 
-            if ((int)value == 0)
-            {
-                return (EnabledPath + "/numbers/0.png");
-            }
-            else if ((int)value == 1)
+            //if ((int)value == 0)
+            //{
+            //    return (EnabledPath + "/numbers/0.png");
+            //}
+            if ((int)value == 1)
             {
                 return (EnabledPath + "/numbers/1.png");
             }
@@ -373,7 +373,7 @@ namespace KhTracker
             }
             else if ((int)value == 4)
             {
-                return (BluePath + "/numbersblue/4.png");
+                return (BluePath + "/numbers/4.png");
             }
             else if ((int)value >= 5)
             {
@@ -381,17 +381,17 @@ namespace KhTracker
             }
             else
             {
-                return (EnabledPath + "/numbers/0.png");
+                return "";
             }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if ((string)value == (EnabledPath + "/numbers/0.png"))
-            {
-                return 0;
-            }
-            else if ((string)value == (EnabledPath + "/numbers/1.png"))
+            //if ((string)value == (EnabledPath + "/numbers/0.png"))
+            //{
+            //    return 0;
+            //}
+            if ((string)value == (EnabledPath + "/numbers/1.png"))
             {
                 return 1;
             }
@@ -403,7 +403,7 @@ namespace KhTracker
             {
                 return 3;
             }
-            else if ((string)value == (BluePath + "/numbersblue/4.png"))
+            else if ((string)value == (BluePath + "/numbers/4.png"))
             {
                 return 4;
             }
@@ -464,7 +464,7 @@ namespace KhTracker
                 if ((int)value <= 98)
                     return EnabledPath + "/numbers/" + (value).ToString() + ".png";
                 else
-                    return BluePath + "/numbersblue/99.png";
+                    return BluePath + "/numbers/99.png";
             }
             else
             {

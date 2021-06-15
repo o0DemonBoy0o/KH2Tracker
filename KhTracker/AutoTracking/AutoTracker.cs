@@ -241,14 +241,14 @@ namespace KhTracker
             importantChecks.Add(nonexist = new Proof(memory, Save + 0x36B3, ADDRESS_OFFSET, "Nonexistence"));
             importantChecks.Add(connection = new Proof(memory, Save + 0x36B2, ADDRESS_OFFSET, "Connection"));
 
+            int count = pages != null ? pages.Quantity : 0;
+            importantChecks.Add(pages = new TornPage(memory, Save + 0x3598, ADDRESS_OFFSET, "TornPage"));
+            pages.Quantity = count;
+
             //test
             importantChecks.Add(hadescup = new KeyItem(memory, Save + 0x3696, ADDRESS_OFFSET, "HadesCup"));
             importantChecks.Add(membershipcard = new KeyItem(memory, Save + 0x3643, ADDRESS_OFFSET, "MembershipCard"));
             importantChecks.Add(olypusstone = new KeyItem(memory, Save + 0x3644, ADDRESS_OFFSET, "OlympusStone"));
-
-            int count = pages != null ? pages.Quantity : 0;
-            importantChecks.Add(pages = new TornPage(memory, Save + 0x3598, ADDRESS_OFFSET, "TornPage"));
-            pages.Quantity = count;
 
             if (PCSX2)
                 world = new World(memory, ADDRESS_OFFSET, Now, 0x00351EC8, Save + 0x1CFF);
@@ -311,8 +311,15 @@ namespace KhTracker
             broadcast.MasterLevel.Visibility = Visibility.Visible;
             broadcast.FinalLevel.Visibility = Visibility.Visible;
 
-            broadcast.WorldRow.Height = new GridLength(6, GridUnitType.Star);
-            broadcast.GrowthAbilityRow.Height = new GridLength(1, GridUnitType.Star);
+            if (BroadcastGrowthOption.IsChecked)
+                broadcast.GrowthAbilityRow.Height = new GridLength(1, GridUnitType.Star);
+
+            if (BroadcastStatsOption.IsChecked)
+                broadcast.StatsRow.Height = new GridLength(1, GridUnitType.Star);
+
+            //broadcast.WorldRowT.Height = new GridLength(2, GridUnitType.Star);
+            //broadcast.WorldRowM.Height = new GridLength(4, GridUnitType.Star);
+            //broadcast.WorldRowB.Height = new GridLength(2, GridUnitType.Star);
             //FormRow.Height = new GridLength(0.65, GridUnitType.Star);
 
             SetBindings();
@@ -364,17 +371,23 @@ namespace KhTracker
             BindStats(Magic, "Magic", stats);
             BindStats(Defense, "Defense", stats);
 
+            BindStats(broadcast.Level, "Level", stats);
+            BindWeapon(broadcast.Weapon, "Weapon", stats);
+            BindStats(broadcast.Strength, "Strength", stats);
+            BindStats(broadcast.Magic, "Magic", stats);
+            BindStats(broadcast.Defense, "Defense", stats);
+
             BindLevel(broadcast.ValorLevel, "Level", valor);
             BindLevel(broadcast.WisdomLevel, "Level", wisdom);
             BindLevel(broadcast.LimitLevel, "Level", limit);
             BindLevel(broadcast.MasterLevel, "Level", master);
             BindLevel(broadcast.FinalLevel, "Level", final);
 
-            //BindAbility(broadcast.HighJump, "Obtained", highJump);
-            //BindAbility(broadcast.QuickRun, "Obtained", quickRun);
-            //BindAbility(broadcast.DodgeRoll, "Obtained", dodgeRoll);
-            //BindAbility(broadcast.AerialDodge, "Obtained", aerialDodge);
-            //BindAbility(broadcast.Glide, "Obtained", glide);
+            BindAbility(broadcast.HighJump, "Obtained", highJump);
+            BindAbility(broadcast.QuickRun, "Obtained", quickRun);
+            BindAbility(broadcast.DodgeRoll, "Obtained", dodgeRoll);
+            BindAbility(broadcast.AerialDodge, "Obtained", aerialDodge);
+            BindAbility(broadcast.Glide, "Obtained", glide);
 
             BindAbilityLevel(broadcast.HighJumpLevel, "Level", highJump, new GrowthAbilityConverter());
             BindAbilityLevel(broadcast.QuickRunLevel, "Level", quickRun, new GrowthAbilityConverter());
@@ -384,11 +397,11 @@ namespace KhTracker
 
             //No longer change opacity for growth levels
             //track in main window
-            //BindAbility(HighJump, "Obtained", highJump);
-            //BindAbility(QuickRun, "Obtained", quickRun);
-            //BindAbility(DodgeRoll, "Obtained", dodgeRoll);
-            //BindAbility(AerialDodge, "Obtained", aerialDodge);
-            //BindAbility(Glide, "Obtained", glide);
+            BindAbility(HighJump, "Obtained", highJump);
+            BindAbility(QuickRun, "Obtained", quickRun);
+            BindAbility(DodgeRoll, "Obtained", dodgeRoll);
+            BindAbility(AerialDodge, "Obtained", aerialDodge);
+            BindAbility(Glide, "Obtained", glide);
 
             BindAbilityLevel(HighJumpLevel, "Level", highJump, new GrowthAbilityConverter());
             BindAbilityLevel(QuickRunLevel, "Level", quickRun, new GrowthAbilityConverter());
@@ -2544,11 +2557,11 @@ namespace KhTracker
             img.SetBinding(Image.SourceProperty, binding);
         }
 
-        private void BindAbility(Image img, string property, object source)
+        private void BindAbility(ContentControl img, string property, object source)
         {
             Binding binding = new Binding(property);
             binding.Source = source;
-            binding.Converter = new ObtainedConverter();
+            binding.Converter = new ObtainedConverterOrig();
             img.SetBinding(OpacityProperty, binding);
         }
 
@@ -2566,17 +2579,29 @@ namespace KhTracker
             BindStats(Magic, "Magic", stats);
             BindStats(Defense, "Defense", stats);
 
+            BindStats(broadcast.Level, "Level", stats);
+            BindWeapon(broadcast.Weapon, "Weapon", stats);
+            BindStats(broadcast.Strength, "Strength", stats);
+            BindStats(broadcast.Magic, "Magic", stats);
+            BindStats(broadcast.Defense, "Defense", stats);
+
             BindLevel(broadcast.ValorLevel, "Level", valor);
             BindLevel(broadcast.WisdomLevel, "Level", wisdom);
             BindLevel(broadcast.LimitLevel, "Level", limit);
             BindLevel(broadcast.MasterLevel, "Level", master);
             BindLevel(broadcast.FinalLevel, "Level", final);
 
-            //BindAbility(broadcast.HighJump, "Obtained", highJump);
-            //BindAbility(broadcast.QuickRun, "Obtained", quickRun);
-            //BindAbility(broadcast.DodgeRoll, "Obtained", dodgeRoll);
-            //BindAbility(broadcast.AerialDodge, "Obtained", aerialDodge);
-            //BindAbility(broadcast.Glide, "Obtained", glide);
+            BindAbility(broadcast.HighJump, "Obtained", highJump);
+            BindAbility(broadcast.QuickRun, "Obtained", quickRun);
+            BindAbility(broadcast.DodgeRoll, "Obtained", dodgeRoll);
+            BindAbility(broadcast.AerialDodge, "Obtained", aerialDodge);
+            BindAbility(broadcast.Glide, "Obtained", glide);
+
+            BindAbility(HighJump, "Obtained", highJump);
+            BindAbility(QuickRun, "Obtained", quickRun);
+            BindAbility(DodgeRoll, "Obtained", dodgeRoll);
+            BindAbility(AerialDodge, "Obtained", aerialDodge);
+            BindAbility(Glide, "Obtained", glide);
 
             BindAbilityLevel(broadcast.HighJumpLevel, "Level", highJump, new GrowthAbilityConverter());
             BindAbilityLevel(broadcast.QuickRunLevel, "Level", quickRun, new GrowthAbilityConverter());

@@ -135,9 +135,9 @@ namespace KhTracker
                 if (TEST)
                 {
                     if (item.Name == "Nonexistence")
-                        index = 13;
-                    else if (item.Name == "Connection")
                         index = 14;
+                    else if (item.Name == "Connection")
+                        index = 13;
                     else if (item.Name == "Peace")
                         index = 15;
                 }
@@ -173,9 +173,9 @@ namespace KhTracker
                             int reportIndex = 0;
 
                             if (gridItem.Name.Contains("Nonexistence"))
-                                reportIndex = 13;
-                            else if (gridItem.Name.Contains("Connection"))
                                 reportIndex = 14;
+                            else if (gridItem.Name.Contains("Connection"))
+                                reportIndex = 13;
                             else if (gridItem.Name.Contains("Peace"))
                                 reportIndex = 15;
                             else
@@ -198,70 +198,6 @@ namespace KhTracker
                     return false;
                 }
             }
-
-            // item is a proof
-            //if (data.hintsLoaded && (TEST && (int)item.GetValue(Grid.RowProperty) == 3 && ((int)item.GetValue(Grid.ColumnProperty) == 9 || (int)item.GetValue(Grid.ColumnProperty) == 10 || (int)item.GetValue(Grid.ColumnProperty) == 11)))
-            //{
-            //    int index = 0;
-            //    {
-            //        if (item.Name == "Nonexistence")
-            //            index = 13;
-            //        if (item.Name == "Connection")
-            //            index = 14;
-            //        if (item.Name == "Peace")
-            //            index = 15;
-            //    }
-            //
-            //    Console.WriteLine(item.Name);
-            //
-            //    // out of report attempts
-            //    //if (data.reportAttempts[index] == 0)
-            //    //return false;
-            //
-            //    string whatthis = Name.Substring(0, Name.Length - 4);
-            //    string what2 = data.reportLocations[index];
-            //    Console.WriteLine("Location is - " + data.reportLocations[index]);
-            //
-            //    // check for correct report location
-            //    if (data.reportLocations[index] == Name.Substring(0, Name.Length - 4))
-            //    {
-            //        // hint text and resetting fail icons
-            //        window.SetHintText(Codes.GetHintTextName(data.reportInformation[index].Item1) + " has " + data.reportInformation[index].Item2 + " important checks");
-            //        //data.ReportAttemptVisual[index].SetResourceReference(ContentControl.ContentProperty, "Fail0");
-            //        //data.reportAttempts[index] = 3;
-            //        isreport = true;
-            //        item.DragDropEventFire(data.reportInformation[index].Item1, data.reportInformation[index].Item2);
-            //
-            //        // set world report hints to as hinted then checks if the report location was hinted to set if its a hinted hint
-            //        data.WorldsData[data.reportInformation[index].Item1].hinted = true;
-            //        if (data.WorldsData[data.reportLocations[index]].hinted == true)
-            //        {
-            //            data.WorldsData[data.reportInformation[index].Item1].hintedHint = true;
-            //        }
-            //
-            //        // loop through hinted world for reports to set their info as hinted hints
-            //        //for (int i = 0; i < data.WorldsData[data.reportInformation[index].Item1].worldGrid.Children.Count; ++i)
-            //        //{
-            //        //    Item gridItem = data.WorldsData[data.reportInformation[index].Item1].worldGrid.Children[i] as Item;
-            //        //    if (gridItem.Name.Contains("Report") || gridItem.Name.Contains("Proof"))
-            //        //    {
-            //        //        int reportIndex = int.Parse(gridItem.Name.Substring(6)) - 1;
-            //        //        data.WorldsData[data.reportInformation[reportIndex].Item1].hintedHint = true;
-            //        //        window.SetReportValue(data.WorldsData[data.reportInformation[reportIndex].Item1].hint, data.reportInformation[reportIndex].Item2 + 1);
-            //        //    }
-            //        //}
-            //
-            //        // auto update world important check number
-            //        window.SetReportValue(data.WorldsData[data.reportInformation[index].Item1].hint, data.reportInformation[index].Item2 + 1);
-            //    }
-            //    else
-            //    {
-            //        // update fail icons when location is report location is wrong
-            //        //AddFailIcon(index);
-            //       // return false;
-            //    }
-            //}
-
 
             if (isreport)
             {

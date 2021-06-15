@@ -190,6 +190,12 @@ namespace KhTracker
             {593, "Connection"},
             {594, "Nonexistence"},
             {595, "Peace"},
+            //extra checks
+            {369, "MembershipCard"},
+            {370, "OlympusStone"},
+            {537, "HadesCup"},
+            {539, "ComboMaster"},
+
         };
 
         public Dictionary<string, int> itemPoints = new Dictionary<string, int>

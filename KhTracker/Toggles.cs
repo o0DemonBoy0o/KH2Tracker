@@ -92,9 +92,15 @@ namespace KhTracker
             Properties.Settings.Default.PromiseCharm = toggle;
             PromiseCharmOption.IsChecked = toggle;
             if (toggle)
+            {
                 broadcast.PromiseCharm.Visibility = Visibility.Visible;
+                broadcast.PromiseCharmCol.Width = new GridLength(1.0, GridUnitType.Star);
+            }
             else
+            {
                 broadcast.PromiseCharm.Visibility = Visibility.Hidden;
+                broadcast.PromiseCharmCol.Width = new GridLength(0, GridUnitType.Star);
+            }
             HandleItemToggle(toggle, PromiseCharm, false);
         }
 
@@ -111,17 +117,17 @@ namespace KhTracker
             if (toggle)
             {
                 broadcast.HadesCup.Visibility = Visibility.Visible;
+                broadcast.CupCol.Width = new GridLength(1.0, GridUnitType.Star);
             }
 
             else
             {
                 broadcast.HadesCup.Visibility = Visibility.Hidden;
+                broadcast.CupCol.Width = new GridLength(0, GridUnitType.Star);
             }
 
             HandleItemToggle(toggle, HadesCup, false);
-
-            ExtraItemToggleCheck();
-
+            //ExtraItemToggleCheck();
         }
 
         private void HBCardToggle(object sender, RoutedEventArgs e)
@@ -136,16 +142,17 @@ namespace KhTracker
             if (toggle)
             {
                 broadcast.MembershipCard.Visibility = Visibility.Visible;
+                broadcast.CardCol.Width = new GridLength(1.0, GridUnitType.Star);
             }
 
             else
             {
                 broadcast.MembershipCard.Visibility = Visibility.Hidden;
+                broadcast.CardCol.Width = new GridLength(0, GridUnitType.Star);
             }
 
             HandleItemToggle(toggle, MembershipCard, false);
-
-            ExtraItemToggleCheck();
+            //ExtraItemToggleCheck();
         }
 
         private void OStoneToggle(object sender, RoutedEventArgs e)
@@ -160,16 +167,15 @@ namespace KhTracker
             if (toggle)
             {
                 broadcast.OlympusStone.Visibility = Visibility.Visible;
+                broadcast.StoneCol.Width = new GridLength(1.0, GridUnitType.Star);
             }
-
             else
             {
                 broadcast.OlympusStone.Visibility = Visibility.Hidden;
+                broadcast.StoneCol.Width = new GridLength(0, GridUnitType.Star);
             }
-
             HandleItemToggle(toggle, OlympusStone, false);
-
-            ExtraItemToggleCheck();
+            //ExtraItemToggleCheck();
         }
 
 
@@ -184,6 +190,8 @@ namespace KhTracker
             ReportsOption.IsChecked = toggle;
             for (int i = 0; i < data.Reports.Count; ++i)
             {
+                if (i >= 13)
+                    break;
                 HandleItemToggle(toggle, data.Reports[i], false);
             }
         }
@@ -197,6 +205,20 @@ namespace KhTracker
         {
             Properties.Settings.Default.Abilities = toggle;
             AbilitiesOption.IsChecked = toggle;
+            if (toggle)
+            {
+                //broadcast.SecondChance.Visibility = Visibility.Visible;
+                broadcast.SecondChanceCol.Width = new GridLength(1.0, GridUnitType.Star);
+                //broadcast.OnceMore.Visibility = Visibility.Visible;
+                broadcast.OnceMoreCol.Width = new GridLength(1.0, GridUnitType.Star);
+            }
+            else
+            {
+                //broadcast.SecondChance.Visibility = Visibility.Hidden;
+                broadcast.SecondChanceCol.Width = new GridLength(0, GridUnitType.Star);
+                //broadcast.OnceMore.Visibility = Visibility.Hidden;
+                broadcast.OnceMoreCol.Width = new GridLength(0, GridUnitType.Star);
+            }
             HandleItemToggle(toggle, OnceMore, false);
             HandleItemToggle(toggle, SecondChance, false);
         }
@@ -211,6 +233,10 @@ namespace KhTracker
             Properties.Settings.Default.ComboMaster = toggle;
             ComboMasterOption.IsChecked = toggle;
             HandleItemToggle(toggle, ComboMaster, false);
+            if (toggle)
+                broadcast.ComboMasterCol.Width = new GridLength(1.0, GridUnitType.Star);
+            else
+                broadcast.ComboMasterCol.Width = new GridLength(0, GridUnitType.Star);
         }
 
         private void TornPagesToggle(object sender, RoutedEventArgs e)
@@ -264,6 +290,10 @@ namespace KhTracker
             Properties.Settings.Default.SoraHeart = toggle;
             SoraHeartOption.IsChecked = toggle;
             HandleWorldToggle(toggle, SorasHeart, SorasHeartGrid);
+            if (toggle)
+                broadcast.HeartCol.Width = new GridLength(1.0, GridUnitType.Star);
+            else
+                broadcast.HeartCol.Width = new GridLength(0, GridUnitType.Star);
         }
 
         private void SimulatedToggle(object sender, RoutedEventArgs e)
@@ -276,6 +306,10 @@ namespace KhTracker
             Properties.Settings.Default.Simulated = toggle;
             SimulatedOption.IsChecked = toggle;
             HandleWorldToggle(toggle, SimulatedTwilightTown, SimulatedTwilightTownGrid);
+            if (toggle)
+                broadcast.STTColumn.Width = new GridLength(1.0, GridUnitType.Star);
+            else
+                broadcast.STTColumn.Width = new GridLength(0, GridUnitType.Star);
         }
 
         private void HundredAcreWoodToggle(object sender, RoutedEventArgs e)
@@ -288,6 +322,10 @@ namespace KhTracker
             Properties.Settings.Default.HundredAcre = toggle;
             HundredAcreWoodOption.IsChecked = toggle;
             HandleWorldToggle(toggle, HundredAcreWood, HundredAcreWoodGrid);
+            if (toggle)
+                broadcast.HAWColumn.Width = new GridLength(1.0, GridUnitType.Star);
+            else
+                broadcast.HAWColumn.Width = new GridLength(0, GridUnitType.Star);
         }
 
         private void AtlanticaToggle(object sender, RoutedEventArgs e)
@@ -300,6 +338,10 @@ namespace KhTracker
             Properties.Settings.Default.Atlantica = toggle;
             AtlanticaOption.IsChecked = toggle;
             HandleWorldToggle(toggle, Atlantica, AtlanticaGrid);
+            if (toggle)
+                broadcast.ATColumn.Width = new GridLength(1.0, GridUnitType.Star);
+            else
+                broadcast.ATColumn.Width = new GridLength(0, GridUnitType.Star);
         }
 
         private void SimpleToggle(object sender, RoutedEventArgs e)
@@ -404,6 +446,10 @@ namespace KhTracker
                 broadcast.Report.SetResourceReference(ContentProperty, "AnsemReport");
                 broadcast.TornPage.SetResourceReference(ContentProperty, "TornPageB");
                 broadcast.Chest.SetResourceReference(ContentProperty, "Chest");
+                broadcast.LevelIcon.SetResourceReference(ContentProperty, "LevelIcon");
+                broadcast.StrengthIcon.SetResourceReference(ContentProperty, "StrengthIcon");
+                broadcast.MagicIcon.SetResourceReference(ContentProperty, "MagicIcon");
+                broadcast.DefenseIcon.SetResourceReference(ContentProperty, "DefenseIcon");
 
                 broadcast.Peace.SetResourceReference(ContentProperty, "ProofOfPeace");
                 broadcast.Nonexistence.SetResourceReference(ContentProperty, "ProofOfNonexistence");
@@ -557,6 +603,10 @@ namespace KhTracker
                 broadcast.Report.SetResourceReference(ContentProperty, "Orb-AnsemReport");
                 broadcast.TornPage.SetResourceReference(ContentProperty, "Orb-TornPageB");
                 broadcast.Chest.SetResourceReference(ContentProperty, "Orb-Chest");
+                broadcast.LevelIcon.SetResourceReference(ContentProperty, "Orb-LevelIcon");
+                broadcast.StrengthIcon.SetResourceReference(ContentProperty, "Orb-StrengthIcon");
+                broadcast.MagicIcon.SetResourceReference(ContentProperty, "Orb-MagicIcon");
+                broadcast.DefenseIcon.SetResourceReference(ContentProperty, "Orb-DefenseIcon");
 
                 broadcast.Peace.SetResourceReference(ContentProperty, "Orb-ProofOfPeace");
                 broadcast.Nonexistence.SetResourceReference(ContentProperty, "Orb-ProofOfNonexistence");
@@ -709,6 +759,10 @@ namespace KhTracker
                 broadcast.Report.SetResourceReference(ContentProperty, "BW-AnsemReport");
                 broadcast.TornPage.SetResourceReference(ContentProperty, "BW-TornPageB");
                 broadcast.Chest.SetResourceReference(ContentProperty, "BW-Chest");
+                broadcast.LevelIcon.SetResourceReference(ContentProperty, "BW-LevelIcon");
+                broadcast.StrengthIcon.SetResourceReference(ContentProperty, "BW-StrengthIcon");
+                broadcast.MagicIcon.SetResourceReference(ContentProperty, "BW-MagicIcon");
+                broadcast.DefenseIcon.SetResourceReference(ContentProperty, "BW-DefenseIcon");
 
                 broadcast.Peace.SetResourceReference(ContentProperty, "BW-ProofOfPeace");
                 broadcast.Nonexistence.SetResourceReference(ContentProperty, "BW-ProofOfNonexistence");
@@ -1218,6 +1272,24 @@ namespace KhTracker
                 FormRow.Height = new GridLength(0, GridUnitType.Star);
         }
 
+        private void BroadcastGrowthToggle(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.BroadcastGrowth = BroadcastGrowthOption.IsChecked;
+            if (BroadcastGrowthOption.IsChecked == false && broadcast.GrowthAbilityRow.Height.Value >= 0.01)
+                broadcast.GrowthAbilityRow.Height = new GridLength(0, GridUnitType.Star);
+            else if (BroadcastGrowthOption.IsChecked && aTimer != null)
+                broadcast.GrowthAbilityRow.Height = new GridLength(1, GridUnitType.Star);
+        }
+
+        private void BroadcastStatsToggle(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.BroadcastStats = BroadcastStatsOption.IsChecked;
+            if (BroadcastStatsOption.IsChecked == false && broadcast.StatsRow.Height.Value >= 0.01)
+                broadcast.StatsRow.Height = new GridLength(0, GridUnitType.Star);
+            else if (BroadcastStatsOption.IsChecked && aTimer != null)
+                broadcast.StatsRow.Height = new GridLength(1, GridUnitType.Star);
+        }
+
         private void CustomChecksCheck()
         {
             if (CustomFolderOption.IsChecked == true)
@@ -1581,21 +1653,14 @@ namespace KhTracker
             }
         }
 
-        //i use this to check if any one of the Hades cup, olympus stone, or membership card toggles are enabled.
-        //if any of them are it shows the grid for for them on the broadcast window, else is hides it.
-        //i just didn't want a big empty space in it if all of them were disabled
         private void ExtraItemToggleCheck()
         {
-            bool HadesCupOn = HadesTrophyOption.IsChecked;
-            bool MemberCardOn = HBCardOption.IsChecked;
-            bool StoneOn = OStoneOption.IsChecked;
-
-            if (HadesCupOn || MemberCardOn || StoneOn)
-                broadcast.ExtraCheckRow.Height = new GridLength(1.0, GridUnitType.Star);
-            else
-                broadcast.ExtraCheckRow.Height = new GridLength(0, GridUnitType.Star);
-
-
+            HadesTrophyToggle(HadesTrophyOption.IsChecked);
+            OStoneToggle(OStoneOption.IsChecked);
+            HBCardToggle(HBCardOption.IsChecked);
+            ComboMasterToggle(ComboMasterOption.IsChecked);
+            AbilitiesToggle(AbilitiesOption.IsChecked);
+            PromiseCharmToggle(PromiseCharmOption.IsChecked);
         }
     }
 }

@@ -154,10 +154,10 @@
     <Image x:Key="AnsemReport" 	 		Source="Images\Other\Simple\ansem_report.png" x:Shared="false"/>
     <Image x:Key="TornPageB" 	 		Source="Images\Other\Simple\torn_pages.png" x:Shared="false"/>
     <Image x:Key="Chest" 	 			Source="Images\Other\Simple\chest.png" x:Shared="false"/>
-    <Image x:Key="LevelIcon"  			Source="Images\Other\Simple\level.png"/>
-    <Image x:Key="StrengthIcon"  		Source="Images\Other\Simple\strength.png"/>
-    <Image x:Key="MagicIcon"  			Source="Images\Other\Simple\magic.png"/>
-    <Image x:Key="DefenseIcon"  		Source="Images\Other\Simple\defence.png"/>
+    <Image x:Key="LevelIcon"  			Source="Images\Other\Simple\level.png" x:Shared="false"/>
+    <Image x:Key="StrengthIcon"  		Source="Images\Other\Simple\strength.png" x:Shared="false"/>
+    <Image x:Key="MagicIcon"  			Source="Images\Other\Simple\magic.png" x:Shared="false"/>
+    <Image x:Key="DefenseIcon"  		Source="Images\Other\Simple\defence.png" x:Shared="false"/>
     <Image x:Key="CollectedBarYellow" 	Source="Images\Numbers\Kh2\Bar.png" x:Shared="false"/>
     <Image x:Key="CollectedBarBlue" 	Source="Images\Numbers\Kh2\BarBlue.png"/>
     <Image x:Key="VerticalBar" 			Source="Images\VerticalBar.png"/>
@@ -213,10 +213,10 @@
     <Image x:Key="Orb-AnsemReport" 	 		Source="Images\Other\Game\ansem_report.png" x:Shared="false"/>
     <Image x:Key="Orb-TornPageB" 	 		Source="Images\Other\Game\torn_pages.png" x:Shared="false"/>
     <Image x:Key="Orb-Chest" 	 			Source="Images\Other\Game\chest.png" x:Shared="false"/>
-    <Image x:Key="Orb-LevelIcon"  			Source="Images\Other\Simple\level.png"/>
-    <Image x:Key="Orb-StrengthIcon"  		Source="Images\Other\Simple\strength.png"/>
-    <Image x:Key="Orb-MagicIcon"  			Source="Images\Other\Simple\magic.png"/>
-    <Image x:Key="Orb-DefenseIcon"  		Source="Images\Other\Simple\defence.png"/>
+    <Image x:Key="Orb-LevelIcon"  			Source="Images\Other\Simple\level.png" x:Shared="false"/>
+    <Image x:Key="Orb-StrengthIcon"  		Source="Images\Other\Simple\strength.png" x:Shared="false"/>
+    <Image x:Key="Orb-MagicIcon"  			Source="Images\Other\Simple\magic.png" x:Shared="false"/>
+    <Image x:Key="Orb-DefenseIcon"  		Source="Images\Other\Simple\defence.png" x:Shared="false"/>
     <Image x:Key="Orb-CollectedBarYellow" 	Source="Images\Numbers\Kh2\Bar.png" x:Shared="false"/>
     <Image x:Key="Orb-CollectedBarBlue" 	Source="Images\Numbers\Kh2\BarBlue.png"/>
     <Image x:Key="Orb-VerticalBar" 			Source="Images\VerticalBar.png"/>
@@ -272,10 +272,10 @@
     <Image x:Key="BW-AnsemReport" 	 		Source="Images\Other\Raisin\ansem_report.png" x:Shared="false"/>
     <Image x:Key="BW-TornPageB" 	 		Source="Images\Other\Raisin\torn_pages.png" x:Shared="false"/>
     <Image x:Key="BW-Chest" 	 			Source="Images\Other\Raisin\chest.png" x:Shared="false"/>
-    <Image x:Key="BW-LevelIcon"  			Source="Images\Other\Raisin\level.png"/>
-    <Image x:Key="BW-StrengthIcon"  		Source="Images\Other\Raisin\strength.png"/>
-    <Image x:Key="BW-MagicIcon"  			Source="Images\Other\Raisin\magic.png"/>
-    <Image x:Key="BW-DefenseIcon"  			Source="Images\Other\Raisin\defence.png"/>
+    <Image x:Key="BW-LevelIcon"  			Source="Images\Other\Raisin\level.png" x:Shared="false"/>
+    <Image x:Key="BW-StrengthIcon"  		Source="Images\Other\Raisin\strength.png" x:Shared="false"/>
+    <Image x:Key="BW-MagicIcon"  			Source="Images\Other\Raisin\magic.png" x:Shared="false"/>
+    <Image x:Key="BW-DefenseIcon"  			Source="Images\Other\Raisin\defence.png" x:Shared="false"/>
     <Image x:Key="BW-CollectedBarYellow" 	Source="Images\Numbers\Raisin\Bar.png" x:Shared="false"/>
     <Image x:Key="BW-CollectedBarBlue"		Source="Images\Numbers\Raisin\BarBlue.png"/>
     <Image x:Key="BW-VerticalBar" 			Source="Images\VerticalBarBlack.png"/>
