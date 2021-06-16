@@ -1513,21 +1513,25 @@ namespace KhTracker
                 if (CustomLevelFound)
                 {
                     LevelIcon.SetResourceReference(ContentProperty, "Custom-LevelIcon");
+                    broadcast.LevelIcon.SetResourceReference(ContentProperty, "Custom-LevelIcon");
                 }
 
                 if (CustomStrengthFound)
                 {
                     StrengthIcon.SetResourceReference(ContentProperty, "Custom-StrengthIcon");
+                    broadcast.StrengthIcon.SetResourceReference(ContentProperty, "Custom-StrengthIcon");
                 }
 
                 if (CustomMagicFound)
                 {
                     MagicIcon.SetResourceReference(ContentProperty, "Custom-MagicIcon");
+                    broadcast.MagicIcon.SetResourceReference(ContentProperty, "Custom-MagicIcon");
                 }
 
                 if (CustomDefenseFound)
                 {
                     DefenseIcon.SetResourceReference(ContentProperty, "Custom-DefenseIcon");
+                    broadcast.DefenseIcon.SetResourceReference(ContentProperty, "Custom-DefenseIcon");
                 }
 
                 if (File.Exists("CustomImages/Bar.png"))
