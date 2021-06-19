@@ -98,14 +98,20 @@ namespace KhTracker
         private int magnetLevel;
         private int tornPageCount;
 
+        public static bool pcsx2tracking = false;
+
         public void InitPCSX2Tracker(object sender, RoutedEventArgs e)
         {
             InitAutoTracker(true);
+            pcsx2tracking = true;
+            //Console.WriteLine("InitPCSX2 Tracking:" + pcsx2tracking);
         }
 
         public void InitPCTracker(object sender, RoutedEventArgs e)
         {
             InitAutoTracker(false);
+            pcsx2tracking = false;
+            //Console.WriteLine("InitPC Tracking:" + !pcsx2tracking);
         }
 
         public void InitAutoTracker(bool PCSX2)

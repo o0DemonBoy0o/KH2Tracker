@@ -526,5 +526,29 @@ namespace KhTracker.Properties {
                 this["BroadcastStats"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PS2AutoTrack {
+            get {
+                return ((bool)(this["PS2AutoTrack"]));
+            }
+            set {
+                this["PS2AutoTrack"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool PCAutoTrack {
+            get {
+                return ((bool)(this["PCAutoTrack"]));
+            }
+            set {
+                this["PCAutoTrack"] = value;
+            }
+        }
     }
 }

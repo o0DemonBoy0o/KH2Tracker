@@ -22,6 +22,7 @@ namespace KhTracker
     {
         public static Data data;
         private BroadcastWindow broadcast;
+        //private AutoTracker autoTracker;
         public int collected;
         private int total = 55;
 
@@ -43,11 +44,11 @@ namespace KhTracker
 
             InitData();
 
-            InitOptions();
-
             collectedChecks = new List<ImportantCheck>();
             newChecks = new List<ImportantCheck>();
             previousChecks = new List<ImportantCheck>();
+
+            InitOptions();
         }
 
         private void InitData()
@@ -958,6 +959,15 @@ namespace KhTracker
 
             BroadcastStartupOption.IsChecked = Properties.Settings.Default.BroadcastStartup;
             BroadcastStartupToggle(null, null);
+
+
+            PS2TrackingStartupOption.IsChecked = Properties.Settings.Default.PS2AutoTrack;
+            if (PS2TrackingStartupOption.IsChecked)
+                PS2AutoStartupToggle(null, null);
+
+            PCTrackingStartupOption.IsChecked = Properties.Settings.Default.PCAutoTrack;
+            if (PCTrackingStartupOption.IsChecked)
+                PCAutoStartupToggle(null, null);
 
             FormsGrowthOption.IsChecked = Properties.Settings.Default.FormsGrowth;
             FormsGrowthToggle(null, null);

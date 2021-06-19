@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
+
 namespace KhTracker
 {
     public partial class MainWindow : Window
@@ -581,6 +582,17 @@ namespace KhTracker
 
         public void LoadHints(string filename)
         {
+            bool autotrackeron = false;
+            bool ps2tracking = false;
+            //check for autotracking on and which version
+            {
+                if (aTimer != null)
+                    autotrackeron = true;
+
+                if (pcsx2tracking)
+                    ps2tracking = true;
+            }
+
             SetMode(Mode.Hints);
             ResetHints();
 
@@ -619,7 +631,9 @@ namespace KhTracker
                 devhintscheck = true;
             }
             else
+            {
                 LoadSettings(streamReader.ReadLine().Substring(24));
+            }
 
             streamReader.Close();
 
@@ -639,6 +653,11 @@ namespace KhTracker
 
             data.hintsLoaded = true;
             HintText.Content = "Jsmartee Hints Loaded";
+
+            if (autotrackeron)
+            {
+                InitAutoTracker(ps2tracking);
+            }
 
             //data.reportInformation.ForEach(Console.WriteLine);
             //Console.WriteLine(data.reportLocations.Count);
@@ -1070,6 +1089,17 @@ namespace KhTracker
 
         public void ParseSeed(string filename)
         {
+            bool autotrackeron = false;
+            bool ps2tracking = false;
+            //check for autotracking on and which version
+            {
+                if (aTimer != null)
+                    autotrackeron = true;
+
+                if (pcsx2tracking)
+                    ps2tracking = true;
+            }
+
             FixDictionary();
 
             SetMode(Mode.AltHints);
@@ -1133,7 +1163,11 @@ namespace KhTracker
                 SetReportValue(data.WorldsData[key].hint, 1);
             }
 
-            HintText.Content = "Shananas Hints Loaded";
+            if (autotrackeron)
+            {
+                InitAutoTracker(ps2tracking);
+            }
+            //HintText.Content = "Shananas Hints Loaded";
         }
 
         private void SetMode(Mode mode)

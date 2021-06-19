@@ -381,7 +381,7 @@ namespace KhTracker
             }
             else
             {
-                return "";
+                return null;
             }
         }
 

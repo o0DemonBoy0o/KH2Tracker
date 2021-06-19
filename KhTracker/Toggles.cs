@@ -1260,7 +1260,54 @@ namespace KhTracker
         {
             Properties.Settings.Default.BroadcastStartup = BroadcastStartupOption.IsChecked;
             if (BroadcastStartupOption.IsChecked)
+            {
+                ExtraItemToggleCheck();
                 broadcast.Show();
+            }
+        }
+
+        private void PS2AutoStartupToggle(object sender, RoutedEventArgs e)
+        {
+            //turned out to be bad. i need to ability to toggle both options off, not always have one or the other constantly on
+            //if (PS2TrackingStartupOption.IsChecked == false)
+            //{
+            //    PS2TrackingStartupOption.IsChecked = true;
+            //    return;
+            //}
+
+            PCTrackingStartupOption.IsChecked = false;
+            Properties.Settings.Default.PCAutoTrack = PCTrackingStartupOption.IsChecked;
+            Properties.Settings.Default.PS2AutoTrack = PS2TrackingStartupOption.IsChecked;
+
+            //we only want this to start if the auto tracking isn't already started
+            //this is so the auto tracking isn't constantly restarted each time the option is toggled
+            if (PS2TrackingStartupOption.IsChecked && aTimer == null)
+            {
+                InitAutoTracker(true);
+                pcsx2tracking = true;
+                //Console.WriteLine("PS2 tracking = " + pcsx2tracking);
+            }
+        }
+
+        private void PCAutoStartupToggle(object sender, RoutedEventArgs e)
+        {
+            //if (PCTrackingStartupOption.IsChecked == false)
+            //{
+            //    PCTrackingStartupOption.IsChecked = true;
+            //    return;
+            //}
+
+            PS2TrackingStartupOption.IsChecked = false;
+            Properties.Settings.Default.PCAutoTrack = PCTrackingStartupOption.IsChecked;
+            Properties.Settings.Default.PS2AutoTrack = PS2TrackingStartupOption.IsChecked;
+
+            if (PCTrackingStartupOption.IsChecked && aTimer == null)
+            {
+                InitAutoTracker(false);
+                pcsx2tracking = false;
+                //Console.WriteLine("PC tracking = " + !pcsx2tracking);
+            }
+
         }
 
         private void FormsGrowthToggle(object sender, RoutedEventArgs e)
