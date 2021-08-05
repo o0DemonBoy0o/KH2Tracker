@@ -81,6 +81,10 @@ namespace KhTracker
         private ImportantCheck membershipcard;
         private ImportantCheck olypusstone;
 
+        private ImportantCheck secondChanceKey;
+        private ImportantCheck onceMoreKey;
+        private ImportantCheck combomasterKey;
+
         private TornPage pages;
 
         private World world;
@@ -99,6 +103,19 @@ namespace KhTracker
         private int tornPageCount;
 
         public static bool pcsx2tracking = false;
+        private bool forcedFinal;
+        private CheckEveryCheck checkEveryCheck;
+
+        public static bool keybladeHasSC = false;
+        public static bool keybladehasOM = false;
+        public static bool keybladehasCM = false;
+        public static bool FormkeybladeHasSC = false;
+        public static bool FormkeybladehasOM = false;
+        public static bool FormkeybladehasCM = false;
+        public static int keybladeSCAnchor;
+        public static int keybladeOMAnchor;
+        public static int keybladeCMAnchor;
+
 
         public void InitPCSX2Tracker(object sender, RoutedEventArgs e)
         {
@@ -135,6 +152,7 @@ namespace KhTracker
             // PC Address anchors
             int Now = 0x0714DB8;
             int Save = 0x09A7070;
+            int Sys3 = 0x2A59DB0;
             int Bt10 = 0x2A74840;
             int BtlEnd = 0x2A0D3A0;
             int Slot1 = 0x2A20C58;
@@ -180,6 +198,7 @@ namespace KhTracker
                 // PCSX2 anchors 
                 Now = 0x032BAE0;
                 Save = 0x032BB30;
+                Sys3 = 0x1CCB300;
                 Bt10 = 0x1CE5D80;
                 BtlEnd = 0x1D490C0;
                 Slot1 = 0x1C6C750;
@@ -192,9 +211,26 @@ namespace KhTracker
             importantChecks.Add(aerialDodge = new Ability(memory, Save + 0x25D4, ADDRESS_OFFSET, 101, "AerialDodge"));
             importantChecks.Add(glide = new Ability(memory, Save + 0x25D6, ADDRESS_OFFSET, 105, "Glide"));
 
-            importantChecks.Add(secondChance = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "SecondChance", Save));
-            importantChecks.Add(onceMore = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "OnceMore", Save));
-            importantChecks.Add(combomaster = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "ComboMaster", Save));
+            {
+                {
+                    if (keybladeHasSC)
+                        importantChecks.Add(secondChanceKey = new KeyItem(memory, Save + keybladeSCAnchor, ADDRESS_OFFSET, "SecondChance"));
+                    else if (FormkeybladeHasSC || FormkeybladeHasSC == false && keybladeHasSC == false)
+                        importantChecks.Add(secondChance = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "SecondChance", Save));
+                }
+                {
+                    if (keybladehasOM)
+                        importantChecks.Add(onceMoreKey = new KeyItem(memory, Save + keybladeOMAnchor, ADDRESS_OFFSET, "OnceMore"));
+                    else if (FormkeybladehasOM || FormkeybladehasOM == false && keybladehasOM == false)
+                        importantChecks.Add(onceMore = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "OnceMore", Save));
+                }
+                {
+                    if (keybladehasCM)
+                        importantChecks.Add(combomasterKey = new KeyItem(memory, Save + keybladeCMAnchor, ADDRESS_OFFSET, "ComboMaster"));
+                    else if (FormkeybladehasCM || FormkeybladehasCM == false && keybladehasCM == false)
+                        importantChecks.Add(combomaster = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "ComboMaster", Save));
+                }
+            }
 
             importantChecks.Add(valor = new DriveForm(memory, Save + 0x36C0, ADDRESS_OFFSET, 1, Save + 0x32F6, Save + 0x06B2, "Valor"));
             importantChecks.Add(wisdom = new DriveForm(memory, Save + 0x36C0, ADDRESS_OFFSET, 2, Save + 0x332E, "Wisdom"));
@@ -251,7 +287,6 @@ namespace KhTracker
             importantChecks.Add(pages = new TornPage(memory, Save + 0x3598, ADDRESS_OFFSET, "TornPage"));
             pages.Quantity = count;
 
-            //test
             importantChecks.Add(hadescup = new KeyItem(memory, Save + 0x3696, ADDRESS_OFFSET, "HadesCup"));
             importantChecks.Add(membershipcard = new KeyItem(memory, Save + 0x3643, ADDRESS_OFFSET, "MembershipCard"));
             importantChecks.Add(olypusstone = new KeyItem(memory, Save + 0x3644, ADDRESS_OFFSET, "OlympusStone"));
@@ -263,6 +298,9 @@ namespace KhTracker
 
             stats = new Stats(memory, ADDRESS_OFFSET, Save + 0x24FE, Slot1 + 0x188, Save + 0x3524);
             rewards = new Rewards(memory, ADDRESS_OFFSET, Bt10);
+
+            forcedFinal = false;
+            checkEveryCheck = new CheckEveryCheck(memory, ADDRESS_OFFSET, Save, Sys3, Bt10, world, stats, rewards);
 
             LevelIcon.Visibility = Visibility.Visible;
             Level.Visibility = Visibility.Visible;
@@ -581,9 +619,23 @@ namespace KhTracker
                     {
                         valor.Obtained = false;
                     }
-                    else if ((check.Name == "Final" && stats.form == 5))
+                    //else if ((check.Name == "Final" && stats.form == 5)) OLD
+                    else if (check.Name == "Final")
                     {
-                        collectedChecks.Add(check);
+                        //collectedChecks.Add(check); OLD
+                        // if forced Final, start tracking the Final Form check
+                        if (stats.form == 5)
+                        {
+                            forcedFinal = true;
+                            checkEveryCheck.TrackCheck(0x001D);
+                        }
+                        // if not forced Final, track Final Form check like normal
+                        // else if Final was forced, check the tracked Final Form check
+                        else if (!forcedFinal || checkEveryCheck.UpdateTargetMemory())
+                        {
+                            collectedChecks.Add(check);
+                            newChecks.Add(check);
+                        }
                     }
                     else
                     {

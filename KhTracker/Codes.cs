@@ -82,6 +82,27 @@ namespace KhTracker
             {
                 return "SorasHeart";
             }
+            else if (FormKeyblades.Contains(code) && MainWindow.FormkeybladeHasSC)
+            {
+                return "GoA";
+            }
+            else if (FormKeyblades.Contains(code) && MainWindow.FormkeybladehasOM)
+            {
+                return "GoA";
+            }
+            else if (FormKeyblades.Contains(code) && MainWindow.FormkeybladehasCM)
+            {
+                return "GoA";
+            }
+            return "";
+        }
+
+        public string FindKeyblades(string code)
+        {
+            if (Keyblades.Contains(code))
+            {
+                return "GoA";
+            }
 
             return "";
         }
@@ -195,46 +216,37 @@ namespace KhTracker
             {370, "OlympusStone"},
             {537, "HadesCup"},
             {539, "ComboMaster"},
-
         };
 
-        public Dictionary<string, int> itemPoints = new Dictionary<string, int>
+        public Dictionary<int, string> itemkeys = new Dictionary<int, string>
         {
-            {"Fire", 8},
-            {"Blizzard", 8},
-            {"Thunder", 8},
-            {"Cure", 8},
-            {"Ukulele", 5},
-            {"Valor", 10},
-            {"Wisdom", 10},
-            {"Final", 10},
-            {"Master", 10},
-            {"TornPage", 4},
-            {"Magnet", 8},
-            {"Reflect", 8},
-            {"Lamp", 5},
-            {"Feather", 5},
-            {"Report1", 0},
-            {"Report2", 0},
-            {"Report3", 0},
-            {"Report4", 0},
-            {"Report5", 0},
-            {"Report6", 0},
-            {"Report7", 0},
-            {"Report8", 0},
-            {"Report9", 0},
-            {"Report10", 0},
-            {"Report11", 0},
-            {"Report12", 0},
-            {"Report13", 0},
-            {"Baseball", 5},
-            {"SecondChance", 0},
-            {"OnceMore", 0},
-            {"PromiseCharm", 12},
-            {"Limit", 10},
-            {"Connection", 12},
-            {"Nonexistence", 12},
-            {"Peace", 12},
+            {41, "KingdomKey"},
+            {42, "Oathkeeper"},
+            {43, "Oblivion"},
+            {44, "DetectionSaber"},
+            {45, "EdgeOfUltima"},
+            {81, "FAKE"},
+            {480, "StarSeeker"},
+            {481, "HiddenDragon"},
+            {484, "HerosCrest"},
+            {485, "Monochrome"},
+            {486, "FollowTheWind"},
+            {487, "CircleOfLife"},
+            {488, "PhotonDebugger"},
+            {489, "GullWing"},
+            {490, "RumblingRose"},
+            {491, "GuardianSoul"},
+            {492, "WishingLamp"},
+            {493, "DecisivePumpkin"},
+            {494, "SleepingLion"},
+            {495, "SweetMemories"},
+            {496, "MysteriousAbyss"},
+            {497, "FatalCrest"},
+            {498, "BondOfFlame"},
+            {499, "Fenrir"},
+            {500, "UltimaWeapon"},
+            {543, "TwoBecomeOne"},
+            {544, "WinnersProof"},
         };
 
         string[] Default = new string[]
@@ -268,6 +280,12 @@ namespace KhTracker
         "11D18DE6",
         "11D18DE0",
         "11D18DE2" };
+
+        string[] FormKeyblades = new string[] {
+        "11CDF1D6",
+        "11CDF3F6",
+        "11CDF206",
+        "11CDF216" };
 
         string[] SimulatedTwilightTown = new string[] {
         "11CE016E",
@@ -905,5 +923,39 @@ namespace KhTracker
         "11D0BCB0",
         "11D0BCC0",
         "11D0BCD0"};
+
+        public string[] Keyblades = new string[] {
+        "11CDF1D6", //Kingdom Key
+        "11CDF1E6", //Oathkeeper
+        "11CDF1F6", //Oblivion
+        "11CDF206", //Detection Saber
+        "11CDF216", //Edge of Ultima
+        "11CDF3F6", //FAKE
+        "11CDF466", //Star Seeker
+        "11CDF476", //Hidden Dragon
+        "11CDF4A6", //Hero's Crest
+        "11CDF4B6", //Monochrome
+        "11CDF4C6", //Follow the Wind
+        "11CDF4D6", //Circle of Life
+        "11CDF4E6", //Photon Debugger
+        "11CDF4F6", //Gull Wing
+        "11CDF506", //Rumbling Rose
+        "11CDF516", //Guardian Soul
+        "11CDF526", //Wishing Lamp
+        "11CDF536", //Decisive Pumpkin
+        "11CDF546", //Sleeping Lion
+        "11CDF556", //Sweet Memories
+        "11CDF566", //Mysterious Abyss
+        "11CDF576", //Fatal Crest
+        "11CDF586", //Bond of Flame
+        "11CDF596", //Fenrir
+        "11CDF5A6", //Ultima Weapon
+        "11CDF5F6", //Two Become One
+        "11CDF606"}; //Winner's Proof
+
+        string[] AbilityChecks = new string[] {
+        "0000019F",		//Second Chance
+        "000001A0",		//Once More
+        "0000021B"};	//Combo Master
     }
 }
