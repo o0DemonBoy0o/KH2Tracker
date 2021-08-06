@@ -81,9 +81,9 @@ namespace KhTracker
         private ImportantCheck membershipcard;
         private ImportantCheck olypusstone;
 
-        private ImportantCheck secondChanceKey;
-        private ImportantCheck onceMoreKey;
-        private ImportantCheck combomasterKey;
+        //private ImportantCheck secondChanceKey;
+        //private ImportantCheck onceMoreKey;
+        //private ImportantCheck combomasterKey;
 
         private TornPage pages;
 
@@ -106,12 +106,12 @@ namespace KhTracker
         private bool forcedFinal;
         private CheckEveryCheck checkEveryCheck;
 
-        public static bool keybladeHasSC = false;
-        public static bool keybladehasOM = false;
-        public static bool keybladehasCM = false;
-        public static bool FormkeybladeHasSC = false;
-        public static bool FormkeybladehasOM = false;
-        public static bool FormkeybladehasCM = false;
+       //public static bool keybladeHasSC = false;
+       //public static bool keybladehasOM = false;
+       //public static bool keybladehasCM = false;
+       //public static bool FormkeybladeHasSC = false;
+       //public static bool FormkeybladehasOM = false;
+       //public static bool FormkeybladehasCM = false;
         public static int keybladeSCAnchor;
         public static int keybladeOMAnchor;
         public static int keybladeCMAnchor;
@@ -211,26 +211,30 @@ namespace KhTracker
             importantChecks.Add(aerialDodge = new Ability(memory, Save + 0x25D4, ADDRESS_OFFSET, 101, "AerialDodge"));
             importantChecks.Add(glide = new Ability(memory, Save + 0x25D6, ADDRESS_OFFSET, 105, "Glide"));
 
-            {
-                {
-                    if (keybladeHasSC)
-                        importantChecks.Add(secondChanceKey = new KeyItem(memory, Save + keybladeSCAnchor, ADDRESS_OFFSET, "SecondChance"));
-                    else if (FormkeybladeHasSC || FormkeybladeHasSC == false && keybladeHasSC == false)
-                        importantChecks.Add(secondChance = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "SecondChance", Save));
-                }
-                {
-                    if (keybladehasOM)
-                        importantChecks.Add(onceMoreKey = new KeyItem(memory, Save + keybladeOMAnchor, ADDRESS_OFFSET, "OnceMore"));
-                    else if (FormkeybladehasOM || FormkeybladehasOM == false && keybladehasOM == false)
-                        importantChecks.Add(onceMore = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "OnceMore", Save));
-                }
-                {
-                    if (keybladehasCM)
-                        importantChecks.Add(combomasterKey = new KeyItem(memory, Save + keybladeCMAnchor, ADDRESS_OFFSET, "ComboMaster"));
-                    else if (FormkeybladehasCM || FormkeybladehasCM == false && keybladehasCM == false)
-                        importantChecks.Add(combomaster = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "ComboMaster", Save));
-                }
-            }
+            importantChecks.Add(secondChance = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "SecondChance", Save));
+            importantChecks.Add(onceMore = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "OnceMore", Save));
+            importantChecks.Add(combomaster = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "ComboMaster", Save));
+
+            //{
+            //    {
+            //        if (keybladeHasSC)
+            //            importantChecks.Add(secondChanceKey = new KeyItem(memory, Save + keybladeSCAnchor, ADDRESS_OFFSET, "SecondChance"));
+            //        else if (FormkeybladeHasSC || FormkeybladeHasSC == false && keybladeHasSC == false)
+            //            importantChecks.Add(secondChance = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "SecondChance", Save));
+            //    }
+            //    {
+            //        if (keybladehasOM)
+            //            importantChecks.Add(onceMoreKey = new KeyItem(memory, Save + keybladeOMAnchor, ADDRESS_OFFSET, "OnceMore"));
+            //        else if (FormkeybladehasOM || FormkeybladehasOM == false && keybladehasOM == false)
+            //            importantChecks.Add(onceMore = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "OnceMore", Save));
+            //    }
+            //    {
+            //        if (keybladehasCM)
+            //            importantChecks.Add(combomasterKey = new KeyItem(memory, Save + keybladeCMAnchor, ADDRESS_OFFSET, "ComboMaster"));
+            //        else if (FormkeybladehasCM || FormkeybladehasCM == false && keybladehasCM == false)
+            //            importantChecks.Add(combomaster = new Ability(memory, Save + 0x2544, ADDRESS_OFFSET, "ComboMaster", Save));
+            //    }
+            //}
 
             importantChecks.Add(valor = new DriveForm(memory, Save + 0x36C0, ADDRESS_OFFSET, 1, Save + 0x32F6, Save + 0x06B2, "Valor"));
             importantChecks.Add(wisdom = new DriveForm(memory, Save + 0x36C0, ADDRESS_OFFSET, 2, Save + 0x332E, "Wisdom"));

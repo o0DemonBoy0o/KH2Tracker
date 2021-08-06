@@ -82,18 +82,18 @@ namespace KhTracker
             {
                 return "SorasHeart";
             }
-            else if (FormKeyblades.Contains(code) && MainWindow.FormkeybladeHasSC)
-            {
-                return "GoA";
-            }
-            else if (FormKeyblades.Contains(code) && MainWindow.FormkeybladehasOM)
-            {
-                return "GoA";
-            }
-            else if (FormKeyblades.Contains(code) && MainWindow.FormkeybladehasCM)
-            {
-                return "GoA";
-            }
+            //else if (FormKeyblades.Contains(code) && MainWindow.FormkeybladeHasSC)
+            //{
+            //    return "GoA";
+            //}
+            //else if (FormKeyblades.Contains(code) && MainWindow.FormkeybladehasOM)
+            //{
+            //    return "GoA";
+            //}
+            //else if (FormKeyblades.Contains(code) && MainWindow.FormkeybladehasCM)
+            //{
+            //    return "GoA";
+            //}
             return "";
         }
 
